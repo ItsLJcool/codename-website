@@ -1,5 +1,5 @@
 ---
-author: Ne_Eo & Frakits & Nex_isDumb & lunarcleint
+author: \[LOSER\] & Frakits & Nex_isDumb & lunarcleint
 desc: This page explains the most commonly asked questions about the engine.
 lastUpdated: 2024-10-12T17:38:10.934Z
 title: FAQ
@@ -44,7 +44,6 @@ Above is a direct quoted response from Yoshman29.
 ## <h2 id="main-owners" sidebar="Main Owners">Who are the main owners of the engine?</h2>
 
 The main owners consists of:
-- [Ne_Eo](https://github.com/NeeEoo)
 - [Lunarcleint](https://github.com/Lunarcleint)
 - [WizardMantis441](https://github.com/WizardMantis441)
 - [Frakits](https://github.com/Frakits)
@@ -56,13 +55,13 @@ Our organization consists of having multiple owners cuz why separate people into
 
 ## <h2 id="something-not-working-bug" sidebar="I found a bug">Something is not working or I found a bug!</h2>
 
-If you found a bug, please report it on the [GitHub repository](https://github.com/CodenameCrew/CodenameEngine/issues) or on [Discord](https://discord.gg/WTzm35kekB).
+If you found a bug, please report it on the [GitHub repository](https://github.com/CodenameCrew/CodenameEngine/issues) or on [Discord](https://discord.com/servers/codename-engine-860561967383445535).
 
 ## <h2 id="suggest-feature-change" sidebar="Feature Suggestion">I want to suggest a feature or change something!</h2>
 
-Please suggest it on [Discord](https://discord.gg/WTzm35kekB).
+Please suggest it on [Discord](https://discord.com/servers/codename-engine-860561967383445535).
 
 ## <h2 id="unanswered-question" sidebar="Unanswered Question">I have a question that isn't answered here!</h2>
 
-Please ask the question on [Discord](https://discord.gg/WTzm35kekB).
+Please ask the question on [Discord](https://discord.com/servers/codename-engine-860561967383445535).
 Or leave it in the discussions below.
