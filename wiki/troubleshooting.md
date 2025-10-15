@@ -6,6 +6,8 @@ title: Troubleshooting
 ---
 # Troubleshooting
 
+# TODO - REMAKE THIS EITHER A BETTER FAQ, OR MOVE ALL THE INFO INTO SCRIPTING FAQ'S!!
+
 ## <h2 id="notes-only-on-left-side" sidebar="Notes only on left side of the screen.">My notes are only appearing on the left side of the screen.</h2>
 
 Open the strumline options and for the bf strumline set the X ratio to 0.75, and for the dad strumline set the X ratio to 0.25.
