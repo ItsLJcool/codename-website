@@ -1,7 +1,7 @@
 [
     ["index", "Home"],
-    ["navigation", "How to navigate the engine"],
     ["differences", "Differences between other FNF engines"],
+    ["usage", "How does one use the engine?"],
     ["faq", "FAQ"],
     ["troubleshooting", "Troubleshooting"],
     ["modding/index", "Modding The Engine", [
