@@ -7,7 +7,7 @@ title: Modding The Engine
 # Modding The Engine
 No matter what you do, editing the `./assets/` folder is not recommended, as it's used as your Backup folder / Mod if assets or data cannot be found, it will use the `./assets/` as a saftey catch. You should only make `Mods` in the `./mods/` folder.
 
-There is also an `./addons/` folder which is somewhat similar to the way `./mods` works, but it has it's own set of rules to follow, and best practices.
+There is also an `./addons/` folder which is somewhat similar to the way `./mods/` works, but it has it's own set of rules and best practices to follow.
 #### TODO: Add a link to know how to make an Addon.
 
 ## How should I structure my folders?
