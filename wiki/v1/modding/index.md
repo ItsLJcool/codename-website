@@ -10,7 +10,7 @@ No matter what you do, editing the `./assets/` folder is not recommended, as it'
 There is also an `./addons/` folder which is somewhat similar to the way `./mods/` works, but it has it's own set of rules and best practices to follow.
 #### TODO: Add a link to know how to make an Addon.
 
-## How should I structure my folders?
+<h2 id="folder-structure" sidebar="How should I structure my folders">How should I structure my folders</h2>
 For starters, this is what an average Mod Folder will contain. We will go over some folders that require more explanation later.
 <details>
     <summary>Click to expand</summary>
@@ -77,5 +77,8 @@ For starters, this is what an average Mod Folder will contain. We will go over s
 </details>
 
 Don't be scared by the amount of folders, usually you only mess with the `./songs/`, `./data/`, and `./images/` folders most of the time.
+<br>It's good to have a reference of what you can do at least, so this will be updated from time to time with new updates (hopefully 😭).
 
-It's good to have a reference of what you can do at least, so this will be updated from time to time with new updates (hopefully 😭).
+## Sections
+These areas will split up into their own sub-pages, and they will explain to you what each folder is for, what files you can add, and how to effectively use them.
+- <a href="./config.md">Configuration</a>

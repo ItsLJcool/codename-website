@@ -4,5 +4,9 @@
     ["usage", "How does one use the engine? - UNFINISHED"],
     ["faq", "FAQ"],
     ["troubleshooting", "Troubleshooting - UNFINISHED"],
-    ["modding/index", "Modding The Engine - UNFINISHED"]
+    ["v1/index", "v1.x.x+ API - UNFINISHED", [
+        ["modding/index", "Modding The Engine - UNFINISHED", [
+            ["config", "Configuration - UNFINISHED"]
+        ]]
+    ]]
 ]
