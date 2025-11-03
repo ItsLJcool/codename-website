@@ -11,6 +11,7 @@ There is also an `./addons/` folder which is somewhat similar to the way `./mods
 #### TODO: Add a link to know how to make an Addon.
 
 <h2 id="folder-structure" sidebar="How should I structure my folders">How should I structure my folders</h2>
+
 For starters, this is what an average Mod Folder will contain. We will go over some folders that require more explanation later.
 <details>
     <summary>Click to expand</summary>
@@ -18,15 +19,16 @@ For starters, this is what an average Mod Folder will contain. We will go over s
 └─ 📂 My Mod/                                
    ├─ 📂 data/                                # Usually contains configuration, or information you want to store.
    │  ├─ 📂 characters/                       # Contains your Character's XML data.
-   │  ├─ 📂 events/                           # Contains your Custom Events.
-   │  │  ├─ 📄 Example Event.hx              
-   │  │  ├─ 📄 Example Event.json            
-   │  │  └─ 📄 Example Event.ui.json         
    │  ├─ 📂 config/                           # Configuration stuff.
    │  │  └─ 📄 modpack.ini                   
    │  ├─ 📂 dialogue/                        
    │  │  ├─ 📂 boxes/                        
    │  │  └─ 📂 characters/                   
+   │  ├─ 📂 events/                           # Contains your Custom Events.
+   │  │  ├─ 📄 Example Event.hx              
+   │  │  ├─ 📄 Example Event.json            
+   │  │  └─ 📄 Example Event.ui.hx           
+   │  ├─ 📂 library/                          # This is where you put Scripts for ScriptedAssetLibrary! We Will go over this later.
    │  ├─ 📂 notes/                            # Custom NoteType Scripts (And adds them in the Charter!)
    │  │  └─ 📄 Example Note.hx               
    │  ├─ 📂 splashes/                        
@@ -46,7 +48,7 @@ For starters, this is what an average Mod Folder will contain. We will go over s
    │  ├─ 📂 characters/                       # Contains your Character Spritesheet `.png` and `.xml` Animation.
    │  ├─ 📂 game/                             # Stuff usually found for global PlayState graphics.
    │  ├─ 📂 icons/                            # Where your Character's icons will be located.
-   │  └─ 📂 stages/                           # Images of your stage cna go here, but it's not required.
+   │  └─ 📂 stages/                           # Images of your stage can go here, but it's not required.
    ├─ 📂 languages/                           # Custom Languages support for your mod!
    │  └─ 📂 en/                               # The language you want to edit / create
    │     ├─ 📄 config.ini                    
@@ -60,7 +62,7 @@ For starters, this is what an average Mod Folder will contain. We will go over s
    │  └─ 📂 example-song-here/               
    │     ├─ 📂 charts/                       
    │     │  └─ 📄 hard.json                  
-   │     ├─ 📂 song/                          # Supports `Inst.ogg` / `Voices.ogg` and suffix's like `-bf`. Also supports difficulties
+   │     ├─ 📂 song/                          # Supports `Inst.ogg` / `Voices.ogg` and suffixes like `-bf`. Also supports difficulties.
    │     │  ├─ 📄 Inst.ogg                   
    │     │  ├─ 📄 Inst-hard.ogg              
    │     │  ├─ 📄 Voices-bf.ogg              
@@ -82,3 +84,4 @@ Don't be scared by the amount of folders, usually you only mess with the `./song
 ## Sections
 These areas will split up into their own sub-pages, and they will explain to you what each folder is for, what files you can add, and how to effectively use them.
 - <a href="./config.md">Configuration</a>
+- <a href="./libraries.md">What is a "AssetLibrary"?</a>

@@ -10,7 +10,7 @@ When you first load up your Modpack for the fist time, you will see this warning
     <img src="../../images/v1/config/warning.png" alt="Warning Screen for launching a Modpack without a modpack.ini file">
 </div>
 
-Clicking yes will autogenerate a `modpack.ini` file for you, and opening it from `./data/config/modpack.ini` should look something similar to this:
+Clicking yes will auto-generate a `modpack.ini` file for you, and opening it from `./data/config/modpack.ini` should look something similar to this:
 ```ini
 [Common] # This section applies the 'MOD_' prefix to the flags so you don't have to.
 NAME="YOUR MOD NAME HERE"
@@ -54,6 +54,7 @@ You can add your own custom Flag by adding it into the `INI` file, like so:
 ```ini
 ; These flags will be findable in the `customFlags` variable in the `Flags` class.
 # You can comment with `;` or `#` if you want to, in Visual Studio Code, you can press `Ctrl + /` to comment selected lines, which will default with `;`
+[Flags]
 NEW_FLAG=true
 ANOTHER_FLAG="Hello World"
 
@@ -62,3 +63,32 @@ SECTION_PROPERTY="yellow"
 ```
 
 #### NOTE: Flags.hx does mention a `flags.ini` file, but this only activates if your Library isn't a `IModAssetsLibrary`, which will be the case for all your mods, unless you force load a mod from OpenFL's `AssetLibrary`. Otherwise you can just ignore that.
+
+<h2 id="state-redirects" sidebar="State Redirects">State Redirects</h2>
+
+This is something that you will be most likely using a LOT, as the reason it exists in the engine directly was because of a simple Global Script code that would automatically override State's to Redirect them to your own custom state.
+
+It was so useful that almost every project contained the same code, it was even featuered in this wiki under the old `Useful script snippets for modders` section.
+
+You can redirect ANY state by inputting the Class Name, and setting it to a string that points to either a new Class State, or a ModState Script!
+```ini
+[StateRedirects]
+TitleState="funkin.menus.MainMenuState"
+StoryMenuState="MyCustomState"
+```
+Using `StateRedirects.force` is reserved for Addons, but using it in mods is the same as using `StateRedirects`. Will override any `StateRedirects` set by other Mods.
+
+<h2 id="discord-config" sidebar="Discord Configuration">Discord Configuration</h2>
+
+If you are migrating from Legacy to v1.x.x, your old `config/discord.json` will still work, but if not, I recommend you use `modpack.ini` instead, for consistency.
+
+If you do not know how to setup Discord Intergration, we will go over it in this section. Otherwise you can skip this.
+<details>
+    <summary>⚙️ Discord Intergration</summary>
+Temporary Text.
+</details>
+
+<h2 id="miscellaneous-config" sidebar="Miscellaneous Information">Miscellaneous Information</h2>
+
+As of right now, `MOD_ICON`, `ICON`, `DOWNLOAD_LINK`, (and technically `API_VERSION`, but it's for compatability if the formatting changes) do nothing. There are plans in the future to use these configuration, but they are not required.
+

@@ -6,7 +6,8 @@
     ["troubleshooting", "Troubleshooting - UNFINISHED"],
     ["v1/index", "v1.x.x+ API - UNFINISHED", [
         ["modding/index", "Modding The Engine - UNFINISHED", [
-            ["config", "Configuration - UNFINISHED"]
+            ["config", "Configuration - UNFINISHED"],
+            ["libraries", "OpenFL's AssetLibrary - UNFINISHED"]
         ]]
     ]]
 ]
