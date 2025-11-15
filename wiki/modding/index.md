@@ -1,14 +1,18 @@
 ---
 author: ItsLJcool
 desc: Basic tutorial on how to setup and initalize your own mod!.
-lastUpdated: 2024-09-20T15:19:41.000Z
-title: Modding The Engine
+lastUpdated: 2025-11-15T05:32:50.298Z
+title: Modding The Engine - Softcoding
 ---
-# Modding The Engine
+
+# Modding The Engine - Softcoding
 No matter what you do, editing the `./assets/` folder is not recommended, as it's used as your Backup folder / Mod if assets or data cannot be found, it will use the `./assets/` as a saftey catch. You should only make `Mods` in the `./mods/` folder.
 
 There is also an `./addons/` folder which is somewhat similar to the way `./mods/` works, but it has it's own set of rules and best practices to follow.
 #### TODO: Add a link to know how to make an Addon.
+
+## THIS IS NOT A GUIDE FOR SOURCE MODDING!!
+If you want to know how to make a Mod in Source, [TODO: Write a Doc.md for seting up a Source Project and link it from here!]
 
 <h2 id="folder-structure" sidebar="How should I structure my folders">How should I structure my folders</h2>
 
@@ -76,6 +80,9 @@ For starters, this is what an average Mod Folder will contain. We will go over s
    ├─ 📂 source/                              # Custom Classes go here.
    └─ 📂 videos/                             
 ```
+
+#### NOTE!
+This might not be EVERYTHING, but it's a good chunk of the folders CodenameEngine interacts with.
 </details>
 
 Don't be scared by the amount of folders, usually you only mess with the `./songs/`, `./data/`, and `./images/` folders most of the time.
@@ -85,3 +92,22 @@ Don't be scared by the amount of folders, usually you only mess with the `./song
 These areas will split up into their own sub-pages, and they will explain to you what each folder is for, what files you can add, and how to effectively use them.
 - <a href="./config.md">Configuration</a>
 - <a href="./libraries.md">What is a "AssetLibrary"?</a>
+- <a href="./scripting/index.md">Scripting</a>
+    - <a href="./scripting/features.md">Scripting Features</a>
+    - <a href="./scripting/style.md">Code Formatting / Style</a>
+    - <a href="./scripting/events.md">Events / Callbacks</a>
+    - <a href="./scripting/playstate.md">PlayState Scripting</a>
+    - <a href="./scripting/states.md">Custom States / SubStates</a>
+    - <a href="./scripting/global.md">Global Script(s)</a>
+    - <a href="./scripting/classes.md">Custom Classes</a>
+- <a href="./editors/index.md">Editors Introduction</a>
+    - <a href="./editors/chart.md">Chart Editor</a>
+    - <a href="./editors/character.md">Character Editor</a>
+    - <a href="./editors/stage.md">Stage Editor</a>
+    - <a href="./editors/alphabet.md">Alphabet Editor...?</a>
+    - <a href="./editors/character.md">Custom Editors</a>
+- <a href="./hxvlc.mdhxvlc.md">Using hxvlc for Videos</a>
+- <a href="./advanced/index.md">Intro to Advanced Topics</a>
+
+All of those above are for Softcoding, if you want to learn how to mod Source, you can check out the Introduction here
+- <a href="./source/index.md.md">Modding The Engine - Source</a>

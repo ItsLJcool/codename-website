@@ -1,7 +1,7 @@
 ---
 author: ItsLJcool
 desc: Explanation of ways you can use the engine.
-lastUpdated: 2025-10-15T02:16:54.577Z
+lastUpdated: 2025-11-15T05:32:50.298Z
 title: How to use / navigate the engine
 ---
 
@@ -12,6 +12,7 @@ No! It is reccomended to use the engine as is, as the engine comes with modding 
 Otherwise you can just use the `./mods/` folder to make your mod!
 
 <h1 id="navigate" sidebar="How to navigate the engine">How to navigate the engine</h1>
+
 The engine is basically similar to what you'd expect, but here are the immediate differences you will see.
 
 <h2 id="options-menu" sidebar="Options Menu">Options Menu</h2>
@@ -35,24 +36,22 @@ To start using Modding Tools, and shortcuts (seen in the Keybind Menu) you need 
 <h2 id="mod-select-menu" sidebar="Mod Select Menu">Mod Select Menu</h2>
 <img src="./images/home/Mod Select Menu.png" alt="Substate for Switching Mods" style="width:85%;">
 
-This menu is accessed by pressing `TAB` (by default) in the `MainMenuState`. Selecting `"Disable Mods"` will use just load the default `AssetLibrary`'s (i.e the `./assets/` folder).
-#### TODO: Add a link to explain what AssetLibrary's are.
+This menu is accessed by pressing `TAB` (by default) in the `MainMenuState`. Selecting `"Disable Mods"` will use just load the default [`AssetLibrary`](./modding/libraries.md)'s (i.e the `./assets/` folder).
 
 If you want a mod to Automatically load when launching the game, you can place a `autoload.txt` in your `./mods/` folder and inside it, just put the folder name of the mod you want to load (no file extensions if you're attempting to possibly load a `Compressed Mod`)
-#### As of right now, `Compressed Mods` hasn't been properly implemented, but is planned on being added in the near future.
+#### As of right now, `Compressed Mods` hasn't been properly implemented, there is a PR that implements it and is planned on being merged in the near future.
 
 <h2 id="fps-debugger" sidebar="FPS Counter">FPS Counter</h2>
 <img src="./images/home/FPS Counter.png" alt="Substate for Switching Mods" style="width:50%;">
 
-You can toggle the FPS Counter into 3 different states by pressing `F3`. Currently you cannot change the keybind for this.
+You can toggle the FPS Counter into 3 different states by pressing `F3`. (Currently you cannot change the keybind for this)
 
 These are all the states you can cycle through:
 1. Disabled
 2. FPS, RAM Usage / Allocated RAM, Build Version
 3. Advanced Details
 
-You can see A lot of useful information about what state the game is in, what is currently happening, and all your loaded `AssetLibrary`'s.
-#### TODO: Add a link to explain what AssetLibrary's are.
+You can see A lot of useful information about what state the game is in, what is currently happening, and all your loaded [`AssetLibrary`](./modding/libraries.md)'s.
 
 <h2 id="freeplay-state" sidebar="Freeplay State">Freeplay State</h2>
 <img src="./images/home/freeplay/1.png" alt="Preview of FreeplayState" style="width:85%;">

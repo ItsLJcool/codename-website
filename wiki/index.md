@@ -2,7 +2,7 @@
 author: Frakits & ItsLJcool
 desc: Main Page to the Wiki
 title: Home
-lastUpdated: 2025-10-15T02:16:54.577Z
+lastUpdated: 2025-11-15T05:32:50.298Z
 ---
 # Welcome to the Codename Engine Wiki
 The wiki is here to document, explain, and to teach you a bit of knowledge about the engine!
@@ -22,5 +22,4 @@ Credits:
 - Frakits - useless documentation and tons of styling.
 - Nex_isDumb - other documentations, keeping the api up to date (mostly) plus few other stuff.
 - swordcube - helping hand for documentation.
-- Care or _chronicsilly - helped with keeping my sanity.
 - ItsLJcool - reworking the wiki to be up-to-date with v1.0.1+.

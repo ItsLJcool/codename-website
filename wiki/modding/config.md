@@ -1,13 +1,14 @@
 ---
 author: ItsLJcool
 desc: Explains how to configure the engine in your mod!
-lastUpdated: 2024-09-20T15:19:41.000Z
+lastUpdated: 2025-11-15T05:32:50.298Z
 title: Modding The Engine - Configuration
 ---
+
 # Modpack Configuration
 When you first load up your Modpack for the fist time, you will see this warning message:
 <div style="display: flex; justify-content: center;">
-    <img src="../../images/v1/config/warning.png" alt="Warning Screen for launching a Modpack without a modpack.ini file">
+    <img src="../images/config/warning.png" alt="Warning Screen for launching a Modpack without a modpack.ini file">
 </div>
 
 Clicking yes will auto-generate a `modpack.ini` file for you, and opening it from `./data/config/modpack.ini` should look something similar to this:
@@ -48,7 +49,7 @@ LOGO_TEXT=""
 
 [StateRedirects.force] # Use this if you want to override redirects set by subsequent addons/mods
 ```
-This is your `INI` file, a.k.a your `Initialization` file. Anything you edit here, changes the constants in the <a href="../../../api-docs/funkin/backend/system/Flags.html">Flags</a> class.
+This is your `INI` file, a.k.a your `Initialization` file. Anything you edit here, changes the constants in the <b>[Flags](../../../api-docs/funkin/backend/system/Flags.html)</b> class.
 
 You can add your own custom Flag by adding it into the `INI` file, like so:
 ```ini
@@ -62,7 +63,7 @@ ANOTHER_FLAG="Hello World"
 SECTION_PROPERTY="yellow"
 ```
 
-#### NOTE: Flags.hx does mention a `flags.ini` file, but this only activates if your Library isn't a `IModAssetsLibrary`, which will be the case for all your mods, unless you force load a mod from OpenFL's `AssetLibrary`. Otherwise you can just ignore that.
+#### NOTE: [Flags](../../../api-docs/funkin/backend/system/Flags.html) does mention a `flags.ini` file, but this only activates if your Library isn't a [IModAssetsLibrary](../../../api-docs/funkin/backend/assets/IModsAssetLibrary.html), which will be the case for all your mods, unless you force load a mod from OpenFL's [AssetLibrary](https://api.openfl.org/openfl/utils/AssetLibrary.html). Otherwise you can just ignore that.
 
 <h2 id="state-redirects" sidebar="State Redirects">State Redirects</h2>
 
@@ -80,12 +81,14 @@ Using `StateRedirects.force` is reserved for Addons, but using it in mods is the
 
 <h2 id="discord-config" sidebar="Discord Configuration">Discord Configuration</h2>
 
-If you are migrating from Legacy to v1.x.x, your old `config/discord.json` will still work, but if not, I recommend you use `modpack.ini` instead, for consistency.
+If you are migrating from Legacy to v1.0.0 or above, your old `config/discord.json` will still work, but if not, I recommend you use `modpack.ini` instead, for consistency.
 
 If you do not know how to setup Discord Intergration, we will go over it in this section. Otherwise you can skip this.
 <details>
     <summary>⚙️ Discord Intergration</summary>
-Temporary Text.
+
+TODO: Quickly Explain Discord Intergration and how to set one up!!
+
 </details>
 
 <h2 id="miscellaneous-config" sidebar="Miscellaneous Information">Miscellaneous Information</h2>

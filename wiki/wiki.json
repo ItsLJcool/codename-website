@@ -4,10 +4,33 @@
     ["usage", "How does one use the engine? - UNFINISHED"],
     ["faq", "FAQ"],
     ["troubleshooting", "Troubleshooting - UNFINISHED"],
-    ["v1/index", "v1.x.x+ API - UNFINISHED", [
-        ["modding/index", "Modding The Engine - UNFINISHED", [
-            ["config", "Configuration - UNFINISHED"],
-            ["libraries", "OpenFL's AssetLibrary - UNFINISHED"]
+    ["modding/index", "Modding The Engine - UNFINISHED", [
+        ["config", "Configuration - UNFINISHED"],
+        ["libraries", "OpenFL's AssetLibrary - UNFINISHED"],
+        ["scripting/index", "Scriping (Softcoding) - UNFINISHED", [
+            ["features", "Features / Examples - UNFINISHED"],
+            ["style", "Formatting, and Basic Syntax - UNFINISHED"],
+            ["events", "Event Callbacks - UNFINISHED"],
+            ["playstate", "PlayState Interaction - UNFINISHED"],
+            ["states", "Custom States / SubStates - UNFINISHED"],
+            ["global", "Global Script - UNFINISHED"],
+            ["classes", "Custom Classes - UNFINISHED"]
+        ]],
+        ["editors/index", "Editors - UNFINISHED", [
+            ["chart", "Chart Editor - UNFINISHED"],
+            ["character", "Character Editor - UNFINISHED"],
+            ["stage", "Stage Editor - UNFINISHED"],
+            ["alphabet", "Alphabet Editor - UNFINISHED"],
+            ["custom", "Custom Editors??? - UNFINISHED"]
+        ]],
+        ["hxvlc", "Using hxvlc for Videos - UNFINISHED"],
+        ["advanced/index", "Advanced Topics - UNFINISHED", [
+            ["shaders", "Shaders - UNFINISHED"],
+            ["ndll", "NDLLS - UNFINISHED"],
+            ["3d", "3D Rendering - UNFINISHED (WIP)"]
         ]]
+    ]],
+    ["modding/source/index", "Source Modding", [
+        ["init", "Initalization - UNFINISHED"]
     ]]
 ]
