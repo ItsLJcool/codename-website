@@ -15,7 +15,7 @@ Compared to the usual engines (Psych Engine, FPS plus), these are the few differ
 - Uses forks of popular libraries tailored specifically for the engine for the goal of better optimization.
 - Modding system and softcoding is as capable as source coding.
 - Focuses heavily on optimization, and encourages its users to also take on optimization practices.
-- Bloated, in the sense that it offers as many modding tools as possible without changing the core gameplay and the base to mod on.
+- "Bloated", in the sense that it offers as many modding tools as possible without changing the core gameplay and the base to mod on.
 - Allows modularity using addons and mods that apply on top of the core mod.
 - Advanced editors which allows for possibly better experience and easiness when creating the mod.
 

@@ -1,189 +1,113 @@
 ---
-author: Frakits
-desc: How to mod the engine.
-lastUpdated: 2024-09-20T15:19:41.000Z
-title: Modding The Engine
+author: ItsLJcool
+desc: Basic tutorial on how to setup and initalize your own mod!.
+lastUpdated: 2025-11-15T05:32:50.298Z
+title: Modding The Engine - Softcoding
 ---
-# Modding The Engine
 
-To start modding the engine, you simply make a folder in ``./mods``. It's really that simple, as making a mod does not require any setup.
+# Modding The Engine - Softcoding
+No matter what you do, editing the `./assets/` folder is not recommended, as it's used as your Backup folder / Mod if assets or data cannot be found, it will use the `./assets/` as a saftey catch. You should only make `Mods` in the `./mods/` folder.
 
-You can make the mod run constantly by putting it in ``./addons`` instead.
+There is also an `./addons/` folder which is somewhat similar to the way `./mods/` works, but it has it's own set of rules and best practices to follow.
+#### TODO: Add a link to know how to make an Addon.
 
-As for the next steps, we will cover those in this documentation as well.
+## THIS IS NOT A GUIDE FOR SOURCE MODDING!!
+If you want to know how to make a Mod in Source, [TODO: Write a Doc.md for seting up a Source Project and link it from here!]
 
-For starters, we have to know what a mod structure looks like. A mod with only the essential features looks something like this:
-```
-songs
-    example song
-        song
-            Inst.ogg
-            Voices.ogg
-            Voices-dad.ogg
-            Voices-bf.ogg
-        charts
-            easy.json
-            normal.json
-            hard.json
-        scripts
-            modchart.hx
-        meta.json
-data
-    characters
-        example character.xml
-    stages
-        example stage.xml
-    states
-        MainMenuState.hx
-images
-    characters
-        example character.xml
-        example character.png
-    stages
-        example stage
-            stage.png
-            animated element.xml
-            animated element.png
-```
+<h2 id="folder-structure" sidebar="How should I structure my folders">How should I structure my folders</h2>
 
-This is the super basic structure of a minimal mod. It doesn't look much, but trust me, you can totally do a lot more than that.
-
+For starters, this is what an average Mod Folder will contain. We will go over some folders that require more explanation later.
 <details>
-    <summary>(btw if you're curious this is how a mod looks like fully decked out)</summary>
-
+    <summary>Click to expand</summary>
+```text
+└─ 📂 My Mod/                                
+   ├─ 📂 data/                                # Usually contains configuration, or information you want to store.
+   │  ├─ 📂 characters/                       # Contains your Character's XML data.
+   │  ├─ 📂 config/                           # Configuration stuff.
+   │  │  └─ 📄 modpack.ini                   
+   │  ├─ 📂 dialogue/                        
+   │  │  ├─ 📂 boxes/                        
+   │  │  └─ 📂 characters/                   
+   │  ├─ 📂 events/                           # Contains your Custom Events.
+   │  │  ├─ 📄 Example Event.hx              
+   │  │  ├─ 📄 Example Event.json            
+   │  │  └─ 📄 Example Event.ui.hx           
+   │  ├─ 📂 library/                          # This is where you put Scripts for ScriptedAssetLibrary! We Will go over this later.
+   │  ├─ 📂 notes/                            # Custom NoteType Scripts (And adds them in the Charter!)
+   │  │  └─ 📄 Example Note.hx               
+   │  ├─ 📂 splashes/                        
+   │  ├─ 📂 stages/                           # Where your Stage `.xml` and/or `.hx` file for your stage is located.
+   │  ├─ 📂 states/                           # Scripts that run when States are switched to, or when loading a ModState!
+   │  ├─ 📂 titlescreen/                     
+   │  ├─ 📂 weeks/                           
+   │  │  ├─ 📂 weeks/                        
+   │  │  │  ├─ 📄 Example Week.xml           
+   │  │  │  └─ 📂 characters/                
+   │  │  ├─ 📂 characters/                   
+   │  │  │  └─ 📄 Example Character.xml      
+   │  │  └─ 📄 weeks.txt                     
+   │  └─ 📄 global.hx                         # This script runs all the time, above any state switching, and never deloads (unless you switch mods).
+   ├─ 📂 fonts/                              
+   ├─ 📂 images/                             
+   │  ├─ 📂 characters/                       # Contains your Character Spritesheet `.png` and `.xml` Animation.
+   │  ├─ 📂 game/                             # Stuff usually found for global PlayState graphics.
+   │  ├─ 📂 icons/                            # Where your Character's icons will be located.
+   │  └─ 📂 stages/                           # Images of your stage can go here, but it's not required.
+   ├─ 📂 languages/                           # Custom Languages support for your mod!
+   │  └─ 📂 en/                               # The language you want to edit / create
+   │     ├─ 📄 config.ini                    
+   │     ├─ 📄 Editors.xml                   
+   │     ├─ 📄 Main.xml                      
+   │     └─ 📄 Options.xml                   
+   ├─ 📂 music/                              
+   ├─ 📂 shaders/                            
+   ├─ 📂 songs/                               # Where songs are located, along with charts, events, scripts, audio, meta, etc.
+   │  ├─ 📄 Example Global Song Script.hx     # Scripts inside the `./songs/` folder will load for every song.
+   │  └─ 📂 example-song-here/               
+   │     ├─ 📂 charts/                       
+   │     │  └─ 📄 hard.json                  
+   │     ├─ 📂 song/                          # Supports `Inst.ogg` / `Voices.ogg` and suffixes like `-bf`. Also supports difficulties.
+   │     │  ├─ 📄 Inst.ogg                   
+   │     │  ├─ 📄 Inst-hard.ogg              
+   │     │  ├─ 📄 Voices-bf.ogg              
+   │     │  ├─ 📄 Voices-bf-hard.ogg         
+   │     │  ├─ 📄 Voices-dad.ogg             
+   │     │  └─ 📄 Voices-dad-hard.ogg        
+   │     ├─ 📂 scripts/                       # Scripts loaded for this specific song.
+   │     ├─ 📄 events.json                   
+   │     └─ 📄 meta.json                     
+   ├─ 📂 sounds/                             
+   ├─ 📂 source/                              # Custom Classes go here.
+   └─ 📂 videos/                             
 ```
-songs
-    example song
-        song
-            Inst.ogg
-            Voices.ogg
-            Voices-dad.ogg
-            Voices-bf.ogg
-            Inst-hard.ogg
-            Voices-hard.ogg
-            Voices-dad-hard.ogg
-            Voices-bf-hard.ogg
-        charts
-            easy.json
-            normal.json
-            hard.json
-            example custom difficulty.json
-        scripts
-            modchart.hx
-            example script.hx
-        meta.json
-data
-    characters
-        example character.xml
-        example character.hx
-    stages
-        example stage.xml
-        example stage.hx
-    notes
-        example notetype.hx
-    splashes
-        example splashes.xml
-    dialogue
-        boxes
-            example box.xml
-            example box.hx
-        characters
-            example portrait.xml
-            example portrait.hx
-    config
-        credits.xml
-        discord.json
-        menuItems.txt
-        options.xml
-    titlescreen
-        introText.txt
-        titlescreen.xml
-    weeks
-        weeks
-            example week.xml
-        characters
-            example character.xml
-        weeks.txt
-images
-fonts
-sounds
-music
-shaders
-videos
-```
 
-fill this shit later
+#### NOTE!
+This might not be EVERYTHING, but it's a good chunk of the folders CodenameEngine interacts with.
 </details>
-<br>
 
-Once you're done looking at this structure, you can begin with recreating it in your mods folder.
+Don't be scared by the amount of folders, usually you only mess with the `./songs/`, `./data/`, and `./images/` folders most of the time.
+<br>It's good to have a reference of what you can do at least, so this will be updated from time to time with new updates (hopefully 😭).
 
-Afterwards, you have to find the devtools (or basically just the editors), by going to the game's Main Menu and pressing 7.
+## Sections
+These areas will split up into their own sub-pages, and they will explain to you what each folder is for, what files you can add, and how to effectively use them.
+- <a href="./config.md">Configuration</a>
+- <a href="./libraries.md">What is a "AssetLibrary"?</a>
+- <a href="./scripting/index.md">Scripting</a>
+    - <a href="./scripting/features.md">Scripting Features</a>
+    - <a href="./scripting/style.md">Code Formatting / Style</a>
+    - <a href="./scripting/events.md">Events / Callbacks</a>
+    - <a href="./scripting/playstate.md">PlayState Scripting</a>
+    - <a href="./scripting/states.md">Custom States / SubStates</a>
+    - <a href="./scripting/global.md">Global Script(s)</a>
+    - <a href="./scripting/classes.md">Custom Classes</a>
+- <a href="./editors/index.md">Editors Introduction</a>
+    - <a href="./editors/chart.md">Chart Editor</a>
+    - <a href="./editors/character.md">Character Editor</a>
+    - <a href="./editors/stage.md">Stage Editor</a>
+    - <a href="./editors/alphabet.md">Alphabet Editor...?</a>
+    - <a href="./editors/character.md">Custom Editors</a>
+- <a href="./hxvlc.mdhxvlc.md">Using hxvlc for Videos</a>
+- <a href="./advanced/index.md">Intro to Advanced Topics</a>
 
-<img src="./index.png" alt="Image showing the Editor Picker, that appears when you press 7"/>
-
-Here you'll find the essential tools, and some options for debug *(for example, enabling the console in Debug Options)*
-
-The next steps are covered in these articles:
-- <a href="./songs/">Creating songs</a>
-- <a href="./characters/">Creating characters</a>
-- <a href="./stages/">Creating stages</a>
-- <a href="./scripting/">Scripting</a>
-
-And when you're done with the basic steps you're finally ready for release, or if you want, go through more advanced stuff, like these:
-- <a href="./cutscenes-dialogues.md">Cutscenes/Dialogues</a>
-- <a href="./scripting/shaders.md">Shaders</a>
-- <a href="./scripting/3d-rendering.md">3D rendering</a>
-- <a href="./scripting/global-scripts.md">Global Scripts</a>
-- <a href="./scripting/custom-options.md">Custom Options</a>
-- <a href="./scripting/scripted-assets-libraries.md">Scripted Assets Libraries</a>
-- <a href="./scripting/ndll-scripting.md">NDLL Scripting</a>
-
-## <h2 id="config" sidebar="Config">Config</h2>
-
-Some config is still required for things like Discord RPC. so we're gonna get over them here.<br>
-All of these configs can be found in ``./data/config/``
-
-### discord.json
-```json
-{
-	"clientID": "discord token",
-	"logoKey": "icon"
-}
-```
-Before doing this, make sure to make a discord application at [https://discord.com/developers/applications](https://discord.com/developers/applications), if you don't know how... please search for a guide on google. After that, copy the application ID and insert it there.
-
-### credits.xml
-Crediting people also uses XML data to parse members, though it has a lot of features to cover.<br>
-Here's a template provided by the engine:
-```xml
-<menu name="Mod Credits" desc="Modify mod credits here">
-
-    <credit name="Credit Example" desc="Click me to know more about me!" icon="credit icon example" size="130" url="https://youtu.be/fugtxz1znVw"/>
-
-    <github user="NexIsDumb" customName="Nex is Dumb" desc="The bitch who made these credits menus" size="100" portrait="false"/>
-
-</menu>
-```
-As you can see, there's 2 types of nodes: <syntax lang="xml">&lt;credit&gt;</syntax> and <syntax lang="xml">&lt;github&gt;</syntax>. <syntax lang="xml">&lt;credit&gt;</syntax> is the basic crediting node which can be applied to anyone, and <syntax lang="xml">&lt;github&gt;</syntax> pulls the user from it's database and can only be used for people who have accounts on GitHub *(also automatically redirects to their GitHub profile page.)*
-
-Their parameters are as follows:
-- <syntax lang="xml">&lt;credit&gt;</syntax>
-    - ``name`` which is the name of the person.
-    - ``desc`` determines the description of that person.
-    - ``icon`` determines which PNG file to pick from ``./images/credits``.
-    - ``size`` defines the size of the icon i think.
-    - ``url`` is the page where you get redirected when pressing enter on the person.
-    - ``color`` changes the color of the text that displays the name.
-    - ``portrait`` determines whether or not to crop the picture to a circular form.
-- <syntax lang="xml">&lt;github&gt;</syntax>
-    - ``user`` determines which user to grab from the GitHub database.
-    - ``customName`` is the display name you wish to refer to the person.
-    - ``size`` defines the size of the icon i think.
-    - ``color`` changes the color of the text that displays the name.
-    - ``portrait`` determines whether or not to crop the picture to a circular form.
-
-Also, if you notice, you can wrap these with the <syntax lang="xml">&lt;menu&gt;</syntax> node to separate the credits *(like probably having an artist submenu and stuff)*
-
-### options.xml
-options.xml is explained in this article <a href="./scripting/custom-options.md">Custom options</a>.
+All of those above are for Softcoding, if you want to learn how to mod Source, you can check out the Introduction here
+- <a href="./source/index.md.md">Modding The Engine - Source</a>
