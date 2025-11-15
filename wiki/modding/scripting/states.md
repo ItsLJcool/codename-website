@@ -6,6 +6,9 @@ The fork of HScript Codename uses allows existing states such as `FreeplayState`
 
 This can already be done in PlayState scripts, since `PlayState` itself is a state and scripts are allowed to change its content, such as in the instance of making a new HUD. This behavior is not exclusive to `PlayState` as it can be done on ***any*** state. 
 
+> [!TIP]
+> It's ideal to have a copy of the source code of the state you're modifying so that you know what you can and can't change.
+
 ## Making custom states
 Custom states and substates may be created in the same fashion as other scripts do. These states go under your mod's `data/states/` folder.
 
@@ -38,7 +41,7 @@ Consider our previous example with `ResultsScreen.hx`. Should we want to also te
 FlxG.switchState(new ModState("ResultsScreen", accuracy));
 ```
 
-To access the data from the `ResultsScreen` script, simply read from the `data` variable. Do note that reloading the state clears this, but the last non-null value of this is saved as a static variable and can be accessed with `ModState.lastData`.
+To access the data from the `ResultsScreen` script, simply read from the `data` variable. Do note that reloading the state clears this, but the last non-null value of this is saved as a static variable and can be accessed with `ModState.lastData` (this is `ModSubState.lastData` for substates).
 
 ### Using anonymous structures
 Anonymous structures are special objects that allow for storing multiple values in a key-value pair format, separated by commas in a format known as JSON (**J**ava**s**cript **O**bject **N**otation). 
