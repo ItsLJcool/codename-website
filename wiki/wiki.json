@@ -6,7 +6,7 @@
     ["troubleshooting", "Troubleshooting - UNFINISHED"],
     ["modding/index", "Modding The Engine - UNFINISHED", [
         ["config", "Configuration - UNFINISHED"],
-        ["libraries", "OpenFL's AssetLibrary - UNFINISHED"],
+        ["libraries", "OpenFL's AssetLibrary"],
         ["scripting/index", "Scriping (Softcoding) - UNFINISHED", [
             ["features", "Features / Examples - UNFINISHED"],
             ["style", "Formatting, and Basic Syntax - UNFINISHED"],
