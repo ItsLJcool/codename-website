@@ -1,7 +1,7 @@
 [
     ["index", "Home"],
     ["differences", "Differences between other FNF engines"],
-    ["usage", "How does one use the engine? - UNFINISHED"],
+    ["usage", "How does one use the engine?"],
     ["faq", "FAQ"],
     ["troubleshooting", "Troubleshooting - UNFINISHED"],
     ["modding/index", "Modding The Engine - UNFINISHED", [
