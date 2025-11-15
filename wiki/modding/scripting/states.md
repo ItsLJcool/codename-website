@@ -44,7 +44,7 @@ FlxG.switchState(new ModState("ResultsScreen", accuracy));
 To access the data from the `ResultsScreen` script, simply read from the `data` variable. Do note that reloading the state clears this, but the last non-null value of this is saved as a static variable and can be accessed with `ModState.lastData` (this is `ModSubState.lastData` for substates).
 
 ### Using anonymous structures
-Anonymous structures are special objects that allow for storing multiple values in a key-value pair format, separated by commas in a format known as JSON (**J**ava**s**cript **O**bject **N**otation). 
+Anonymous structures are special objects that allow for storing multiple values in a key-value pair format, separated by commas in a format known as JSON (**J**ava**s**cript **O**bject **N**otation). These alloww you to fit a bunch of values in a format similar to objects.
 
 An anonymous structure looks like this:
 
@@ -77,10 +77,15 @@ Like other objects, fields of anonymous structures may be accessed using dot not
 someStruct.someField = someValue;
 ```
 
+This also works with nested structures - you just need an extra dot.
+```hx
+structA.structB.key = value;
+```
+
+
 Since the state/substate's `data` field is of the type `Dynamic`, anonymous structures may be used as data you can pass over.
 
 Going back to the results screen example, we may supply an anonymous structure to send over more information such as the player's accuracy, score, and others. As such, we can modify that line once more to do exactly that.
-
 
 ```hx
 FlxG.switchState(new ModState("ResultsScreen", {
