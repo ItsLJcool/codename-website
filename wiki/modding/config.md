@@ -1,7 +1,7 @@
 ---
-author: ItsLJcool & rufius
+author: ItsLJcool
 desc: Explains how to configure the engine in your mod!
-lastUpdated: 2025-11-15T08:32:42.773Z
+lastUpdated: 2025-11-15T05:32:50.298Z
 title: Modding The Engine - Configuration
 ---
 
@@ -49,7 +49,7 @@ LOGO_TEXT=""
 
 [StateRedirects.force] # Use this if you want to override redirects set by subsequent addons/mods
 ```
-This is your `INI` file, a.k.a your `Initialization` file. Anything you edit here, changes the constants in the **[Flags](../../../api-docs/funkin/backend/system/Flags.html)** class.
+This is your `INI` file, a.k.a your `Initialization` file. Anything you edit here, changes the constants in the <b>[Flags](../../../api-docs/funkin/backend/system/Flags.html)</b> class.
 
 You can add your own custom Flag by adding it into the `INI` file, like so:
 ```ini
@@ -87,30 +87,11 @@ If you do not know how to setup Discord Intergration, we will go over it in this
 <details>
     <summary>⚙️ Discord Intergration</summary>
 
-Codename Engine allows modpacks to configure **Discord Rich Presence** integration. This is the main component that allows displaying the game being currently played by a user on Discord.
-
-Assuming that [you've already created the Discord application for the modpack](https://discord.com/developers/applications), you'll see the **Application ID**. This is adjacent to the `CLIENT_ID` flag in the `Discord` section. Copy the application ID into the flag to allow Codename to recognize your Discord application.
-
-Art assets can be added to the application for Rich Presence by navigating to the Rich Presence menu on the sidebar, and adding the asset you need.
-#### Do note that the modpack configuration only supports the large image key, so you only need to add a single asset.
-Once you've added your asset, preferably following [Discord's recommendations](https://discord.com/developers/docs/rich-presence/overview#adding-custom-art-assets),
-you can use the Rich Presence visualizer to use your asset and display it as the large image key. You can then place the name of the asset key as the value of the `Discord` section's `LOGO_KEY` flag.
-
-The `large image text` is the tooltip text displayed upon hovering over it with your mouse. You can set this using the `LOGO_TEXT` flag
-like the other two flags.
-
-Here is what your `modpack.ini` should look like
-```ini
-[Discord] # This section applies the 'MOD_DISCORD_' prefix to the flags so you don't have to.
-CLIENT_ID="<MY CLIENT ID FROM Discord Developer Portal>"
-LOGO_KEY="<Logo image name>"
-LOGO_TEXT="Hey guys! Look im text!!"
-```
-
-Do note that the modpack configuration isn't the only way to configure Discord Rich Presence. Although fairly undocumented, **[DiscordUtil](../../../api-docs/funkin/backend/utils/DiscordUtil.html)** provides additional options for setting up Discord Rich Presence, but requires scripting.
+TODO: Quickly Explain Discord Intergration and how to set one up!!
 
 </details>
 
 <h2 id="miscellaneous-config" sidebar="Miscellaneous Information">Miscellaneous Information</h2>
 
 As of right now, `MOD_ICON`, `ICON`, `DOWNLOAD_LINK`, (and technically `API_VERSION`, but it's for compatability if the formatting changes) do nothing. There are plans in the future to use these configuration, but they are not required.
+

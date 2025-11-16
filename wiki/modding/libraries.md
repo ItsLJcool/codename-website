@@ -18,7 +18,7 @@ From now on, we will be referencing your Mod as some of the following:
 - Custom Library
 - Compressed Library
 
-This is because your entire mod is based around the **[ModsFolderLibrary](../../../api-docs/funkin/backend/assets/ModsFolderLibrary.html)**, which is an extension of **[AssetLibrary](https://api.openfl.org/openfl/utils/AssetLibrary.html)**. If you wish to fully understand the concept, this guide will attempt to explain it as simple as possible.
+This is because your entire mod is based around the <b>[ModsFolderLibrary](../../../api-docs/funkin/backend/assets/ModsFolderLibrary.html)</b>, which is an extension of <b>[AssetLibrary](https://api.openfl.org/openfl/utils/AssetLibrary.html)</b>. If you wish to fully understand the concept, this guide will attempt to explain it as simple as possible.
 
 It is reccomended you read this section, as it will help you better understand how to use your Modpack to the fullest, using the engine to it's fullest.
 
@@ -37,7 +37,7 @@ Since the Library already knows where the folder is located, and because of some
 
 <h2 id="should-i-care" sidebar="Why should I care?">Why should I care about AssetLibrary?</h2>
 
-You really shouldn't, unless you are wanting to make support for either addons, other mods, etc. Though, any **Compressed Library's** (i.e. ZipFolderLibrary) you really need to care about, because all of your assets are compressed. Meaning you can't access your data unless you decompress it.
+You really shouldn't, unless you are wanting to make support for either addons, other mods, etc. Though, any <b>Compressed Library's</b> (i.e. ZipFolderLibrary) you really need to care about, because all of your assets are compressed. Meaning you can't access your data unless you decompress it.
 
 This is mainly why you should at least understand the bare concept of Library's, because of the things you can do with them.
 
@@ -45,7 +45,7 @@ This is mainly why you should at least understand the bare concept of Library's,
 
 This section, is for advanced information. You are not required to understand or know this.
 
-In simple terms, A **[ScriptedAssetLibrary](../../../api-docs/funkin/backend/assets/ScriptedAssetLibrary.html)** is a **[ModsFolderLibrary](../../../api-docs/funkin/backend/assets/ModsFolderLibrary.html)** that attaches a script for you to control and path to any files the way you want.
+In simple terms, A <b>[ScriptedAssetLibrary](../../../api-docs/funkin/backend/assets/ScriptedAssetLibrary.html)</b> is a <b>[ModsFolderLibrary](../../../api-docs/funkin/backend/assets/ModsFolderLibrary.html)</b> that attaches a script for you to control and path to any files the way you want.
 
 You can have your own Library for handling how you decode assets, audio, etc. It's not exactly useful for most applications, but it does exist and has niche uses.
 
