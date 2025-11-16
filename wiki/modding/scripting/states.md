@@ -34,7 +34,7 @@ Substates behave similar to states, with the difference being that substates can
 To open a substate, call `FlxG.state.openSubState` the same way you switch to a custom state, except you use `ModSubState` in place of `ModState`. To return to the parent state, call `close()`.
 
 ## Hot-reloading states
-With dev mode on, you can hit F5 on your keyboard to reload the current state. Pressing this a second time during the transition will skip it, allowing you to view your changes faster.
+With developer mode on, you can hit F5 on your keyboard to reload the current state. Pressing this a second time during the transition will skip it, allowing you to view your changes faster. Developer mode can be enabled by going to `Options Menu > Miscellaneous` and ticking the checkbox for Developer mode.
 
 It is recommended that you have the console open while developing scripts as it displays any errors your scripts may have thrown, and helps you in pointing what part of your code had thrown it.
 
