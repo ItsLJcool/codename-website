@@ -113,4 +113,4 @@ Do note that the modpack configuration isn't the only way to configure Discord R
 
 <h2 id="miscellaneous-config" sidebar="Miscellaneous Information">Miscellaneous Information</h2>
 
-As of right now, `MOD_ICON`, `ICON`, `DOWNLOAD_LINK`, (and technically `API_VERSION`, but it's for compatability if the formatting changes) do nothing. There are plans in the future to use these configuration, but they are not required.
+As of right now, `MOD_ICON`, `ICON`, `DOWNLOAD_LINK` do nothing. There are plans in the future to use these configuration, but they are not required.

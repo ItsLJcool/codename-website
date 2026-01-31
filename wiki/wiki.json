@@ -30,7 +30,7 @@
             ["3d", "3D Rendering - UNFINISHED (WIP)"]
         ]]
     ]],
-    ["modding/source/index", "Source Modding - UNFINISHED", [
+    ["source/index", "Source Modding - UNFINISHED", [
         ["init", "Initalization - UNFINISHED"]
     ]]
 ]
