@@ -14,7 +14,7 @@ There is also an `./addons/` folder which is somewhat similar to the way `./mods
 ## THIS IS NOT A GUIDE FOR SOURCE MODDING!!
 If you want to know how to make a Mod in Source, [TODO: Write a Doc.md for seting up a Source Project and link it from here!]
 
-<h2 id="folder-structure" sidebar="How should I structure my folders">How should I structure my folders</h2>
+## <h2 id="folder-structure" sidebar="Folder Structure">How should I structure my folders</h2>
 
 For starters, this is what an average Mod Folder will contain. We will go over some folders that require more explanation later.
 <details>
