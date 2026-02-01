@@ -2,17 +2,17 @@
     ["index", "Home"],
     ["differences", "Differences between other FNF engines"],
     ["usage", "How does one use the engine?"],
-    ["faq", "FAQ"],
-    ["troubleshooting", "Troubleshooting - UNFINISHED"],
-    ["modding/index", "Modding The Engine - UNFINISHED", [
+    ["faq", "<span style='color: #43a1aa;'>FAQ</span>"],
+    ["troubleshooting", "Troubleshooting - <span style='color: #32e53a;'>(Updated)</span>"],
+    ["modding/index", "Modding The Engine - <span style='color: #d4b528;'>(33% Complete)</span>", [
         ["config", "Configuration"],
         ["libraries", "OpenFL's AssetLibrary"],
-        ["scripting/index", "Scriping (Softcoding) - UNFINISHED", [
+        ["scripting/index", "Scriping (Softcoding) - <span style='color: #d4b528;'>(23% Complete)</span>", [
             ["features", "Features / Examples - UNFINISHED"],
             ["style", "Formatting, and Basic Syntax - UNFINISHED"],
             ["events", "Event Callbacks - UNFINISHED"],
             ["playstate", "PlayState Interaction - UNFINISHED"],
-            ["states", "Custom States / SubStates - UNFINISHED"],
+            ["states", "Custom States / SubStates - <span style='color: #d4b528;'>(Semi-Complete)</span>"],
             ["global", "Global Script - UNFINISHED"],
             ["classes", "Custom Classes - UNFINISHED"]
         ]],
@@ -27,7 +27,7 @@
         ["advanced/index", "Advanced Topics - UNFINISHED", [
             ["shaders", "Shaders - UNFINISHED"],
             ["ndll", "NDLLS - UNFINISHED"],
-            ["3d/index", "3D Rendering - UNFINISHED (WIP)"]
+            ["3d/index", "3D Rendering - UNFINISHED <span style='color: #489fb7;'>(WIP)</span>"]
         ]]
     ]],
     ["source/index", "Source Modding - UNFINISHED", [
