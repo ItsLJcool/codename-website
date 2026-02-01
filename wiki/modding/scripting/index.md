@@ -1,7 +1,7 @@
 ---
 author: ItsLJcool
 desc: Introduction on how Scripting works in your Library
-lastUpdated: 2025-11-15T05:32:50.298Z
+lastUpdated: 2026-02-01T02:16:06.176Z
 title: Modding The Engine - Scripting
 ---
 
