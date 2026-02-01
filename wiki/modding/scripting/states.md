@@ -15,7 +15,7 @@ You **cannot** have [Custom Classes](./classes.md) extend from any form of `FlxS
 With [`modpack.ini`](../config.md) you are able to override states such as **[FreeplayState](../../../api-docs/funkin/menus/FreeplayState.html)** with your own custom state.
 Although, if you still wanted to use the base State and add on-to it with a script, then you can do so!
 
-In CodenameEngine, appending a Script to a **[MusicBeatState](../../../api-docs/funkin/backend/MusicBeatState.html)** or **[MusicBeatSubState](../../../api-docs/funkin/backend/MusicBeatSubstate.html)** is very simple. All you need to do is place a file with the Class Name in `./data/states/`.
+In Codename Engine, appending a Script to a **[MusicBeatState](../../../api-docs/funkin/backend/MusicBeatState.html)** or **[MusicBeatSubState](../../../api-docs/funkin/backend/MusicBeatSubstate.html)** is very simple. All you need to do is place a file with the Class Name in `./data/states/`.
 
 An example would be: `./data/states/MainMenuState.hx`. This script will append itself whenever **[MainMenuState](../../../api-docs/funkin/menus/MainMenuState.html)** is switched to!
 
@@ -97,3 +97,12 @@ FlxG.switchState(new ModState("ResultsScreen", accuracy));
 To access the data from the `ResultsScreen` script, simply read from the [`data`](../../../api-docs/funkin/backend/scripting/ModState.html#data) variable. Do note that reloading the state clears this, but the last non-null value of this is saved as a static variable and can be accessed with [`ModState.lastData`](../../../api-docs/funkin/backend/scripting/ModState.html#lastData) (Once again, **[ModSubState](../../../api-docs/funkin/backend/scripting/ModSubState.html)** also applies this same example.)
 
 This is basically all you need to know about Custom States, and how to interact with them!
+
+Next steps in learning the In-and-out's of HScript
+- [Features](./features.md)
+- [Formatting, and Basic Syntax](./style.md)
+- [Event Callbacks](./events.md)
+- [[PREV] PlayState Interaction](./playstate.md)
+- [Custom States / SubStates](./states.md)
+- [[NEXT] Global Script](./global.md)
+- [Custom Classes](./classes.md)

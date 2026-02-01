@@ -1,6 +1,6 @@
 ---
 author: ItsLJcool
-desc: Introduction for advanced uses of CodenameEngine. For them nerds 🤓
+desc: Introduction for advanced uses of Codename Engine. For them nerds 🤓
 lastUpdated: 2025-11-15T05:32:50.298Z
 title: Advanced Topics - Introduction
 ---

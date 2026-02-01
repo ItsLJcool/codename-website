@@ -6,7 +6,7 @@ title: Modding The Engine - AssetLibrary
 ---
 
 # AssetLibrary, ScriptedAssetLibrary, ModsFolderLibrary, etc
-This section isn't CodenameEngine specific, but it is still relevant to how you make your CodenameEngine Mods.
+This section isn't Codename Engine specific, but it is still relevant to how you make your Codename Engine Mods.
 
 ## ⚠️ Warning ⚠️
 If you do not care about the in-depth explanation, or care about Library's you are free to skip this section, although there is some things to note before doing so.
@@ -28,7 +28,7 @@ In this context, a Library is literally what you'd expect it to mean. It's just 
 
 For example, if you want to path to a file like `./images/stages/stage.png`, you would do `Library.getPath('assets/images/stages/stage.png')`. This would return the file's location based on the context of where your library wants to locate for your files.
 
-To Haxe, usually you want the absolute path relative to your project's root, which is prefixed by the common `./`. In CodenameEngine's case, it will return the path in the mod's folder. `./mods/My Mod/images/stages/stage.png`.
+To Haxe, usually you want the absolute path relative to your project's root, which is prefixed by the common `./`. In Codename Engine's case, it will return the path in the mod's folder. `./mods/My Mod/images/stages/stage.png`.
 
 ### Why does it return `assets/My Mod/images/stages/stage.png` when debugging?
 This is because of Manifests. All you need to know for Modding purposes, is because AssetLibrary just needs the relative path to the file from `./assets/`.
@@ -91,9 +91,9 @@ function __parseAsset(asset:String):Bool {
 ```
 This script, if loaded as a `ScriptedAssetLibrary`, will make any asset that ends with a `.png` extension, will path towards `images/hi.png`.
 
-The reason we have to split the `_parsedAsset` by `/` is since CodenameEngine supports multi-atlas sprites (i.e `images/characters/bf/1.png`, `images/characters/bf/2.png`, etc), and we know this temp image isn't a multi-atlas sprite, we need to account for CodenameEngine not knowing that.
+The reason we have to split the `_parsedAsset` by `/` is since Codename Engine supports multi-atlas sprites (i.e `images/characters/bf/1.png`, `images/characters/bf/2.png`, etc), and we know this temp image isn't a multi-atlas sprite, we need to account for Codename Engine not knowing that.
 
-Since in this example, we are telling CodenameEngine any extension with `.png` is always existing in this location, it will do it's shenanigans and try to check if other assets exist, making an infinite loop.
+Since in this example, we are telling Codename Engine any extension with `.png` is always existing in this location, it will do it's shenanigans and try to check if other assets exist, making an infinite loop.
 
 Usually, you won't need to worry about that. 99.99% of the time your not going to just lie to the engine when handling paths.
 

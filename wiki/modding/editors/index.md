@@ -1,6 +1,6 @@
 ---
 author: ItsLJcool
-desc: Introduction of Editors in CodenameEngine
+desc: Introduction of Editors in Codename Engine
 lastUpdated: 2025-11-15T05:32:50.298Z
 title: Editors
 ---

@@ -14,3 +14,12 @@ Explain how you define custom classes, and detail the current limitations as fol
 - Extended classes must override a function if you also want to override that function.
 
 Also explain you can use the `source/` folder in your Library to add Custom Classes, and show how you can use `import` and `using`.
+
+Next steps in learning the In-and-out's of HScript
+- [Features](./features.md)
+- [Formatting, and Basic Syntax](./style.md)
+- [Event Callbacks](./events.md)
+- [PlayState Interaction](./playstate.md)
+- [Custom States / SubStates](./states.md)
+- [[PREV] Global Script](./global.md)
+- [Custom Classes](./classes.md)

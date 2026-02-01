@@ -27,7 +27,7 @@
         ["advanced/index", "Advanced Topics - UNFINISHED", [
             ["shaders", "Shaders - UNFINISHED"],
             ["ndll", "NDLLS - UNFINISHED"],
-            ["3d", "3D Rendering - UNFINISHED (WIP)"]
+            ["3d/index", "3D Rendering - UNFINISHED (WIP)"]
         ]]
     ]],
     ["source/index", "Source Modding - UNFINISHED", [

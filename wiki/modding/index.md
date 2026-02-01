@@ -82,7 +82,7 @@ For starters, this is what an average Mod Folder will contain. We will go over s
 ```
 
 #### NOTE!
-This might not be EVERYTHING, but it's a good chunk of the folders CodenameEngine interacts with.
+This might not be EVERYTHING, but it's a good chunk of the folders Codename Engine interacts with.
 </details>
 
 Don't be scared by the amount of folders, usually you only mess with the `./songs/`, `./data/`, and `./images/` folders most of the time.
