@@ -30,4 +30,4 @@ hot-milk
 ```
 It serves to tell Freeplay what songs to show and in what order.
 
-You can add comments to the list by using a pound sign (``#``) at the start of the line.
+You can add comments to the list by using a hash symbol (``#``) at the start of the line.

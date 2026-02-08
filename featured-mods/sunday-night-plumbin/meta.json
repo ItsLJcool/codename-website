@@ -1,11 +1,11 @@
 {
     "name": "Sunday Night Plumbin",
-    "description": "Sunday Night Plumbing is a Mario.exe-themed mod for FNF",
-    "author": "Raynnard",
-    "version": "unreleased",
-    "link": "https://x.com/exefunkin",
+    "description": "a Friday Night Funkin' mod about horror and odd content from the Super Mario Franchise",
+    "author": "The Plumbers",
+    "version": "1.0.0",
+    "link": "https://gamebanana.com/mods/618487",
 
-    "lastUpdated": "unreleased",
+    "lastUpdated": "2025-09-07T13:24:25.000Z",
 
-    "tags": ["upcoming", "softcoded","length-long", "difficulty-hard", "long-desc", "long-title"]
+    "tags": ["softcoded","length-long", "difficulty-hard", "long-desc", "long-title"]
 }
