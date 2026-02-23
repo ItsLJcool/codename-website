@@ -1,9 +1,9 @@
-name: Push changes to github-pages-files
+name: Cloudflare Pages Deploy
 
 on:
   push:
     branches:
-      - wiki-reformat
+      - main
   pull_request:
 
 jobs:
