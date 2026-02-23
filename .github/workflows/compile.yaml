@@ -1,5 +1,5 @@
 - name: Push the changes to github-pages-files
-  uses: cpeaceiris/actions-gh-pages@v4
+  uses: peaceiris/actions-gh-pages@v4
   if: github.ref == 'refs/heads/wiki-reformat'
   with:
     github_token: ${{ secrets.PAGESSECRET }}
