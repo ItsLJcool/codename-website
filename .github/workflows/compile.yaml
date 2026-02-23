@@ -1,9 +1,9 @@
-name: Cloudflare Pages Deploy
+name: Export to Github Pages
 
 on:
   push:
     branches:
-      - main
+      - wiki-reformat
   pull_request:
 
 jobs:
