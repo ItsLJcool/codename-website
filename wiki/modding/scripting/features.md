@@ -8,7 +8,8 @@ title: Scripting - Features
 # TODO
 Explain all the features scripts can use. (i.e getter / setter, enums, imports, using, etc.)
 
-
+### Differences between `Script` and `ScriptPack`
+When looking through the source, you might find that there is 2 commonly used Classes for Scripts 
 
 #### vvvv prob throw this into `features.md` vvvv
 ### Using anonymous structures
