@@ -1,1 +1,0 @@
-python -m http.server 4030 --bind 127.0.0.1 --directory export

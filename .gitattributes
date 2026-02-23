@@ -1,6 +1,0 @@
-* text=auto eol=lf
-
-*.md linguist-detectable -linguist-documentation linguist-language=Markdown
-
-export/** linguist-generated
-api-generator/api/** linguist-generated

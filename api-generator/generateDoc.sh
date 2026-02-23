@@ -1,3 +1,0 @@
-echo Generating Documentation...
-haxe dox.hxml
-echo Done!
