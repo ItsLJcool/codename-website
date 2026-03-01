@@ -11,11 +11,12 @@ Explain all the features scripts can use. (i.e getter / setter, enums, imports, 
 ### Differences between `Script` and `ScriptPack`
 When looking through the source, you might find that there is 2 commonly used Classes for Scripts 
 
-#### vvvv prob throw this into `features.md` vvvv
-### Using anonymous structures
-Anonymous structures are special objects that allow for storing multiple values in a key-value pair format, separated by commas in a format known as JSON (**J**ava**s**cript **O**bject **N**otation), which operates similarly to hashmaps / dictionaries with string keys. These allow you to fit a bunch of values in a format similar to objects.
+### Anonymous Structures
+Anonymous structures are objects that allow for storing multiple values in a key-value pair format, separated by commas. They are features of Haxe and HScript that provide data grouping in general. Keys must be regular Haxe identifiers, and values are dynamic. They are useful to share data around in a compact manner. Anonymous structures themselves are treated as dynamic values.
 
-An anonymous structure looks like this:
+Code-wise, structures look similar to JSON, or Javascript Object Notation. However, there are important distinctions between them: JSON objects are explicitly strings, including keys, while Haxe keys are regular identifiers and values are regular Haxe types. It is generally safe to serialize structures into JSON objects and deserialize structures from JSON objects, though.
+
+Anomyous structures generally look like this:
 
 ```haxe
 var leStructure = {username: "mellowmeadow", score: 300, accuracy: 1, isValid: true};
