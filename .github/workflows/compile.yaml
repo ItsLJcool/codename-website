@@ -43,7 +43,7 @@ jobs:
           haxelib --global install markdown 1.1.3 --quiet
 
       - run: npm install
-      - run: npm run build:actions ./
+      - run: npm run build:actions ./codename-website/
 
       - name: Push the changes to github-pages-files
         uses: peaceiris/actions-gh-pages@v4
