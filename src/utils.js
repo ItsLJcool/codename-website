@@ -81,9 +81,7 @@ function fixHtmlRefs(html, pageDir, _pageDir) {
 		}
 		href = href.replace(/\.force-md$/, "");
 		href = fixPath(href);
-		if(isActions) {
-			href = href.replace(/\.html$/, "");
-		}
+		if((!href.startsWith("https://") && !href.startsWith("http://")) && isActions) href = href.replace(/\.html$/, "");
 
 		link.href = href;
 	}
