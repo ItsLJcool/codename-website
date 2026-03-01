@@ -6,7 +6,7 @@ title: Modding The Engine - Scripting
 ---
 
 # HScript, Haxe, Lua, what's the difference?
-If your familiar with Lua (or Psych Lua) you are probably familiar with coding already, but it's recommended you actually get close and understand Haxe, as **most** things in Codename Engine will require you to make your own solution.
+If you're familiar with Lua (or Psych Lua) you are probably familiar with coding already, but it's recommended you actually get close and understand Haxe, as **most** things in Codename Engine will require you to make your own solution.
 
 The differences between both languages is very clear.
 <!-- #region Difference between lua syntax and haxe syntax (summary) -->
@@ -45,7 +45,7 @@ Here is relevant links to the Haxe / HaxeFlixel documentation and creating your 
 - [Hello World | HaxeFlixel - 2D Game Engine](https://haxeflixel.com/documentation/hello-world/)
 
 ### Why is learning Haxe / HaxeFlixel even suggested? I want to make FNF mods, not games!!
-Here is an analagy, and an explanation.<br>
+Here is an analogy, and an explanation.<br>
 Imagine this; You want to get into music *(or even produce an album)* and you want to create sick beats. If you just place down notes in FL Studio randomly *(or in somewhat good tones)*, you will just create audio that is barely passing as music.
 
 Yes, it will get the job done, you made music! Many people won't to listen to it, **you** might not want to listen to it because it's missing the key properties of Music Theory.
@@ -63,7 +63,7 @@ This isn't an essay saying "YOU SHOULD ONLY USE HAXE AND NOTHING ELSE!!! YOU NEE
 
 ## Before we get Scripting
 It is recommended that you have the console open while developing scripts, as it displays any errors your scripts may have thrown and helps you in pointing what part of your code had thrown the error.<br>
-Pressing <u>`F2`</u> will open up the console if it's not opened, and <u>pressing it again will clear the console.</u>
+Pressing <u>`F2`</u> will open up the console if it's not opened, and <u>pressing it again will clear the console.</u> It's important to note that you should **not** close the console once opened, as doing so will also close Codename Engine.
 
 It is also important to note that Flixel debugging is mostly accurate, but there are some cases when it comes down to HScript, or just flixel being stupid and lies to you.
 
