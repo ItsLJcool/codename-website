@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scripting - Custom States / SubStates - Codename Engine Wiki</title>
+	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/style_v2.css">
+	<link rel="stylesheet" href="/wiki.css">
+
+	<meta name="title" content="Scripting - Custom States / SubStates - Codename Engine Wiki">
+	<meta name="description" content="Explains how you can make custom States / SubStates">
+	<meta property="og:description" content="Explains how you can make custom States / SubStates">
+	<meta property="twitter:description" content="Explains how you can make custom States / SubStates">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codename-engine.com/">
+	<meta property="og:title" content="Scripting - Custom States / SubStates - Codename Engine Wiki">
+	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://codename-engine.com/">
+	<meta property="twitter:title" content="Scripting - Custom States / SubStates - Codename Engine Wiki">
+	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
+
+	<meta name="theme-color" content="#b265bd">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<meta name="apple-mobile-web-app-title" content="Codename">
+	<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+	<div class="header" id="main">
+		<header>
+    <a href="/">
+        <img src="/img/logo-banner.png" alt="Codename Logo" class="desktop">
+        <img src="/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
+    </a>
+    <h2 class="header-title">Scripting - Custom States / SubStates</h2>
+    <div>
+        <a href="/api-docs/">API</a><a href="/wiki/">Wiki</a><a href="/tools/">Tools</a>
+    </div>
+</header>
+	</div>
+	<div class="container">
+		<div class="sidebar-wrapper">
+			<input type="checkbox" class="sidebar-button">
+			<span class="sidebar-button-front">
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="20" rx="10"></rect>
+					<rect y="30" width="100" height="20" rx="10"></rect>
+					<rect y="60" width="100" height="20" rx="10"></rect>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path stroke="#000" d="M195 195a64 64 0 0 1 91 0l226 227 226-227a64 64 0 0 1 91 91L602 512l227 226a64 64 0 0 1-91 91L512 602 286 829a64 64 0 0 1-91-91l227-226-227-226a64 64 0 0 1 0-91z"></path></svg>
+			</span>
+			<div class="sidebar">
+				<ul class="sidebar-unordered-list">
+					<li class="sidebar-list-item even"><a href="/wiki/" class="even">Home</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/differences" class="odd">Differences between other FNF engines</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/usage" class="even">How does one use the engine?</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/faq" class="odd"><span style="color: #43a1aa;">FAQ</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/troubleshooting" class="even">Troubleshooting - <span style="color: #32e53a;">(Updated)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/" class="odd">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/config" class="even">Configuration</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/libraries" class="odd">OpenFL's AssetLibrary</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(23% Complete)</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/events" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a><ul class="sidebar-unordered-list odd pagination">
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/global" class="even">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/classes" class="odd">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/" class="even">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/chart" class="odd">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/character" class="even">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/stage" class="odd">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/alphabet" class="even">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/custom" class="odd">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/hxvlc" class="even">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/shaders" class="even">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/3d/" class="even">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/source/init" class="even">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<h1>Custom States</h1>
+<p><code class="inline-code">FlxState</code> (or <strong><a href="../../../api-docs/funkin/backend/MusicBeatState">MusicBeatState</a></strong>) are your States that you can switch between on run-time, allowing for multiple scenes and organization of your code.</p>
+<p>Custom States allow you to execute your own code in your own way, it's 99% similar to creating a State from source.
+You <strong>cannot</strong> have <a href="./classes">Custom Classes</a> extend from any form of <code class="inline-code">FlxState</code> or <code class="inline-code">FlxSubState</code> (also any class that inherits it), as it isn't supported by <code class="inline-code">hscript-improved</code></p>
+<h2>Changing existing states</h2>
+<p>With <a href="../config"><code class="inline-code">modpack.ini</code></a> you are able to override states such as <strong><a href="../../../api-docs/funkin/menus/FreeplayState">FreeplayState</a></strong> with your own custom state.
+Although, if you still wanted to use the base State and add on-to it with a script, then you can do so!</p>
+<p>In Codename Engine, appending a Script to a <strong><a href="../../../api-docs/funkin/backend/MusicBeatState">MusicBeatState</a></strong> or <strong><a href="../../../api-docs/funkin/backend/MusicBeatSubstate">MusicBeatSubState</a></strong> is very simple. All you need to do is place a file with the Class Name in <code class="inline-code">./data/states/</code>.</p>
+<p>An example would be: <code class="inline-code">./data/states/MainMenuState.hx</code>. This script will append itself whenever <strong><a href="../../../api-docs/funkin/menus/MainMenuState">MainMenuState</a></strong> is switched to!</p>
+<p>As long as the class extends <strong><a href="../../../api-docs/funkin/backend/MusicBeatState">MusicBeatState</a></strong> or <strong><a href="../../../api-docs/funkin/backend/MusicBeatSubstate">MusicBeatSubState</a></strong> you can append a script onto it. So yes, you can append a script to <strong><a href="../../../api-docs/funkin/editors/ui/UIState">UIState</a></strong>. This we will come back to, as it will prove useful in <a href="../editors/custom">Custom Editors!</a></p>
+<h3>Why can't I append a Script in the <code class="inline-code">PlayState</code> class, and have a script running when the state loads?</h3>
+<p>Well you <strong><em>can,</em></strong> though the reasoning behind why you shouldn't really append a script to <strong><a href="../../../api-docs/funkin/game/PlayState">PlayState</a></strong> State is easy to understand.</p>
+<p><strong><a href="../../../api-docs/funkin/game/PlayState">PlayState</a></strong> handles it's own custom <strong><a href="../../../api-docs/funkin/backend/scripting/ScriptPack">ScriptPack</a></strong>, and differs from the actual <strong><a href="../../../api-docs/funkin/backend/MusicBeatState">MusicBeatState</a></strong>'s Scripts. Appending a Script in the <strong><a href="../../../api-docs/funkin/game/PlayState">PlayState</a></strong> State only modifies the <a href="../../../api-docs/funkin/backend/MusicBeatState.html#stateScripts"><code class="inline-code">stateScripts</code></a>, which isn't what <code class="inline-code">PlayState</code> itself manages for your Events, Callbacks, internal variables, etc.</p>
+<p>Hovever, you can just modify the internals of the <strong><a href="../../../api-docs/funkin/game/PlayState">PlayState</a></strong> by appending a script to the State, like an example:</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"PlayState state script initalized"</span>);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onOpenSubState</span>(<span class="hljs-params">event:StateEvent</span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"We are opening a substate!!"</span>);
+}
+</code></pre>
+<p>This is different from a <code class="inline-code">PlayState Script</code>, as you normally would need to run the <code class="inline-code">onSubstateOpen</code> callback, because <code class="inline-code">PlayState</code> actually never interacts with it's <a href="../../../api-docs/funkin/backend/MusicBeatState.html#stateScripts"><code class="inline-code">stateScripts</code></a> Scripts at all.</p>
+<h2>Making custom states</h2>
+<p>While making scripts that change existing states, it's advised to use the source code of the state you're changing as a reference, so that you know what you're working with.</p>
+<p>Custom States / SubStates may be created in the same fashion as other scripts do. These states go under your mod's <code class="inline-code">./data/states/</code> folder.</p>
+<p>You can switch to any state by calling <code class="inline-code">FlxG.switchState</code> and supplying a new instance of the state as the parameter. With Custom States, you will need to use <strong><a href="../../../api-docs/funkin/backend/scripting/ModState">ModState</a></strong> (and use <strong><a href="../../../api-docs/funkin/backend/scripting/ModSubState">ModSubState</a></strong> for your SubStates) as they extend <strong><a href="../../../api-docs/funkin/backend/MusicBeatState">MusicBeatState</a></strong> / <strong><a href="../../../api-docs/funkin/backend/MusicBeatSubstate">MusicBeatSubState</a></strong> to manage your script automatically.</p>
+<p>Do note that the <strong><a href="../../../api-docs/funkin/backend/scripting/ModState">ModState</a></strong> and <strong><a href="../../../api-docs/funkin/backend/scripting/ModSubState">ModSubState</a></strong> constructors append <code class="inline-code">./data/states/</code> to the supplied name, which means <code class="inline-code">new ModState("TestState")</code> looks for <code class="inline-code">./data/states/TestState.hx</code>. If the state you want to switch to is inside a folder in the states folder, you'll need to add that subfolder's name too.</p>
+<p>For example, suppose that you have a custom state named <code class="inline-code">ResultsScreen.hx</code>. In order to enter this custom state, you run the below code:</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-title class_">FlxG</span>.<span class="hljs-title function_">switchState</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ModState</span>(<span class="hljs-string">"ResultsScreen"</span>)); <span class="hljs-comment">// looks for data/states/ResultsScreen.hx</span>
+</code></pre>
+<h3>SubStates</h3>
+<p>SubStates behave similar to states, with the difference being that substates can be put over states, and that substates may be nested (you can put substates over substates).</p>
+<p>To open a substate, all you need to do is call <a href="../../../api-docs/funkin/backend/MusicBeatState.html#openSubState"><code class="inline-code">openSubState</code></a> the same way you use <code class="inline-code">FlxG.switchState</code>, although we don't append <code class="inline-code">FlxG</code> as <a href="../../../api-docs/funkin/backend/MusicBeatState.html#openSubState"><code class="inline-code">openSubState</code></a> is a function directly from the State itself. You would use <strong><a href="../../../api-docs/funkin/backend/scripting/ModSubState">ModSubState</a></strong> for your SubStates. To return to the parent state, call <code class="inline-code">close()</code>.</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">// this is our ModState script</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"State initalized!"</span>);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">elapased:<span class="hljs-built_in">Float</span></span>) {
+    <span class="hljs-keyword">if</span> (controls.<span class="hljs-property">ENTER</span>) <span class="hljs-title function_">openSubState</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ModState</span>(<span class="hljs-string">"mySubState"</span>)); <span class="hljs-comment">// looks for `./data/states/mySubState.hx`</span>
+}
+</code></pre>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">// This is our ModSubState Script</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"SubState Opened!"</span>);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">elapsed:<span class="hljs-built_in">Float</span></span>) {
+    <span class="hljs-keyword">if</span> (controls.<span class="hljs-property">BACK</span>) <span class="hljs-title function_">close</span>(); <span class="hljs-comment">// when we press our `BACK` button we close this SubState.</span>
+}
+</code></pre>
+<p>I recommend you make sub-folders for organizing your States, from SubStates. (i.e <code class="inline-code">./data/states/substates/</code> &amp;&amp; <code class="inline-code">./data/states/custom/</code>). You can name the folders whatever but it will be very useful down the line, when you have a lot of states for testing, or implementing new States.</p>
+<h2>Hot-reloading states</h2>
+<p>With developer mode on, you can hit <code class="inline-code">F5</code> <i>(changable in Keybind Settings)</i> on your keyboard to reload the current state. Developer mode can be enabled by going to <code class="inline-code">Options Menu &gt; Miscellaneous</code> and ticking the checkbox for Developer mode.</p>
+<h4>COOL TIP!</h4>
+<p>You can press <code class="inline-code">SHIFT</code> in any <strong><a href="../../../api-docs/funkin/backend/MusicBeatTransition">MusicBeatTransition</a></strong> to instantly skip the Transition In / Out!</p>
+<h4>NOTE: Add Advanced Link here for Custom Transitions, and explaining to look here for more information!</h4>
+<h2>Including Custom Data in Custom States</h2>
+<p>You may pass something along with the State switch by supplying the <strong><a href="../../../api-docs/funkin/backend/scripting/ModState">ModState</a></strong> constructor with another parameter. This parameter is of the <code class="inline-code">Dynamic</code> type, which means it could be anything. (This again, applies to <strong><a href="../../../api-docs/funkin/backend/scripting/ModSubState">ModSubState</a></strong> as well)</p>
+<p>Consider our previous example with <code class="inline-code">ResultsScreen.hx</code>. Should we want to also tell it the accuracy the player has gotten, then we modify the line so that it reads this:</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-title class_">FlxG</span>.<span class="hljs-title function_">switchState</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ModState</span>(<span class="hljs-string">"ResultsScreen"</span>, accuracy));
+</code></pre>
+<p>To access the data from the <code class="inline-code">ResultsScreen</code> script, simply read from the <a href="../../../api-docs/funkin/backend/scripting/ModState.html#data"><code class="inline-code">data</code></a> variable. Do note that reloading the state clears this, but the last non-null value of this is saved as a static variable and can be accessed with <a href="../../../api-docs/funkin/backend/scripting/ModState.html#lastData"><code class="inline-code">ModState.lastData</code></a> (Once again, <strong><a href="../../../api-docs/funkin/backend/scripting/ModSubState">ModSubState</a></strong> also applies this same example.)</p>
+<p>This is basically all you need to know about Custom States, and how to interact with them!</p>
+<p>Next steps in learning the In-and-out's of HScript</p>
+<ul>
+<li><a href="./features">Features</a></li>
+<li><a href="./style">Formatting, and Basic Syntax</a></li>
+<li><a href="./events">Event Callbacks</a></li>
+<li><a href="./playstate">[PREV] PlayState Interaction</a></li>
+<li><a href="./states">Custom States / SubStates</a></li>
+<li><a href="./global">[NEXT] Global Script</a></li>
+<li><a href="./classes">Custom Classes</a></li>
+</ul>
+
+
+			<div class="info">
+				<div class="written">Written by: clairedeluneee &amp; ItsLJcool</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-19T06:49:41.829Z">2025-11-19</span></div>
+
+				<div class="github-edit-button">
+					<a href="https://github.com/CodenameCrew/codename-website/tree/main/wiki/modding/scripting/states.md">Edit this page on GitHub</a>
+				</div>
+			</div>
+
+			<div class="giscus"></div>
+			<div class="giscus-frame"></div>
+
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/scripting/states" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			</script>
+		</div>
+	</div>
+
+	<script src="/wiki.js"></script>
+
+</body></html>

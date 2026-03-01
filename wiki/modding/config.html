@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modding The Engine - Configuration - Codename Engine Wiki</title>
+	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/style_v2.css">
+	<link rel="stylesheet" href="/wiki.css">
+
+	<meta name="title" content="Modding The Engine - Configuration - Codename Engine Wiki">
+	<meta name="description" content="Explains how to configure the engine in your mod!">
+	<meta property="og:description" content="Explains how to configure the engine in your mod!">
+	<meta property="twitter:description" content="Explains how to configure the engine in your mod!">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codename-engine.com/">
+	<meta property="og:title" content="Modding The Engine - Configuration - Codename Engine Wiki">
+	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://codename-engine.com/">
+	<meta property="twitter:title" content="Modding The Engine - Configuration - Codename Engine Wiki">
+	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
+
+	<meta name="theme-color" content="#b265bd">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<meta name="apple-mobile-web-app-title" content="Codename">
+	<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+	<div class="header" id="main">
+		<header>
+    <a href="/">
+        <img src="/img/logo-banner.png" alt="Codename Logo" class="desktop">
+        <img src="/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
+    </a>
+    <h2 class="header-title">Modding The Engine - Configuration</h2>
+    <div>
+        <a href="/api-docs/">API</a><a href="/wiki/">Wiki</a><a href="/tools/">Tools</a>
+    </div>
+</header>
+	</div>
+	<div class="container">
+		<div class="sidebar-wrapper">
+			<input type="checkbox" class="sidebar-button">
+			<span class="sidebar-button-front">
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="20" rx="10"></rect>
+					<rect y="30" width="100" height="20" rx="10"></rect>
+					<rect y="60" width="100" height="20" rx="10"></rect>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path stroke="#000" d="M195 195a64 64 0 0 1 91 0l226 227 226-227a64 64 0 0 1 91 91L602 512l227 226a64 64 0 0 1-91 91L512 602 286 829a64 64 0 0 1-91-91l227-226-227-226a64 64 0 0 1 0-91z"></path></svg>
+			</span>
+			<div class="sidebar">
+				<ul class="sidebar-unordered-list">
+					<li class="sidebar-list-item even"><a href="/wiki/" class="even">Home</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/differences" class="odd">Differences between other FNF engines</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/usage" class="even">How does one use the engine?</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/faq" class="odd"><span style="color: #43a1aa;">FAQ</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/troubleshooting" class="even">Troubleshooting - <span style="color: #32e53a;">(Updated)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/" class="odd">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Configuration</a><ul class="sidebar-unordered-list even pagination">
+<li><a href="#state-redirects">State Redirects</a></li>
+<li><a href="#discord-config">Discord Configuration</a></li>
+<li><a href="#miscellaneous-config">Miscellaneous Information</a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/libraries" class="odd">OpenFL's AssetLibrary</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(23% Complete)</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/events" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/global" class="even">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/classes" class="odd">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/" class="even">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/chart" class="odd">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/character" class="even">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/stage" class="odd">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/alphabet" class="even">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/custom" class="odd">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/hxvlc" class="even">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/shaders" class="even">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/3d/" class="even">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/source/init" class="even">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<h1>Modpack Configuration</h1>
+<p>When you first load up your Modpack for the fist time, you will see this warning message:</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../images/config/warning.png" alt="Warning Screen for launching a Modpack without a modpack.ini file">
+</div>
+<p>Clicking yes will auto-generate a <code class="inline-code">modpack.ini</code> file for you, and opening it from <code class="inline-code">./data/config/modpack.ini</code> should look something similar to this:</p>
+<pre class="hljs"><code class="language-ini"><span class="hljs-section">[Common]</span> <span class="hljs-comment"># This section applies the 'MOD_' prefix to the flags so you don't have to.</span>
+<span class="hljs-attr">NAME</span>=<span class="hljs-string">"YOUR MOD NAME HERE"</span>
+<span class="hljs-attr">DESCRIPTION</span>=<span class="hljs-string">"YOUR MOD DESCRIPTION HERE"</span>
+<span class="hljs-attr">AUTHOR</span>=<span class="hljs-string">"YOU/YOUR TEAM HERE"</span>
+<span class="hljs-attr">VERSION</span>=<span class="hljs-string">"YOUR MOD'S VERSION HERE"</span>
+
+<span class="hljs-comment"># DO NOT EDIT!! this is used to check for version compatibility!</span>
+<span class="hljs-attr">API_VERSION</span>=<span class="hljs-number">1</span>
+
+<span class="hljs-attr">DOWNLOAD_LINK</span>=<span class="hljs-string">"YOUR MOD PAGE LINK HERE"</span>
+
+<span class="hljs-comment"># Not supported yet</span>
+<span class="hljs-comment">;MOD_ICON64="path/to/icon64"</span>
+<span class="hljs-comment">;MOD_ICON32="path/to/icon32"</span>
+<span class="hljs-comment">;MOD_ICON16="path/to/icon16"</span>
+<span class="hljs-comment"># The path starts in "your-mod/images/", do not add image extension.</span>
+<span class="hljs-attr">ICON</span>=<span class="hljs-string">"path/to/icon"</span>
+
+<span class="hljs-section">[Flags]</span> <span class="hljs-comment"># This section doesn't apply any prefix.</span>
+<span class="hljs-attr">DISABLE_WARNING_SCREEN</span>=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># Set this to false if you want to bring back the warning state (prior to 1.0.0)</span>
+<span class="hljs-comment"># <span class="hljs-doctag">NOTE:</span> Beta warning state has been renamed from BetaWarningState.hx to WarningState.hx</span>
+<span class="hljs-attr">DISABLE_LANGUAGES</span>=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># Some people might not translate their mods, but if you do then you may set this to false</span>
+
+<span class="hljs-section">[Discord]</span> <span class="hljs-comment"># This section applies the 'MOD_DISCORD_' prefix to the flags so you don't have to.</span>
+<span class="hljs-attr">CLIENT_ID</span>=<span class="hljs-string">""</span>
+<span class="hljs-attr">LOGO_KEY</span>=<span class="hljs-string">""</span>
+<span class="hljs-attr">LOGO_TEXT</span>=<span class="hljs-string">""</span>
+
+<span class="hljs-section">[StateRedirects]</span> <span class="hljs-comment"># This section is used for state redirecting, see examples below.</span>
+<span class="hljs-comment">;StoryMenuState="funkin.menus.FreeplayState"</span>
+<span class="hljs-comment">;FreeplayState="scriptedFreeplayState"</span>
+
+<span class="hljs-section">[StateRedirects.force]</span> <span class="hljs-comment"># Use this if you want to override redirects set by subsequent addons/mods</span>
+</code></pre>
+<p>This is your <code class="inline-code">INI</code> file, a.k.a your <code class="inline-code">Initialization</code> file. Anything you edit here, changes the constants in the <strong><a href="../../../api-docs/funkin/backend/system/Flags">Flags</a></strong> class.</p>
+<p>You can add your own custom Flag by adding it into the <code class="inline-code">INI</code> file, like so:</p>
+<pre class="hljs"><code class="language-ini"><span class="hljs-comment">; These flags will be findable in the `customFlags` variable in the `Flags` class.</span>
+<span class="hljs-comment"># You can comment with `;` or `#` if you want to, in Visual Studio Code, you can press `Ctrl + /` to comment selected lines, which will default with `;`</span>
+<span class="hljs-section">[Flags]</span>
+<span class="hljs-attr">NEW_FLAG</span>=<span class="hljs-literal">true</span>
+<span class="hljs-attr">ANOTHER_FLAG</span>=<span class="hljs-string">"Hello World"</span>
+
+<span class="hljs-section">[Custom Section]</span>
+<span class="hljs-attr">SECTION_PROPERTY</span>=<span class="hljs-string">"yellow"</span>
+</code></pre>
+<h4>NOTE: <a href="../../../api-docs/funkin/backend/system/Flags">Flags</a> does mention a <code class="inline-code">flags.ini</code> file, but this only activates if your Library isn't a <a href="../../../api-docs/funkin/backend/assets/IModsAssetLibrary">IModAssetsLibrary</a>, which will be the case for all your mods, unless you force load a mod from OpenFL's <a href="https://api.openfl.org/openfl/utils/AssetLibrary">AssetLibrary</a>. Otherwise you can just ignore that.</h4>
+<p></p><h2 id="state-redirects">State Redirects</h2><p></p>
+<p>This is something that you will be most likely using a LOT, as the reason it exists in the engine directly was because of a simple Global Script code that would automatically override State's to Redirect them to your own custom state.</p>
+<p>It was so useful that almost every project contained the same code, it was even featuered in this wiki under the old <code class="inline-code">Useful script snippets for modders</code> section.</p>
+<p>You can redirect ANY state by inputting the Class Name, and setting it to a string that points to either a new Class State, or a ModState Script!</p>
+<pre class="hljs"><code class="language-ini"><span class="hljs-section">[StateRedirects]</span>
+<span class="hljs-attr">TitleState</span>=<span class="hljs-string">"funkin.menus.MainMenuState"</span>
+<span class="hljs-attr">StoryMenuState</span>=<span class="hljs-string">"MyCustomState"</span>
+</code></pre>
+<p>Using <code class="inline-code">StateRedirects.force</code> is reserved for Addons, but using it in mods is the same as using <code class="inline-code">StateRedirects</code>. Will override any <code class="inline-code">StateRedirects</code> set by other Mods.</p>
+<p></p><h2 id="discord-config">Discord Configuration</h2><p></p>
+<p>If you are migrating from Legacy to v1.0.0 or above, your old <code class="inline-code">config/discord.json</code> will still work, but if not, I recommend you use <code class="inline-code">modpack.ini</code> instead, for consistency.</p>
+<p>If you do not know how to setup Discord Intergration, we will go over it in this section. Otherwise you can skip this.
+</p><details>
+<summary>⚙️ Discord Intergration</summary><p></p>
+<p>Codename Engine allows modpacks to configure <strong>Discord Rich Presence</strong> integration. This is the main component that allows displaying the game being currently played by a user on Discord.</p>
+<p>Assuming that <a href="https://discord.com/developers/applications">you've already created the Discord application for the modpack</a>, you'll see the <strong>Application ID</strong>. This is adjacent to the <code class="inline-code">CLIENT_ID</code> flag in the <code class="inline-code">Discord</code> section. Copy the application ID into the flag to allow Codename to recognize your Discord application.</p>
+<p>Art assets can be added to the application for Rich Presence by navigating to the Rich Presence menu on the sidebar, and adding the asset you need.</p>
+<h4>Do note that the modpack configuration only supports the large image key, so you only need to add a single asset.</h4>
+<p>Once you've added your asset, preferably following <a href="https://discord.com/developers/docs/rich-presence/overview#adding-custom-art-assets">Discord's recommendations</a>,
+you can use the Rich Presence visualizer to use your asset and display it as the large image key. You can then place the name of the asset key as the value of the <code class="inline-code">Discord</code> section's <code class="inline-code">LOGO_KEY</code> flag.</p>
+<p>The <code class="inline-code">large image text</code> is the tooltip text displayed upon hovering over it with your mouse. You can set this using the <code class="inline-code">LOGO_TEXT</code> flag
+like the other two flags.</p>
+<p>Here is what your <code class="inline-code">modpack.ini</code> should look like</p>
+<pre class="hljs"><code class="language-ini"><span class="hljs-section">[Discord]</span> <span class="hljs-comment"># This section applies the 'MOD_DISCORD_' prefix to the flags so you don't have to.</span>
+<span class="hljs-attr">CLIENT_ID</span>=<span class="hljs-string">"&lt;MY CLIENT ID FROM Discord Developer Portal&gt;"</span>
+<span class="hljs-attr">LOGO_KEY</span>=<span class="hljs-string">"&lt;Logo image name&gt;"</span>
+<span class="hljs-attr">LOGO_TEXT</span>=<span class="hljs-string">"Hey guys! Look im text!!"</span>
+</code></pre>
+<p>Do note that the modpack configuration isn't the only way to configure Discord Rich Presence. Although fairly undocumented, <strong><a href="../../../api-docs/funkin/backend/utils/DiscordUtil">DiscordUtil</a></strong> provides additional options for setting up Discord Rich Presence, but requires scripting.</p>
+<p></p></details><p></p>
+<p></p><h2 id="miscellaneous-config">Miscellaneous Information</h2><p></p>
+<p>As of right now, <code class="inline-code">MOD_ICON</code>, <code class="inline-code">ICON</code>, <code class="inline-code">DOWNLOAD_LINK</code> do nothing. There are plans in the future to use these configuration, but they are not required.</p>
+
+
+			<div class="info">
+				<div class="written">Written by: ItsLJcool &amp; rufius</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T08:32:42.773Z">2025-11-15</span></div>
+
+				<div class="github-edit-button">
+					<a href="https://github.com/CodenameCrew/codename-website/tree/main/wiki/modding/config.md">Edit this page on GitHub</a>
+				</div>
+			</div>
+
+			<div class="giscus"></div>
+			<div class="giscus-frame"></div>
+
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/config" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			</script>
+		</div>
+	</div>
+
+	<script src="/wiki.js"></script>
+
+</body></html>

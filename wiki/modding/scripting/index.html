@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modding The Engine - Scripting - Codename Engine Wiki</title>
+	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/style_v2.css">
+	<link rel="stylesheet" href="/wiki.css">
+
+	<meta name="title" content="Modding The Engine - Scripting - Codename Engine Wiki">
+	<meta name="description" content="Introduction on how Scripting works in your Library">
+	<meta property="og:description" content="Introduction on how Scripting works in your Library">
+	<meta property="twitter:description" content="Introduction on how Scripting works in your Library">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codename-engine.com/">
+	<meta property="og:title" content="Modding The Engine - Scripting - Codename Engine Wiki">
+	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://codename-engine.com/">
+	<meta property="twitter:title" content="Modding The Engine - Scripting - Codename Engine Wiki">
+	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
+
+	<meta name="theme-color" content="#b265bd">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<meta name="apple-mobile-web-app-title" content="Codename">
+	<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+	<div class="header" id="main">
+		<header>
+    <a href="/">
+        <img src="/img/logo-banner.png" alt="Codename Logo" class="desktop">
+        <img src="/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
+    </a>
+    <h2 class="header-title">Modding The Engine - Scripting</h2>
+    <div>
+        <a href="/api-docs/">API</a><a href="/wiki/">Wiki</a><a href="/tools/">Tools</a>
+    </div>
+</header>
+	</div>
+	<div class="container">
+		<div class="sidebar-wrapper">
+			<input type="checkbox" class="sidebar-button">
+			<span class="sidebar-button-front">
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="20" rx="10"></rect>
+					<rect y="30" width="100" height="20" rx="10"></rect>
+					<rect y="60" width="100" height="20" rx="10"></rect>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path stroke="#000" d="M195 195a64 64 0 0 1 91 0l226 227 226-227a64 64 0 0 1 91 91L602 512l227 226a64 64 0 0 1-91 91L512 602 286 829a64 64 0 0 1-91-91l227-226-227-226a64 64 0 0 1 0-91z"></path></svg>
+			</span>
+			<div class="sidebar">
+				<ul class="sidebar-unordered-list">
+					<li class="sidebar-list-item even"><a href="/wiki/" class="even">Home</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/differences" class="odd">Differences between other FNF engines</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/usage" class="even">How does one use the engine?</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/faq" class="odd"><span style="color: #43a1aa;">FAQ</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/troubleshooting" class="even">Troubleshooting - <span style="color: #32e53a;">(Updated)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/" class="odd">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/config" class="even">Configuration</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/libraries" class="odd">OpenFL's AssetLibrary</a></li>
+<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Scriping (Softcoding) - <span style="color: #d4b528;">(23% Complete)</span></a><ul class="sidebar-unordered-list even pagination">
+</ul>
+<ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/events" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/global" class="even">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/classes" class="odd">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/" class="even">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/chart" class="odd">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/character" class="even">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/stage" class="odd">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/alphabet" class="even">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/custom" class="odd">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/hxvlc" class="even">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/shaders" class="even">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/3d/" class="even">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/source/init" class="even">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<h1>HScript, Haxe, Lua, what's the difference?</h1>
+<p>If your familiar with Lua (or Psych Lua) you are probably familiar with coding already, but it's recommended you actually get close and understand Haxe, as <strong>most</strong> things in Codename Engine will require you to make your own solution.</p>
+<p>The differences between both languages is very clear.</p>
+
+<details>
+    <summary>Here is a small script side by side in Lua, then Haxe.</summary>
+<div style="display: flex; justify-content: center; gap: 25px;">
+<pre class="hljs"><code class="language-lua">greeting = <span class="hljs-string">"hi"</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span></span>
+    ending = <span class="hljs-string">" chat!"</span>
+    
+    <span class="hljs-built_in">print</span>(greeting + ending)
+    <span class="hljs-comment">-- this is a comment!</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> <span class="hljs-attr">greetings</span>:<span class="hljs-title class_">String</span> = <span class="hljs-string">"hi"</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">var</span> <span class="hljs-attr">ending</span>:<span class="hljs-title class_">String</span> = <span class="hljs-string">" chat!"</span>;
+    <span class="hljs-comment">// or you can do trace('$greetings$ending'); because of string interpolation.</span>
+    <span class="hljs-title function_">trace</span>(greetings + ending);
+    <span class="hljs-comment">// this is a comment!</span>
+}
+</code></pre>
+</div>
+</details>
+
+<p>From now on, we will use <strong>"HScript"</strong> to refer to the Programming Language Codename Engine uses. It's the same programming language as Haxe, though HScirpt has the fun property of not being standardized (also the fact that Codename Engine has it's own <strong><a href="https://github.com/CodenameCrew/hscript-improved/tree/codename-dev">hscript-improved</a></strong> branch that Codename Engine uses).</p>
+<p>So really your learning a new language that is based of the Syntax of Haxe. Reading Haxe documentation is worth it because then you have parity between writing code in <strong>[Source Code]</strong> and in HScript.</p>
+<p>Here is relevant links to the Haxe / HaxeFlixel documentation and creating your first game in Haxe!</p>
+<ul>
+<li><a href="https://haxe.org/manual/introduction">Introduction - Haxe - The Cross-platform Toolkit</a></li>
+<li><a href="https://haxeflixel.com/documentation/hello-world/">Hello World | HaxeFlixel - 2D Game Engine</a></li>
+</ul>
+<h3>Why is learning Haxe / HaxeFlixel even suggested? I want to make FNF mods, not games!!</h3>
+<p>Here is an analagy, and an explanation.<br>
+Imagine this; You want to get into music <em>(or even produce an album)</em> and you want to create sick beats. If you just place down notes in FL Studio randomly <em>(or in somewhat good tones)</em>, you will just create audio that is barely passing as music.</p>
+<p>Yes, it will get the job done, you made music! Many people won't to listen to it, <strong>you</strong> might not want to listen to it because it's missing the key properties of Music Theory.</p>
+<p>What's Music Theory? You don't know! You never took the opportunity to look into it. If you really wanted to release music that is listenable you should at least understand a little about the topic you are working in.</p>
+<p>This applies to Codename Engine in the same way. The <strong><em>entire</em></strong> engine is based around Haxe and Flixel.<br>
+Scripting code to your desired specifications, using the engine that is built from the same Syntax / Language to execute things for you, handle default specifications, allowing you to depend on pre-existing code, not thinking about how it all works, just know it does what you'd expect.</p>
+<p>That is the complexity of Codename Engine, it's built for you to customize every aspect of the base Friday Night Funkin' experience, or you can just completely override everything and code Pong and Tetris for no reason.</p>
+<p>More control to you, requires you to understand the problems and issues yourself.</p>
+<p>This isn't an essay saying "YOU SHOULD ONLY USE HAXE AND NOTHING ELSE!!! YOU NEED TO KNOW EVERYTHING!!!", it's about reminding you that this engine is built around Scripting, so to do many things the engine doesn't provide by default you'll need to implement yourself, and to note that less control = less freedom = less creativity.</p>
+<h2>Before we get Scripting</h2>
+<p>It is recommended that you have the console open while developing scripts, as it displays any errors your scripts may have thrown and helps you in pointing what part of your code had thrown the error.<br>
+Pressing <u><code class="inline-code">F2</code></u> will open up the console if it's not opened, and <u>pressing it again will clear the console.</u></p>
+<p>It is also important to note that Flixel debugging is mostly accurate, but there are some cases when it comes down to HScript, or just flixel being stupid and lies to you.</p>
+
+<h1>Intro to Scripting</h1>
+<p>When creating a script, the name of the file does not matter, unless Codename Engine specifcally looks for a script in that location.<br>
+Codename Engine supports the <code class="inline-code">.hx</code>, <code class="inline-code">.hscript</code>, <code class="inline-code">.hsc</code>, and <code class="inline-code">.hsx</code> file extensions. The <code class="inline-code">.lua</code> file extension is checked, but only to let the <u>user know that Lua is not supported.</u></p>
+<p>You can place this file anywhere, but common practice is usually in <code class="inline-code">./data/scripts/</code>. You can also make <u>sub-folders</u> for more organization.<br>
+Once your file is created, you can open the file in your editor and code from there.</p>
+
+<details>
+    <summary>Here will list out common file paths that Codename Engine checks by default for various things.</summary>
+<ul>
+<li><p><code class="inline-code">./songs/</code><br>
+Any script here will load when <u><strong>any</strong></u> song is loaded. Known as the <u>Global Song Scripts</u><br>
+See the <strong><a href="./playstate">PlayState</a></strong> documentation for more info.</p></li>
+<li><p><code class="inline-code">./songs/[SONG NAME]/scripts/</code><br>
+Any script in your song folder in the designated <code class="inline-code">scripts/</code> folder will only load when that song is selected. Known as the <u>Song Script</u><br>
+See the <strong><a href="./playstate">PlayState</a></strong> documentation for more info.</p></li>
+<li><p><code class="inline-code">./data/global.hx</code><br>
+When creating a script name called <code class="inline-code">global</code> in <code class="inline-code">./data/</code>, it will load the script when your mod first loads up, and is always active. Known as the <u><strong><a href="./global">Global Script</a></strong></u></p></li>
+<li><p><code class="inline-code">./data/discord.hx</code><br>
+When creating a script named <code class="inline-code">discord</code> in <code class="inline-code">./data/</code>, it will load when Discord initalizes and will call various functions</p></li>
+<li><p><code class="inline-code">./data/characters/[CHARACTER NAME].hx</code><br>
+This script will load whenever the respective character is also created, and is bounded to the <code class="inline-code">Character</code> class. It is seperate from <strong><a href="./playstate">PlayState</a></strong> altogether. Known as the <u>Character Script</u></p></li>
+<li><p><code class="inline-code">./data/events/[CUSTOM EVENT NAME].hx</code><br>
+See the <strong><a href="./events">Events</a></strong> documentation for more information.</p></li>
+<li><p><code class="inline-code">./data/stages/[STAGE NAME].hx</code><br>
+When creating a Script with the same name as your <strong>[Stage]</strong> XML, it will load when the stage also loads. Known as the <u>Stage Script</u></p></li>
+<li><p><code class="inline-code">./data/states/</code><br>
+See the <strong><a href="./states">States</a></strong> documentation for more information.</p></li>
+<li><p><code class="inline-code">./source/</code>
+Any script here will be classified for <strong><a href="./classes">Custom Classes</a></strong></p></li>
+</ul>
+<p></p></details><p></p>
+
+
+<p>Next steps in learning the In-and-out's of HScript</p>
+<ul>
+<li><a href="./features">[NEXT] Features</a></li>
+<li><a href="./style">Formatting, and Basic Syntax</a></li>
+<li><a href="./events">Event Callbacks</a></li>
+<li><a href="./playstate">PlayState Interaction</a></li>
+<li><a href="./states">Custom States / SubStates</a></li>
+<li><a href="./global">Global Script</a></li>
+<li><a href="./classes">Custom Classes</a></li>
+</ul>
+
+
+			<div class="info">
+				<div class="written">Written by: ItsLJcool</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-02-01T02:16:06.176Z">2026-02-01</span></div>
+
+				<div class="github-edit-button">
+					<a href="https://github.com/CodenameCrew/codename-website/tree/main/wiki/modding/scripting/index.md">Edit this page on GitHub</a>
+				</div>
+			</div>
+
+			<div class="giscus"></div>
+			<div class="giscus-frame"></div>
+
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/scripting/index" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			</script>
+		</div>
+	</div>
+
+	<script src="/wiki.js"></script>
+
+</body></html>

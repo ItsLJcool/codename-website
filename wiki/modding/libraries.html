@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modding The Engine - AssetLibrary - Codename Engine Wiki</title>
+	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/style_v2.css">
+	<link rel="stylesheet" href="/wiki.css">
+
+	<meta name="title" content="Modding The Engine - AssetLibrary - Codename Engine Wiki">
+	<meta name="description" content="Basic and (somewhat) Advanced explanation on how AssetLibrary's work.">
+	<meta property="og:description" content="Basic and (somewhat) Advanced explanation on how AssetLibrary's work.">
+	<meta property="twitter:description" content="Basic and (somewhat) Advanced explanation on how AssetLibrary's work.">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codename-engine.com/">
+	<meta property="og:title" content="Modding The Engine - AssetLibrary - Codename Engine Wiki">
+	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://codename-engine.com/">
+	<meta property="twitter:title" content="Modding The Engine - AssetLibrary - Codename Engine Wiki">
+	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
+
+	<meta name="theme-color" content="#b265bd">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<meta name="apple-mobile-web-app-title" content="Codename">
+	<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+	<div class="header" id="main">
+		<header>
+    <a href="/">
+        <img src="/img/logo-banner.png" alt="Codename Logo" class="desktop">
+        <img src="/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
+    </a>
+    <h2 class="header-title">Modding The Engine - AssetLibrary</h2>
+    <div>
+        <a href="/api-docs/">API</a><a href="/wiki/">Wiki</a><a href="/tools/">Tools</a>
+    </div>
+</header>
+	</div>
+	<div class="container">
+		<div class="sidebar-wrapper">
+			<input type="checkbox" class="sidebar-button">
+			<span class="sidebar-button-front">
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="20" rx="10"></rect>
+					<rect y="30" width="100" height="20" rx="10"></rect>
+					<rect y="60" width="100" height="20" rx="10"></rect>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path stroke="#000" d="M195 195a64 64 0 0 1 91 0l226 227 226-227a64 64 0 0 1 91 91L602 512l227 226a64 64 0 0 1-91 91L512 602 286 829a64 64 0 0 1-91-91l227-226-227-226a64 64 0 0 1 0-91z"></path></svg>
+			</span>
+			<div class="sidebar">
+				<ul class="sidebar-unordered-list">
+					<li class="sidebar-list-item even"><a href="/wiki/" class="even">Home</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/differences" class="odd">Differences between other FNF engines</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/usage" class="even">How does one use the engine?</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/faq" class="odd"><span style="color: #43a1aa;">FAQ</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/troubleshooting" class="even">Troubleshooting - <span style="color: #32e53a;">(Updated)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/" class="odd">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/config" class="even">Configuration</a></li>
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">OpenFL's AssetLibrary</a><ul class="sidebar-unordered-list odd pagination">
+<li><a href="#what-is-a-library">What is a Library?</a></li>
+<li><a href="#should-i-care">Why should I care?</a></li>
+<li><a href="#scripted-asset-library">ScriptedAssetLibrary</a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(23% Complete)</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/events" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/global" class="even">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/classes" class="odd">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/" class="even">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/chart" class="odd">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/character" class="even">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/stage" class="odd">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/alphabet" class="even">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/custom" class="odd">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/hxvlc" class="even">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/shaders" class="even">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/3d/" class="even">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/source/init" class="even">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<h1>AssetLibrary, ScriptedAssetLibrary, ModsFolderLibrary, etc</h1>
+<p>This section isn't Codename Engine specific, but it is still relevant to how you make your Codename Engine Mods.</p>
+<h2>⚠️ Warning ⚠️</h2>
+<p>If you do not care about the in-depth explanation, or care about Library's you are free to skip this section, although there is some things to note before doing so.</p>
+<p>From now on, we will be referencing your Mod as some of the following:</p>
+<ul>
+<li>Mod Library</li>
+<li>ModsFolderLibrary</li>
+<li>Library</li>
+<li>Custom Library</li>
+<li>Compressed Library</li>
+</ul>
+<p>This is because your entire mod is based around the <strong><a href="../../../api-docs/funkin/backend/assets/ModsFolderLibrary">ModsFolderLibrary</a></strong>, which is an extension of <strong><a href="https://api.openfl.org/openfl/utils/AssetLibrary">AssetLibrary</a></strong>. If you wish to fully understand the concept, this guide will attempt to explain it as simple as possible.</p>
+<p>It is reccomended you read this section, as it will help you better understand how to use your Modpack to the fullest, using the engine to it's fullest.</p>
+<p></p><h2 id="what-is-a-library">What is a Library?</h2><p></p>
+<p>In this context, a Library is literally what you'd expect it to mean. It's just a class you interact to get Assets from. You can think of it being a folder, and all of it's contents are indexed by the folder's location.</p>
+<p>For example, if you want to path to a file like <code class="inline-code">./images/stages/stage.png</code>, you would do <code class="inline-code">Library.getPath('assets/images/stages/stage.png')</code>. This would return the file's location based on the context of where your library wants to locate for your files.</p>
+<p>To Haxe, usually you want the absolute path relative to your project's root, which is prefixed by the common <code class="inline-code">./</code>. In Codename Engine's case, it will return the path in the mod's folder. <code class="inline-code">./mods/My Mod/images/stages/stage.png</code>.</p>
+<h3>Why does it return <code class="inline-code">assets/My Mod/images/stages/stage.png</code> when debugging?</h3>
+<p>This is because of Manifests. All you need to know for Modding purposes, is because AssetLibrary just needs the relative path to the file from <code class="inline-code">./assets/</code>.</p>
+<p>Since the Library already knows where the folder is located, and because of some black magic that we don't care about right now, you must path from the <code class="inline-code">./assets/</code> folder.</p>
+<p></p><h2 id="should-i-care">Why should I care about AssetLibrary?</h2><p></p>
+<p>You really shouldn't, unless you are wanting to make support for either addons, other mods, etc. Though, any <strong>Compressed Library's</strong> (i.e. ZipFolderLibrary) you really need to care about, because all of your assets are compressed. Meaning you can't access your data unless you decompress it.</p>
+<p>This is mainly why you should at least understand the bare concept of Library's, because of the things you can do with them.</p>
+<p></p><h2 id="scripted-asset-library">ScriptedAssetLibrary</h2><p></p>
+<p>This section, is for advanced information. You are not required to understand or know this.</p>
+<p>In simple terms, A <strong><a href="../../../api-docs/funkin/backend/assets/ScriptedAssetLibrary">ScriptedAssetLibrary</a></strong> is a <strong><a href="../../../api-docs/funkin/backend/assets/ModsFolderLibrary">ModsFolderLibrary</a></strong> that attaches a script for you to control and path to any files the way you want.</p>
+<p>You can have your own Library for handling how you decode assets, audio, etc. It's not exactly useful for most applications, but it does exist and has niche uses.</p>
+<p>For example, you can make it so when the library is loaded by a mod, it will use that image for EVERY asset imaginable.</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">import</span> sys.<span class="hljs-property">FileSystem</span>;
+<span class="hljs-keyword">import</span> haxe.<span class="hljs-property">io</span>.<span class="hljs-property">Path</span>;
+
+<span class="hljs-keyword">import</span> funkin.<span class="hljs-property">backend</span>.<span class="hljs-property">assets</span>.<span class="hljs-property">ModsFolder</span>;
+<span class="hljs-keyword">import</span> funkin.<span class="hljs-property">backend</span>.<span class="hljs-property">scripting</span>.<span class="hljs-property">Script</span>;
+
+using <span class="hljs-title class_">StringTools</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">prefix</span> = <span class="hljs-string">"assets/"</span>; <span class="hljs-comment">// you are basically required to have this, not sure how else you can use this. By default it's `"assets/"` iirc.</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">folderPath</span> = <span class="hljs-title class_">ModsFolder</span>.<span class="hljs-property">modsPath</span> + <span class="hljs-title class_">ModsFolder</span>.<span class="hljs-property">currentModFolder</span>; <span class="hljs-comment">// we define from the `./` (asset path) where the folder is for the assets!</span>
+    
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"Hello! I'm a ScriptedAssetLibrary!"</span>);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">__parseAsset</span>(<span class="hljs-params">asset:<span class="hljs-built_in">String</span></span>):<span class="hljs-title class_">Bool</span> {
+    <span class="hljs-keyword">if</span> (!asset.<span class="hljs-title function_">startsWith</span>(prefix)) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-comment">// `_parsedAsset` is our current file we are parsing 👀</span>
+    _parsedAsset = asset.<span class="hljs-title function_">substr</span>(prefix.<span class="hljs-property">length</span>); <span class="hljs-comment">// remove the prefix for local file appendix</span>
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-title class_">ModsFolder</span>.<span class="hljs-property">useLibFile</span>) { <span class="hljs-comment">// We check if the file has `LIB_` appended to the file structure... idfk why this exists tbh</span>
+        <span class="hljs-keyword">var</span> file = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Path</span>(_parsedAsset);
+        <span class="hljs-keyword">if</span> (file.<span class="hljs-property">file</span>.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">"LIB_"</span>)) {
+            <span class="hljs-keyword">var</span> library = file.<span class="hljs-property">file</span>.<span class="hljs-title function_">substr</span>(<span class="hljs-number">4</span>); <span class="hljs-comment">// removes `LIB_` from the path</span>
+            <span class="hljs-keyword">if</span> (library != modName) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// if the library isn't our current then dont gaf I guess lol</span>
+
+            _parsedAsset = <span class="hljs-string">'${file.dir}.${file.ext}'</span>;
+        }
+    }
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Path</span>.<span class="hljs-title function_">extension</span>(_parsedAsset) == <span class="hljs-string">"png"</span>) {
+        <span class="hljs-keyword">for</span> (item <span class="hljs-keyword">in</span> _parsedAsset.<span class="hljs-title function_">split</span>(<span class="hljs-string">"/"</span>)) <span class="hljs-keyword">if</span> (item == <span class="hljs-string">"2.png"</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        _parsedAsset = <span class="hljs-string">"images/hi.png"</span>;
+    }
+
+    <span class="hljs-keyword">return</span> (<span class="hljs-title class_">FileSystem</span>.<span class="hljs-title function_">exists</span>(<span class="hljs-title function_">getAssetPath</span>()));
+}
+</code></pre>
+<p>This script, if loaded as a <code class="inline-code">ScriptedAssetLibrary</code>, will make any asset that ends with a <code class="inline-code">.png</code> extension, will path towards <code class="inline-code">images/hi.png</code>.</p>
+<p>The reason we have to split the <code class="inline-code">_parsedAsset</code> by <code class="inline-code">/</code> is since Codename Engine supports multi-atlas sprites (i.e <code class="inline-code">images/characters/bf/1.png</code>, <code class="inline-code">images/characters/bf/2.png</code>, etc), and we know this temp image isn't a multi-atlas sprite, we need to account for Codename Engine not knowing that.</p>
+<p>Since in this example, we are telling Codename Engine any extension with <code class="inline-code">.png</code> is always existing in this location, it will do it's shenanigans and try to check if other assets exist, making an infinite loop.</p>
+<p>Usually, you won't need to worry about that. 99.99% of the time your not going to just lie to the engine when handling paths.</p>
+<p></p><details>
+<summary>If you want to see what this code produces, here:</summary><p></p>
+<div style="display: flex; justify-content: center; gap: 15px;">
+    <img src="../images/library/Example Script 1.png" alt="Freeplay." style="width:50%;">
+    <img src="../images/library/Example Script 2.png" alt="Yes, this is UGH." style="width:50%;">
+</div>
+</details>
+
+
+			<div class="info">
+				<div class="written">Written by: ItsLJcool</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+
+				<div class="github-edit-button">
+					<a href="https://github.com/CodenameCrew/codename-website/tree/main/wiki/modding/libraries.md">Edit this page on GitHub</a>
+				</div>
+			</div>
+
+			<div class="giscus"></div>
+			<div class="giscus-frame"></div>
+
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/libraries" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			</script>
+		</div>
+	</div>
+
+	<script src="/wiki.js"></script>
+
+</body></html>

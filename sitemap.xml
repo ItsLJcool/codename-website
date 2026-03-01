@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://codename-engine.com/</loc>
+  <priority>1</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/faq</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/troubleshooting</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/differences</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/usage</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/config</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/hxvlc</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/libraries</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/source/</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/source/init</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/advanced/</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/advanced/ndll</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/advanced/shaders</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/editors/alphabet</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/editors/character</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/editors/chart</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/editors/custom</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/editors/</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/editors/stage</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/classes</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/events</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/features</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/global</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/playstate</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/states</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/style</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/advanced/3d/</loc>
+  <priority>0.65</priority>
+</url>
+</urlset>

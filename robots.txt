@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /404.html
+
+User-agent: *
+Allow: /
+
+Sitemap: https://codename-engine.com/sitemap.xml

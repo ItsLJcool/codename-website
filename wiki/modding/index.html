@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modding The Engine - Softcoding - Codename Engine Wiki</title>
+	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/style_v2.css">
+	<link rel="stylesheet" href="/wiki.css">
+
+	<meta name="title" content="Modding The Engine - Softcoding - Codename Engine Wiki">
+	<meta name="description" content="Basic tutorial on how to setup and initalize your own mod!.">
+	<meta property="og:description" content="Basic tutorial on how to setup and initalize your own mod!.">
+	<meta property="twitter:description" content="Basic tutorial on how to setup and initalize your own mod!.">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codename-engine.com/">
+	<meta property="og:title" content="Modding The Engine - Softcoding - Codename Engine Wiki">
+	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://codename-engine.com/">
+	<meta property="twitter:title" content="Modding The Engine - Softcoding - Codename Engine Wiki">
+	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
+
+	<meta name="theme-color" content="#b265bd">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<meta name="apple-mobile-web-app-title" content="Codename">
+	<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+	<div class="header" id="main">
+		<header>
+    <a href="/">
+        <img src="/img/logo-banner.png" alt="Codename Logo" class="desktop">
+        <img src="/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
+    </a>
+    <h2 class="header-title">Modding The Engine - Softcoding</h2>
+    <div>
+        <a href="/api-docs/">API</a><a href="/wiki/">Wiki</a><a href="/tools/">Tools</a>
+    </div>
+</header>
+	</div>
+	<div class="container">
+		<div class="sidebar-wrapper">
+			<input type="checkbox" class="sidebar-button">
+			<span class="sidebar-button-front">
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="20" rx="10"></rect>
+					<rect y="30" width="100" height="20" rx="10"></rect>
+					<rect y="60" width="100" height="20" rx="10"></rect>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path stroke="#000" d="M195 195a64 64 0 0 1 91 0l226 227 226-227a64 64 0 0 1 91 91L602 512l227 226a64 64 0 0 1-91 91L512 602 286 829a64 64 0 0 1-91-91l227-226-227-226a64 64 0 0 1 0-91z"></path></svg>
+			</span>
+			<div class="sidebar">
+				<ul class="sidebar-unordered-list">
+					<li class="sidebar-list-item even"><a href="/wiki/" class="even">Home</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/differences" class="odd">Differences between other FNF engines</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/usage" class="even">How does one use the engine?</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/faq" class="odd"><span style="color: #43a1aa;">FAQ</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/troubleshooting" class="even">Troubleshooting - <span style="color: #32e53a;">(Updated)</span></a></li>
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd pagination">
+<li><a href="#folder-structure">Folder Structure</a></li>
+</ul>
+<ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/config" class="even">Configuration</a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/libraries" class="odd">OpenFL's AssetLibrary</a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(23% Complete)</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/events" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/scripting/global" class="even">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/scripting/classes" class="odd">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/" class="even">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/chart" class="odd">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/character" class="even">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/stage" class="odd">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/editors/alphabet" class="even">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/editors/custom" class="odd">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/hxvlc" class="even">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/shaders" class="even">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/wiki/modding/advanced/3d/" class="even">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/wiki/source/init" class="even">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<h1>Modding The Engine - Softcoding</h1>
+<p>No matter what you do, editing the <code class="inline-code">./assets/</code> folder is not recommended, as it's used as your Backup folder / Mod if assets or data cannot be found, it will use the <code class="inline-code">./assets/</code> as a saftey catch. You should only make <code class="inline-code">Mods</code> in the <code class="inline-code">./mods/</code> folder.</p>
+<p>There is also an <code class="inline-code">./addons/</code> folder which is somewhat similar to the way <code class="inline-code">./mods/</code> works, but it has it's own set of rules and best practices to follow.</p>
+<h4>TODO: Add a link to know how to make an Addon.</h4>
+<h2>THIS IS NOT A GUIDE FOR SOURCE MODDING!!</h2>
+<p>If you want to know how to make a Mod in Source, [TODO: Write a Doc.md for seting up a Source Project and link it from here!]</p>
+<h2 id="folder-structure">How should I structure my folders</h2>
+<p>For starters, this is what an average Mod Folder will contain. We will go over some folders that require more explanation later.
+</p><details>
+<summary>Click to expand</summary><p></p>
+<pre class="hljs"><code class="language-text">└─ 📂 My Mod/                                
+   ├─ 📂 data/                                # Usually contains configuration, or information you want to store.
+   │  ├─ 📂 characters/                       # Contains your Character's XML data.
+   │  ├─ 📂 config/                           # Configuration stuff.
+   │  │  └─ 📄 modpack.ini                   
+   │  ├─ 📂 dialogue/                        
+   │  │  ├─ 📂 boxes/                        
+   │  │  └─ 📂 characters/                   
+   │  ├─ 📂 events/                           # Contains your Custom Events.
+   │  │  ├─ 📄 Example Event.hx              
+   │  │  ├─ 📄 Example Event.json            
+   │  │  └─ 📄 Example Event.ui.hx           
+   │  ├─ 📂 library/                          # This is where you put Scripts for ScriptedAssetLibrary! We Will go over this later.
+   │  ├─ 📂 notes/                            # Custom NoteType Scripts (And adds them in the Charter!)
+   │  │  └─ 📄 Example Note.hx               
+   │  ├─ 📂 splashes/                        
+   │  ├─ 📂 stages/                           # Where your Stage `.xml` and/or `.hx` file for your stage is located.
+   │  ├─ 📂 states/                           # Scripts that run when States are switched to, or when loading a ModState!
+   │  ├─ 📂 titlescreen/                     
+   │  ├─ 📂 weeks/                           
+   │  │  ├─ 📂 weeks/                        
+   │  │  │  ├─ 📄 Example Week.xml           
+   │  │  │  └─ 📂 characters/                
+   │  │  ├─ 📂 characters/                   
+   │  │  │  └─ 📄 Example Character.xml      
+   │  │  └─ 📄 weeks.txt                     
+   │  └─ 📄 global.hx                         # This script runs all the time, above any state switching, and never deloads (unless you switch mods).
+   ├─ 📂 fonts/                              
+   ├─ 📂 images/                             
+   │  ├─ 📂 characters/                       # Contains your Character Spritesheet `.png` and `.xml` Animation.
+   │  ├─ 📂 game/                             # Stuff usually found for global PlayState graphics.
+   │  ├─ 📂 icons/                            # Where your Character's icons will be located.
+   │  └─ 📂 stages/                           # Images of your stage can go here, but it's not required.
+   ├─ 📂 languages/                           # Custom Languages support for your mod!
+   │  └─ 📂 en/                               # The language you want to edit / create
+   │     ├─ 📄 config.ini                    
+   │     ├─ 📄 Editors.xml                   
+   │     ├─ 📄 Main.xml                      
+   │     └─ 📄 Options.xml                   
+   ├─ 📂 music/                              
+   ├─ 📂 shaders/                            
+   ├─ 📂 songs/                               # Where songs are located, along with charts, events, scripts, audio, meta, etc.
+   │  ├─ 📄 Example Global Song Script.hx     # Scripts inside the `./songs/` folder will load for every song.
+   │  └─ 📂 example-song-here/               
+   │     ├─ 📂 charts/                       
+   │     │  └─ 📄 hard.json                  
+   │     ├─ 📂 song/                          # Supports `Inst.ogg` / `Voices.ogg` and suffixes like `-bf`. Also supports difficulties.
+   │     │  ├─ 📄 Inst.ogg                   
+   │     │  ├─ 📄 Inst-hard.ogg              
+   │     │  ├─ 📄 Voices-bf.ogg              
+   │     │  ├─ 📄 Voices-bf-hard.ogg         
+   │     │  ├─ 📄 Voices-dad.ogg             
+   │     │  └─ 📄 Voices-dad-hard.ogg        
+   │     ├─ 📂 scripts/                       # Scripts loaded for this specific song.
+   │     ├─ 📄 events.json                   
+   │     └─ 📄 meta.json                     
+   ├─ 📂 sounds/                             
+   ├─ 📂 source/                              # Custom Classes go here.
+   └─ 📂 videos/                             
+</code></pre>
+<h4>NOTE!</h4>
+<p>This might not be EVERYTHING, but it's a good chunk of the folders Codename Engine interacts with.
+</p></details><p></p>
+<p>Don't be scared by the amount of folders, usually you only mess with the <code class="inline-code">./songs/</code>, <code class="inline-code">./data/</code>, and <code class="inline-code">./images/</code> folders most of the time.
+<br>It's good to have a reference of what you can do at least, so this will be updated from time to time with new updates (hopefully 😭).</p>
+<h2>Sections</h2>
+<p>These areas will split up into their own sub-pages, and they will explain to you what each folder is for, what files you can add, and how to effectively use them.</p>
+<ul>
+<li><a href="./config">Configuration</a></li>
+<li><a href="./libraries">What is a "AssetLibrary"?</a></li>
+<li><a href="./scripting/index">Scripting</a>
+<ul>
+<li><a href="./scripting/features">Scripting Features</a></li>
+<li><a href="./scripting/style">Code Formatting / Style</a></li>
+<li><a href="./scripting/events">Events / Callbacks</a></li>
+<li><a href="./scripting/playstate">PlayState Scripting</a></li>
+<li><a href="./scripting/states">Custom States / SubStates</a></li>
+<li><a href="./scripting/global">Global Script(s)</a></li>
+<li><a href="./scripting/classes">Custom Classes</a></li>
+</ul></li>
+<li><a href="./editors/index">Editors Introduction</a>
+<ul>
+<li><a href="./editors/chart">Chart Editor</a></li>
+<li><a href="./editors/character">Character Editor</a></li>
+<li><a href="./editors/stage">Stage Editor</a></li>
+<li><a href="./editors/alphabet">Alphabet Editor...?</a></li>
+<li><a href="./editors/character">Custom Editors</a></li>
+</ul></li>
+<li><a href="./hxvlc.mdhxvlc">Using hxvlc for Videos</a></li>
+<li><a href="./advanced/index">Intro to Advanced Topics</a></li>
+</ul>
+<p>All of those above are for Softcoding, if you want to learn how to mod Source, you can check out the Introduction here</p>
+<ul>
+<li><a href="./source/index.md">Modding The Engine - Source</a></li>
+</ul>
+
+
+			<div class="info">
+				<div class="written">Written by: ItsLJcool</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+
+				<div class="github-edit-button">
+					<a href="https://github.com/CodenameCrew/codename-website/tree/main/wiki/modding/index.md">Edit this page on GitHub</a>
+				</div>
+			</div>
+
+			<div class="giscus"></div>
+			<div class="giscus-frame"></div>
+
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/index" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			</script>
+		</div>
+	</div>
+
+	<script src="/wiki.js"></script>
+
+</body></html>
