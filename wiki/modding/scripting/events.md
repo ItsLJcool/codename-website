@@ -10,11 +10,24 @@ Explain what [CancellableEvent](../../../api-docs/funkin/backend/scripting/event
 
 Also explain how you can use them for your applications!
 
+
+## Overriding Functionality
+`CancellableEvent` has a method known as `cancel()`, which is the HScript equivalent of a `Function_Stop` in PsychLua, which basically means that when called, that event stops doing what its supposed to do. May it be handling misses, the song ending/starting, and even pausing, if `cancel()` was called, the engine will not do those actions, allowing you to implement something else for that event.
+
+For example, to prevent the song from starting, you may call `cancel()` as shown below:
+```hx
+function onSongStart(e) {
+    e.cancel();
+}
+```
+
+
+
 <!-- 
 Was originally made for the chart editor but decided to just place it here. 
 -->
 ## Creating Custom Events
-As is with anything else in this engine, custom events may be created to aid with various stuff that happens in songs.
+As is with anything else in this engine, custom events may be created to aid with various stuff that happens in songs. They also inherit `CancellableEvent`, which means they may be overriden like other events.
 
 To create a custom event, place a `.json` and a `.hx` in the folder `data/events` in your mod folder. Ensure that the file names match.
 
