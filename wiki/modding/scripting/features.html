@@ -110,13 +110,121 @@
 		<div class="content">
 			<h1>TODO</h1>
 <p>Explain all the features scripts can use. (i.e getter / setter, enums, imports, using, etc.)</p>
-<h3>Differences between <code class="inline-code">Script</code> and <code class="inline-code">ScriptPack</code></h3>
-<p>When looking through the source, you might find that there is 2 commonly used Classes for Scripts</p>
-<h4>vvvv prob throw this into <code class="inline-code">features.md</code> vvvv</h4>
-<h3>Using anonymous structures</h3>
-<p>Anonymous structures are special objects that allow for storing multiple values in a key-value pair format, separated by commas in a format known as JSON (<strong>J</strong>ava<strong>s</strong>cript <strong>O</strong>bject <strong>N</strong>otation), which operates similarly to hashmaps / dictionaries with string keys. These allow you to fit a bunch of values in a format similar to objects.</p>
-<p>An anonymous structure looks like this:</p>
-<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> leStructure = {<span class="hljs-attr">username</span>: <span class="hljs-string">"mellowmeadow"</span>, <span class="hljs-attr">score</span>: <span class="hljs-number">300</span>, <span class="hljs-attr">accuracy</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">isValid</span>: <span class="hljs-literal">true</span>};
+<h1>Variables, and Functions</h1>
+<p>First, lets start off very basic. HScript provides 2 different ways to define a variable, but do note, <i>technically</i> it doesn't matter as they both are the same anyways.<br>
+To define a variable you can use the <code class="inline-code">var</code> and <code class="inline-code">final</code> keywords before the variable's name. You cannot have whitespace for variable names.</p>
+
+<div style="display: grid; justify-content: left;"> 
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> <span class="hljs-attr">myVariable</span>:<span class="hljs-title class_">Bool</span> = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">final</span> <span class="hljs-attr">my_final</span>:<span class="hljs-title class_">Bool</span> = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// Not valid syntax and will cause a Null Object Reference.</span>
+<span class="hljs-keyword">var</span> my cool <span class="hljs-attr">variable</span>:<span class="hljs-title class_">Bool</span> = <span class="hljs-literal">false</span>;
+</code></pre>
+</div>
+<h4>What is a <code class="inline-code">final</code>?</h4>
+<p>In Haxe, a final just tells the compiler you cannot change this variable during runtime. Think of it as a <code class="inline-code">constant</code> that cannot be changed.<br>
+In CodenameEngine this doesn't actually make it constant, <u>you can still modify <code class="inline-code">final</code> variables</u> but you can use the keyword to indicate you shouldn't modify the data.</p>
+<h2>Public &amp; Static ... &amp; Private?</h2>
+<p>Haxe basically forces you to use <code class="inline-code">public</code> or <code class="inline-code">private</code> keywords when making classes, in HScript you don't have access to the <code class="inline-code">private</code> keyword unless your using <strong><a href="./classes">Custom Classes</a></strong> but this keyword does not do anything it's just <u>sugar syntax.</u><br>
+You do have access to the <code class="inline-code">public</code> keyword, which do nothing in <a href="../../../api-docs/funkin/backend/scripting/Script"><code class="inline-code">Script</code></a>'s, but in any <a href="../../../api-docs/funkin/backend/scripting/ScriptPack"><code class="inline-code">ScriptPack</code></a>'s it will allow other scripts to access that variable / function.</p>
+<p>It doesn't "copy" the variable it references the original so you can modify from one script and read the change from another.</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">/* Script #1 */</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">var</span> <span class="hljs-attr">my_accessable_var</span>:<span class="hljs-title class_">Bool</span> = <span class="hljs-literal">true</span>;
+<span class="hljs-comment">// you cannot do this with `final` variables, may be fixed / changed in the future.</span>
+<span class="hljs-comment">// public final my_constant_var:Bool = false;</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">read_changes</span>(<span class="hljs-params"></span>):<span class="hljs-title class_">Void</span> {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">'my_accessable_var: $my_accessable_var'</span>);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">unreadable_function</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"This will never execute... :("</span>)
+}
+</code></pre>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">/* Script #2 */</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>):<span class="hljs-title class_">Void</span> {
+    my_accessable_var = <span class="hljs-literal">false</span>;
+    <span class="hljs-title function_">read_changes</span>(); <span class="hljs-comment">// "my_accessable_var: false"</span>
+    <span class="hljs-title function_">unreadable_function</span>() <span class="hljs-comment">// Null Object Reference. This is not defined in Script #2 so it will throw this error.</span>
+}
+</code></pre>
+</div>
+<p><strong>Functions</strong> are a bit different, all you need is the <code class="inline-code">function</code> keyword, then define the name. Then you can tell it what parameters it expects.</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>(<span class="hljs-params"></span>):<span class="hljs-title class_">Void</span> {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"Hey! Im a function!"</span>);
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">accessableFunction</span>(<span class="hljs-params">name:<span class="hljs-built_in">String</span></span>):<span class="hljs-title class_">Void</span> {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">'I am being accessed from $name!'</span>);
+}
+
+<span class="hljs-comment">/**
+    You are REQUIRED to have only optional parameters after the first optional parameter. You cannot have an optional before a non-optional parameter.
+    So `(param1, ?optional2, param3)` is an invalid statement. `param3` must be optional; `(param1, ?optional2,?param3)`
+**/</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">optionalParameters</span>(<span class="hljs-params">name:<span class="hljs-built_in">String</span>, ?log:Bool = <span class="hljs-literal">true</span>, ?some_other_arg:Dynamic</span>):<span class="hljs-title class_">Void</span> {
+    <span class="hljs-comment">// Because of Hscript shenanigans, even if you define a default type it will still be null if the function call doesn't contain the parameter.</span>
+    <span class="hljs-comment">// This will ensure the value is true if it's null. You will see this special setter later.</span>
+    log ??= <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">if</span> (!log) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// Return out of the function early.</span>
+
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">'Hey guys, $name here.'</span>);
+}
+</code></pre>
+</div>
+<h2>Type Defining</h2>
+<p>In haxe, you can declare types on variables and return types on functions. You cannot set that variable to a different Class Type unless it's a <code class="inline-code">Dynamic</code> / <code class="inline-code">Any</code> / <code class="inline-code">T</code> type.<br>
+This doesn't apply to HScript, <strong><u>every variable is <code class="inline-code">Dynamic</code></u></strong> no matter what, so defining variables with Types is only sugar syntax. I'd recommend you still do it for readability, though your not forced to define every variable.</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> <span class="hljs-attr">myTypedVariable</span>:<span class="hljs-title class_">FlxSprite</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlxSprite</span>();
+<span class="hljs-keyword">var</span> myUntypedVariable = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlxSprite</span>();
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
+    myTypedVariable = <span class="hljs-literal">true</span>;
+    myUntypedVariable = <span class="hljs-string">"Hi!"</span>
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">myReturnedTypeFunction</span>(<span class="hljs-params"></span>):<span class="hljs-title class_">String</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"Chat, im goated"</span>;
+}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">myUntypedReturnFunction</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"I love HScript!!"</span>;
+}
+</code></pre>
+</div>
+<p></p><details>
+<summary>Click this if you want your View of <b><u>HScript forever changed and even more confusing</u></b> 👀</summary><p></p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">/* Yes, this is VALID HScript Syntax */</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Sys</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">myCoolFunction</span>(<span class="hljs-params"></span>):<span class="hljs-title class_">String</span> { <span class="hljs-keyword">return</span> <span class="hljs-string">"So cool... I love this function"</span>; }
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {} <span class="hljs-comment">// to be able to modify this in the `new` function it must exist, otherwise we are setting a "non existent variable" lol.</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
+    myCoolFunction = () -&gt; <span class="hljs-keyword">return</span> <span class="hljs-string">"Blows up function with mind"</span>;
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">what</span>(<span class="hljs-params"></span>):<span class="hljs-title class_">String</span> { <span class="hljs-keyword">return</span> <span class="hljs-string">"My fucking function... :("</span>; }
+    what = <span class="hljs-string">":)"</span>;
+
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">'${myCoolFunction()} | $what'</span>); <span class="hljs-comment">// "Blows up function with mind | :)"</span>
+    create = () -&gt; <span class="hljs-title class_">Sys</span>.<span class="hljs-title function_">exit</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// will close the game if `create` is called 💖</span>
+}
+</code></pre>
+</div>
+<p></p></details>
+<br><p></p>
+<h1>Differences between <code class="inline-code">Script</code> and <code class="inline-code">ScriptPack</code></h1>
+<p>When looking through the source, you might find that there is 2 commonly used Classes for Scripts.</p>
+
+<h3>Anonymous Structures</h3>
+<p>Anonymous structures are objects that allow for storing multiple values in a key-value pair format, separated by commas. They are features of Haxe that provide data grouping in general. Keys must be regular Haxe identifiers, and values are dynamic. They are useful to share data around in a compact manner. Anonymous structures themselves are treated as dynamic values.</p>
+<p>Code-wise, structures look similar to JSON, called <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation. However, there are important distinctions between them: JSON objects are explicitly strings, including keys, while Haxe keys are regular identifiers and values are regular Haxe types. It is generally safe to serialize structures into JSON objects and deserialize structures from JSON objects, though.</p>
+<p>Anomyous structures generally look like this:</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> my_structure = {<span class="hljs-attr">username</span>: <span class="hljs-string">"mellowmeadow"</span>, <span class="hljs-attr">score</span>: <span class="hljs-number">300</span>, <span class="hljs-attr">accuracy</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">isValid</span>: <span class="hljs-literal">true</span>};
 </code></pre>
 <p>Haxe does not care about whitespaces, which means the above code may be changed to the below for readability purposes:</p>
 <pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> leStructure = {
