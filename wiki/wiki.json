@@ -7,12 +7,13 @@
     ["modding/index", "Modding The Engine - <span style='color: #d4b528;'>(33% Complete)</span>", [
         ["config", "Configuration"],
         ["libraries", "OpenFL's AssetLibrary"],
-        ["scripting/index", "Scriping (Softcoding) - <span style='color: #d4b528;'>(23% Complete)</span>", [
+        ["scripting/index", "Scriping (Softcoding) - <span style='color: #d4b528;'>(20% Complete)</span>", [
             ["features", "Features / Examples - UNFINISHED"],
             ["style", "Formatting, and Basic Syntax - UNFINISHED"],
-            ["events", "Event Callbacks - UNFINISHED"],
+            ["cancellables", "Event Callbacks - UNFINISHED"],
             ["playstate", "PlayState Interaction - UNFINISHED"],
             ["states", "Custom States / SubStates - <span style='color: #d4b528;'>(Semi-Complete)</span>"],
+            ["events", "Custom Events / Notetypes - <span style='color: #d4b528;'>(Semi-Complete)</span>"],
             ["global", "Global Script - UNFINISHED"],
             ["classes", "Custom Classes - UNFINISHED"]
         ]],
