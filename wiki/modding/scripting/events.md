@@ -80,16 +80,38 @@ function onEvent(e) {
     // code goes here
 }
 ```
+The early `return` is present as the callback is fired if ***any*** event is triggered. While it is true that one event may have one script only, you may also handle other events in this script.
+
 An important thing to note is that `e.event.params` returns an **array**, which means you will have to go back and forth between your script and your JSON, since the order of a parameter depends on where you put it in the JSON.
 
 ## The Icon
 Icons are not required, but it is suggested that you make one, especially if you intend to have others use your event, or if you're charting and have a lot of events. Icons should have a size of 16x16 pixels, and should be put in `/images/editors/charter/event-icons`. Make sure that the name for the icon matches the name of the event.
 
+# Creating Custom Notetypes
+The creation of custom notetypes is similar to how custom events are made, minus the JSON. You will need two files for this, your script file (the `.hx`), and your note sprites (the `.xml` and `.png`).
+
+## The Script
+Notetype scripts go to `/data/notes`.
+
+The minimal setup needed for notetype scripts looks like this:
+```hx
+function onPlayerHit(event) {
+    if (event.noteType != "name") return;
+    // code goes here
+}
+```
+The early `return` is also present here, as ***any*** note getting hit will fire it, which also includes normal notes. Similar to event scripts, one notetype may only have one script, but this script can also be used to handle other notetypes, including normal ones if you wish. 
+
+## The Sprites
+Note sprites go to `/images/game/notes`. If they are named after the notetype name, the sprites for these are automatically replaced.
+
+
 Next steps in learning the In-and-out's of HScript
 - [Features](./features.md)
-- [[PREV] Formatting, and Basic Syntax](./style.md)
-- [Event Callbacks](./events.md)
-- [[NEXT] PlayState Interaction](./playstate.md)
-- [Custom States / SubStates](./states.md)
-- [Global Script](./global.md)
+- [Formatting, and Basic Syntax](./style.md)
+- [Event Callbacks](./cancellables.md)
+- [PlayState Interaction](./playstate.md)
+- [[PREV] Custom States / SubStates](./states.md)
+- [Custom Events / Notetypes](./events.md)
+- [[NEXT] Global Script](./global.md)
 - [Custom Classes](./classes.md)

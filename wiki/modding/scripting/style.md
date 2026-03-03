@@ -11,8 +11,9 @@ Write and show how you can use Visual Studio Code to format, split chunks, and w
 Next steps in learning the In-and-out's of HScript
 - [[PREV] Features](./features.md)
 - [Formatting, and Basic Syntax](./style.md)
-- [[NEXT] Event Callbacks](./events.md)
+- [[NEXT] Event Callbacks](./cancellables.md)
 - [PlayState Interaction](./playstate.md)
 - [Custom States / SubStates](./states.md)
+- [Custom Events / Notetypes](./events.md)
 - [Global Script](./global.md)
 - [Custom Classes](./classes.md)

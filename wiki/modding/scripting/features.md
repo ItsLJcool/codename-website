@@ -64,8 +64,9 @@ FlxG.switchState(new ModState("ResultsScreen", {
 Next steps in learning the In-and-out's of HScript
 - [Features](./features.md)
 - [[NEXT] Formatting, and Basic Syntax](./style.md)
-- [Event Callbacks](./events.md)
+- [Event Callbacks](./cancellables.md)
 - [PlayState Interaction](./playstate.md)
 - [Custom States / SubStates](./states.md)
+- [Custom Events / Notetypes](./events.md)
 - [Global Script](./global.md)
 - [Custom Classes](./classes.md)

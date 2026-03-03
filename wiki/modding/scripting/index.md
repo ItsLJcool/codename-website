@@ -36,9 +36,9 @@ function create() {
 </details>
 <!-- #endregion -->
 
-From now on, we will use **"HScript"** to refer to the Programming Language Codename Engine uses. It's the same programming language as Haxe, though HScirpt has the fun property of not being standardized (also the fact that Codename Engine has it's own **[hscript-improved](https://github.com/CodenameCrew/hscript-improved/tree/codename-dev)** branch that Codename Engine uses).
+From now on, we will use **"HScript"** to refer to the programming language Codename Engine uses. It's the same programming language as Haxe, though HScirpt has the fun property of not being standardized (also the fact that Codename Engine has it's own **[hscript-improved](https://github.com/CodenameCrew/hscript-improved/tree/codename-dev)** branch that Codename Engine uses).
 
-So really your learning a new language that is based of the Syntax of Haxe. Reading Haxe documentation is worth it because then you have parity between writing code in **[Source Code]** and in HScript. 
+In essence, you're learning a new language that is based of the syntax of Haxe. Reading Haxe documentation is worth it because then you have parity between writing code in **[Source Code]** and in HScript. 
 
 Here is relevant links to the Haxe / HaxeFlixel documentation and creating your first game in Haxe!
 - [Introduction - Haxe - The Cross-platform Toolkit](https://haxe.org/manual/introduction.html)
@@ -121,8 +121,9 @@ Any script here will be classified for **[Custom Classes](./classes.md)**
 Next steps in learning the In-and-out's of HScript
 - [[NEXT] Features](./features.md)
 - [Formatting, and Basic Syntax](./style.md)
-- [Event Callbacks](./events.md)
+- [Event Callbacks](./cancellables.md)
 - [PlayState Interaction](./playstate.md)
 - [Custom States / SubStates](./states.md)
+- [Custom Events / Notetypes](./events.md)
 - [Global Script](./global.md)
 - [Custom Classes](./classes.md)
