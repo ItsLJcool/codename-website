@@ -7,8 +7,8 @@
     ["modding/index", "Modding The Engine - <span style='color: #d4b528;'>(33% Complete)</span>", [
         ["config", "Configuration"],
         ["libraries", "OpenFL's AssetLibrary"],
-        ["scripting/index", "Scriping (Softcoding) - <span style='color: #d4b528;'>(23% Complete)</span>", [
-            ["features", "Features / Examples - UNFINISHED"],
+        ["scripting/index", "Scripting (Softcoding) - <span style='color: #d4b528;'>(23% Complete)</span>", [
+            ["features", "Features / Examples - <span style='color: #d4b528;'>(20% Complete)</span>"],
             ["style", "Formatting, and Basic Syntax - UNFINISHED"],
             ["events", "Event Callbacks - UNFINISHED"],
             ["playstate", "PlayState Interaction - UNFINISHED"],
