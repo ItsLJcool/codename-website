@@ -1,37 +1,19 @@
 ---
-author: clairedeluneee & ItsLJcool
-desc: Explains what Events are and why Codename Engine uses them to their fullest extent.
-lastUpdated: 2026-03-02T02:45:00.298Z
-title: Scripting - Events
+author: clairedeluneee
+desc: Explains how to create custom events and notetypes
+lastUpdated: 2026-03-03T02:45:00.298Z
+title: Scripting - Custom Events and Notetypes
 ---
 
-# TODO
-Explain what [CancellableEvent](../../../api-docs/funkin/backend/scripting/events/CancellableEvent.html) does, and how you use Events to alter how source code handles it's functionality.
-
-Also explain how you can use them for your applications!
-
-
-## Overriding Functionality
-`CancellableEvent` has a method known as `cancel()`, which is the HScript equivalent of a `Function_Stop` in PsychLua, which basically means that when called, that event stops doing what its supposed to do. May it be handling misses, the song ending/starting, and even pausing, if `cancel()` was called, the engine will not do those actions, allowing you to implement something else for that event.
-
-For example, to prevent the song from starting, you may call `cancel()` as shown below:
-```hx
-function onSongStart(e) {
-    e.cancel();
-}
-```
-
-
-
 <!-- 
-Was originally made for the chart editor but decided to just place it here. 
+my guy i fucking thought this was about custom chart events bruh :wilted_rose: 
 -->
-## Creating Custom Events
+# Creating Custom Events
 As is with anything else in this engine, custom events may be created to aid with various stuff that happens in songs. They also inherit `CancellableEvent`, which means they may be overriden like other events.
 
 To create a custom event, place a `.json` and a `.hx` in the folder `data/events` in your mod folder. Ensure that the file names match.
 
-### The JSON
+## The JSON
 Your `.json` holds the all the parameters the event needs, and each parameter may be a different type and a default value. All parameters are listed in the code block below.
 ```json
 {
@@ -86,7 +68,7 @@ You may copy the above code block for your own JSON file.
 - `ColorWheel` generates a color wheel, and returns the color as an Int, following the `0xAARRGGBB` format.
 - `DropDown('entry1', 'entry2'...)` restricts the input to only the values put inside the parenthesis. Each value must be enclosed with a single quote `'` and must be separated by a comma `,`.
 
-### The Script
+## The Script
 With the JSON set, you may start work on your script file. The script may use only the `onEvent` callback, but nobody's stopping you if you wish to add more functionality. Event scripts are only ran if the corresponding event is used in the editor, so keep that in mind.
 
 Below is a quick template you may use. The `"name"` is a placeholder, which means you need to plug in the name of your event.
@@ -100,7 +82,7 @@ function onEvent(e) {
 ```
 An important thing to note is that `e.event.params` returns an **array**, which means you will have to go back and forth between your script and your JSON, since the order of a parameter depends on where you put it in the JSON.
 
-### The Icon
+## The Icon
 Icons are not required, but it is suggested that you make one, especially if you intend to have others use your event, or if you're charting and have a lot of events. Icons should have a size of 16x16 pixels, and should be put in `/images/editors/charter/event-icons`. Make sure that the name for the icon matches the name of the event.
 
 Next steps in learning the In-and-out's of HScript
