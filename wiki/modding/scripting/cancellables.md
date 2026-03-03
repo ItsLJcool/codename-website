@@ -2,7 +2,7 @@
 author: ItsLJcool
 desc: Explains what Events are and why Codename Engine uses them to their fullest extent.
 lastUpdated: 2025-11-15T05:32:50.298Z
-title: Scripting - Events
+title: Scripting - Event Callbacks
 ---
 
 # TODO
