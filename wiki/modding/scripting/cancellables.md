@@ -4,6 +4,7 @@ desc: Explains what Events are and why Codename Engine uses them to their fulles
 lastUpdated: 2025-11-15T05:32:50.298Z
 title: Scripting - Event Callbacks
 ---
+*This is about the callbacks HScript calls in scripts. For the creation of custom events, see [Custom Events / Notetypes](./events.md).*
 
 # TODO
 Explain what [CancellableEvent](../../../api-docs/funkin/backend/scripting/events/CancellableEvent.html) does, and how you use Events to alter how source code handles it's functionality.

@@ -4,6 +4,7 @@ desc: Explains how to create custom events and notetypes
 lastUpdated: 2026-03-03T02:45:00.298Z
 title: Scripting - Custom Events and Notetypes
 ---
+*This is about the creation of custom events and notetypes. For the event callbacks HScript calls in scripts, see [Event Callbacks](./cancellables.md).*
 
 <!-- 
 my guy i fucking thought this was about custom chart events bruh :wilted_rose: 
