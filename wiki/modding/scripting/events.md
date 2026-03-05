@@ -12,7 +12,7 @@ my guy i fucking thought this was about custom chart events bruh :wilted_rose:
 # Creating Custom Events
 As is with anything else in this engine, custom events may be created to aid with various stuff that happens in songs. They also inherit `CancellableEvent`, which means they may be overriden like other events.
 
-To create a custom event, place a `.json` and a `.hx` in the folder `data/events` in your mod folder. Ensure that the file names match.
+To create a custom event, place a `.json` and a `.hx` in `./data/events` in your mod folder. Ensure that the file names match.
 
 ## The JSON
 Your `.json` holds the all the parameters the event needs, and each parameter may be a different type and a default value. All parameters are listed in the code block below.
@@ -69,10 +69,12 @@ You may copy the above code block for your own JSON file.
 - `ColorWheel` generates a color wheel, and returns the color as an Int, following the `0xAARRGGBB` format.
 - `DropDown('entry1', 'entry2'...)` restricts the input to only the values put inside the parenthesis. Each value must be enclosed with a single quote `'` and must be separated by a comma `,`.
 
+In addition, a default value (`defaultValue`) may be set should the value for it is not set in the event. Think of it as a placeholder. If you leave it that way, it will use the placeholder. If a default value is not set, the parameter's value defaults to `null`, which is worth keeping in mind.
+
 ## The Script
 With the JSON set, you may start work on your script file. The script may use only the `onEvent` callback, but nobody's stopping you if you wish to add more functionality. Event scripts are only ran if the corresponding event is used in the editor, so keep that in mind.
 
-Below is a quick template you may use. The `"name"` is a placeholder, which means you need to plug in the name of your event.
+Below is a quick template you may use. The `"name"` is a placeholder, which means you need to replace it with the name of your event.
 ```hx
 function onEvent(e) {
     if (e.event.name != "name") return;
@@ -86,13 +88,13 @@ The early `return` is present as the callback is fired if ***any*** event is tri
 An important thing to note is that `e.event.params` returns an **array**, which means you will have to go back and forth between your script and your JSON, since the order of a parameter depends on where you put it in the JSON.
 
 ## The Icon
-Icons are not required, but it is suggested that you make one, especially if you intend to have others use your event, or if you're charting and have a lot of events. Icons should have a size of 16x16 pixels, and should be put in `/images/editors/charter/event-icons`. Make sure that the name for the icon matches the name of the event.
+Icons are not required, but it is suggested that you make one, especially if you intend to have others use your event, or if you're charting and have a lot of events. Icons should have a size of 16x16 pixels, and should be put in `./images/editors/charter/event-icons`. Make sure that the name for the icon matches the name of the event.
 
 # Creating Custom Notetypes
 The creation of custom notetypes is similar to how custom events are made, minus the JSON. You will need two files for this, your script file (the `.hx`), and your note sprites (the `.xml` and `.png`).
 
 ## The Script
-Notetype scripts go to `/data/notes`.
+Notetype scripts go to `./data/notes`.
 
 The minimal setup needed for notetype scripts looks like this:
 ```hx
@@ -103,8 +105,24 @@ function onPlayerHit(event) {
 ```
 The early `return` is also present here, as ***any*** note getting hit will fire it, which also includes normal notes. Similar to event scripts, one notetype may only have one script, but this script can also be used to handle other notetypes, including normal ones if you wish. 
 
+You may also set up behavior if a certain notetype is either hit by the opponent or either player or opponent, or if it was missed.
+```hx
+function onDadHit(event) {
+    if (event.noteType != "name") return;
+    // code for when the opponent hits the note goes here
+}
+function onNoteHit(event) {
+    if (event.noteType != "name") return;
+    // code for when either player or opponent hits the note goes here
+}
+function onNoteMiss(event) {
+    if (event.noteType != "name") return;
+    // code for when this note was missed goes here
+}
+```
+
 ## The Sprites
-Note sprites go to `/images/game/notes`. If they are named after the notetype name, the sprites for these are automatically replaced.
+Note sprites go to `./images/game/notes`. If they are named after the notetype, the sprites for these are automatically replaced.
 
 
 Next steps in learning the In-and-out's of HScript
