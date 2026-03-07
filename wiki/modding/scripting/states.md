@@ -101,8 +101,9 @@ This is basically all you need to know about Custom States, and how to interact 
 Next steps in learning the In-and-out's of HScript
 - [Features](./features.md)
 - [Formatting, and Basic Syntax](./style.md)
-- [Event Callbacks](./events.md)
+- [Event Callbacks](./cancellables.md)
 - [[PREV] PlayState Interaction](./playstate.md)
 - [Custom States / SubStates](./states.md)
-- [[NEXT] Global Script](./global.md)
+- [[NEXT] Custom Events / Notetypes](./events.md)
+- [Global Script](./global.md)
 - [Custom Classes](./classes.md)

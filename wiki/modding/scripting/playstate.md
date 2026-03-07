@@ -15,8 +15,9 @@ You can also explain why you shouldn't really modify `PlayState` as a Custom Sta
 Next steps in learning the In-and-out's of HScript
 - [Features](./features.md)
 - [Formatting, and Basic Syntax](./style.md)
-- [[PREV] Event Callbacks](./events.md)
+- [[PREV] Event Callbacks](./cancellables.md)
 - [PlayState Interaction](./playstate.md)
 - [[NEXT] Custom States / SubStates](./states.md)
+- [Custom Events / Notetypes](./events.md)
 - [Global Script](./global.md)
 - [Custom Classes](./classes.md)

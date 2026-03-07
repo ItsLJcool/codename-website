@@ -28,10 +28,10 @@ In Haxe, a final just tells the compiler you cannot change this variable during 
 In CodenameEngine this doesn't actually make it constant, <u>you can still modify `final` variables</u> but you can use the keyword to indicate you shouldn't modify the data.
 
 ## Public & Static ... & Private?
-Haxe basically forces you to use `public` or `private` keywords when making classes, in HScript you don't have access to the `private` keyword unless your using **[Custom Classes](./classes.md)** but this keyword does not do anything it's just <u>sugar syntax.</u><br>
-You do have access to the `public` keyword, which do nothing in [`Script`](../../../api-docs/funkin/backend/scripting/Script)'s, but in any [`ScriptPack`](../../../api-docs/funkin/backend/scripting/ScriptPack)'s it will allow other scripts to access that variable / function.
+Haxe basically forces you to use `public` or `private` keywords when making classes, in HScript you don't have access to the `private` keyword unless you're using **[Custom Classes](./classes.md)**. However, this keyword does not do anything, as it is purely <u>sugar syntax.</u><br>
+You do have access to the `public` keyword, which do nothing in [`Script`](../../../api-docs/funkin/backend/scripting/Script)s, but in any [`ScriptPack`](../../../api-docs/funkin/backend/scripting/ScriptPack)s it will allow other scripts to access that variable / function.
 
-It doesn't "copy" the variable it references the original so you can modify from one script and read the change from another.
+It doesn't "copy" the variable, it references the original so you can modify from one script and read the change from another.
 <div style="display: grid; justify-content: left;">
 
 ```haxe
@@ -46,7 +46,7 @@ public function read_changes():Void {
 }
 
 function unreadable_function() {
-    trace("This will never execute... :(")
+    trace("This will never execute... :(");
 }
 ```
 ```haxe
@@ -90,7 +90,7 @@ function optionalParameters(name:String, ?log:Bool = true, ?some_other_arg:Dynam
 
 ## Type Defining
 In haxe, you can declare types on variables and return types on functions. You cannot set that variable to a different Class Type unless it's a `Dynamic` / `Any` / `T` type.<br>
-This doesn't apply to HScript, **<u>every variable is `Dynamic`</u>** no matter what, so defining variables with Types is only sugar syntax. I'd recommend you still do it for readability, though your not forced to define every variable.
+This doesn't apply to HScript, **<u>every variable is `Dynamic`</u>** no matter what, so defining variables with types is only sugar syntax. I'd recommend you still do it for readability, though you're not forced to define every variable.
 <div style="display: grid; justify-content: left;">
 
 ```haxe
@@ -193,8 +193,9 @@ FlxG.switchState(new ModState("ResultsScreen", {
 Next steps in learning the In-and-out's of HScript
 - [Features](./features.md)
 - [[NEXT] Formatting, and Basic Syntax](./style.md)
-- [Event Callbacks](./events.md)
+- [Event Callbacks](./cancellables.md)
 - [PlayState Interaction](./playstate.md)
 - [Custom States / SubStates](./states.md)
+- [Custom Events / Notetypes](./events.md)
 - [Global Script](./global.md)
 - [Custom Classes](./classes.md)

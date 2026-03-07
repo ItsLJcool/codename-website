@@ -95,9 +95,10 @@ These areas will split up into their own sub-pages, and they will explain to you
 - <a href="./scripting/index.md">Scripting</a>
     - <a href="./scripting/features.md">Scripting Features</a>
     - <a href="./scripting/style.md">Code Formatting / Style</a>
-    - <a href="./scripting/events.md">Events / Callbacks</a>
+    - <a href="./scripting/cancellables.md">Event Callbacks</a>
     - <a href="./scripting/playstate.md">PlayState Scripting</a>
     - <a href="./scripting/states.md">Custom States / SubStates</a>
+    - <a href="./scripting/events.md">Custom Events / Notetypes</a>
     - <a href="./scripting/global.md">Global Script(s)</a>
     - <a href="./scripting/classes.md">Custom Classes</a>
 - <a href="./editors/index.md">Editors Introduction</a>
@@ -110,4 +111,4 @@ These areas will split up into their own sub-pages, and they will explain to you
 - <a href="./advanced/index.md">Intro to Advanced Topics</a>
 
 All of those above are for Softcoding, if you want to learn how to mod Source, you can check out the Introduction here
-- <a href="./source/index.md.md">Modding The Engine - Source</a>
+- <a href="./source/index.md">Modding The Engine - Source</a>

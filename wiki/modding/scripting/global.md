@@ -13,8 +13,9 @@ Also explain how you can hot-reload the Script, and how to support it yourself.
 Next steps in learning the In-and-out's of HScript
 - [Features](./features.md)
 - [Formatting, and Basic Syntax](./style.md)
-- [Event Callbacks](./events.md)
+- [Event Callbacks](./cancellables.md)
 - [PlayState Interaction](./playstate.md)
-- [[PREV] Custom States / SubStates](./states.md)
+- [Custom States / SubStates](./states.md)
+- [[PREV] Custom Events / Notetypes](./events.md)
 - [Global Script](./global.md)
 - [[NEXT] Custom Classes](./classes.md)

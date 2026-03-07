@@ -17,9 +17,10 @@ Also explain you can use the `source/` folder in your Library to add Custom Clas
 
 Next steps in learning the In-and-out's of HScript
 - [Features](./features.md)
-- [Formatting, and Basic Syntax](./style.md)
-- [Event Callbacks](./events.md)
-- [PlayState Interaction](./playstate.md)
+- [[PREV] Formatting, and Basic Syntax](./style.md)
+- [Event Callbacks](./cancellables.md)
+- [[NEXT] PlayState Interaction](./playstate.md)
 - [Custom States / SubStates](./states.md)
-- [[PREV] Global Script](./global.md)
+- [Custom Events / Notetypes](./events.md)
+- [Global Script](./global.md)
 - [Custom Classes](./classes.md)
