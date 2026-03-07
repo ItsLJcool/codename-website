@@ -1,26 +1,26 @@
 <!DOCTYPE html><html lang="en"><head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Advanced Topics - Introduction - Codename Engine Wiki</title>
+	<title>Scripting - Event Callbacks - Codename Engine Wiki</title>
 	<link rel="stylesheet" href="/codename-website/style.css">
 	<link rel="stylesheet" href="/codename-website/style_v2.css">
 	<link rel="stylesheet" href="/codename-website/wiki.css">
 
-	<meta name="title" content="Advanced Topics - Introduction - Codename Engine Wiki">
-	<meta name="description" content="Introduction for advanced uses of Codename Engine. For them nerds 🤓">
-	<meta property="og:description" content="Introduction for advanced uses of Codename Engine. For them nerds 🤓">
-	<meta property="twitter:description" content="Introduction for advanced uses of Codename Engine. For them nerds 🤓">
+	<meta name="title" content="Scripting - Event Callbacks - Codename Engine Wiki">
+	<meta name="description" content="Explains what Events are and why Codename Engine uses them to their fullest extent.">
+	<meta property="og:description" content="Explains what Events are and why Codename Engine uses them to their fullest extent.">
+	<meta property="twitter:description" content="Explains what Events are and why Codename Engine uses them to their fullest extent.">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://codename-engine.com/">
-	<meta property="og:title" content="Advanced Topics - Introduction - Codename Engine Wiki">
+	<meta property="og:title" content="Scripting - Event Callbacks - Codename Engine Wiki">
 	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://codename-engine.com/">
-	<meta property="twitter:title" content="Advanced Topics - Introduction - Codename Engine Wiki">
+	<meta property="twitter:title" content="Scripting - Event Callbacks - Codename Engine Wiki">
 	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
 
 	<meta name="theme-color" content="#b265bd">
@@ -42,7 +42,7 @@
         <img src="/codename-website/img/logo-banner.png" alt="Codename Logo" class="desktop">
         <img src="/codename-website/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
     </a>
-    <h2 class="header-title">Advanced Topics - Introduction</h2>
+    <h2 class="header-title">Scripting - Event Callbacks</h2>
     <div>
         <a href="/codename-website/api-docs/">API</a><a href="/codename-website/wiki/">Wiki</a><a href="/codename-website/tools/">Tools</a>
     </div>
@@ -72,7 +72,9 @@
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(20% Complete)</span></a><ul class="sidebar-unordered-list even">
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/cancellables" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd pagination">
+</ul>
+</li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/events" class="even">Custom Events / Notetypes - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
@@ -89,9 +91,7 @@
 </ul>
 </li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/hxvlc" class="odd">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even pagination">
-</ul>
-<ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/" class="even">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/shaders" class="odd">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/ndll" class="even">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/3d/" class="odd">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
@@ -109,24 +109,65 @@
 		</div>
 
 		<div class="content">
-			<h1>TODO</h1>
-<p>Write a comprehensive introduction for what advanced topics we will discuss, and explain anything here is NOT required to create a mod.</p>
-<p>Although, this can provide more in-depth cases for those who want a better understanding.</p>
+			<p><em>This is about the callbacks HScript calls in scripts. For the creation of custom events, see <a href="./events">Custom Events / Notetypes</a>.</em></p>
+<p>Callbacks are an integral part of scripts as they fire when specific things happen in the engine, such as frame updates, state creation, and others. All scripts leverage this in order for them to do their thing.</p>
+<h2>Key callbacks</h2>
+<p>These are present in nearly every state you're in.</p>
+<table>
+<thead>
+<tr><th>Name</th><th>When this is called</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="inline-code">create</code></td><td>State creation</td></tr>
+<tr><td><code class="inline-code">postCreate</code></td><td>After state variables are instantiated (are not <code class="inline-code">null</code>)</td></tr>
+<tr><td><code class="inline-code">update</code></td><td>Every frame (sprite updating)</td></tr>
+<tr><td><code class="inline-code">draw</code></td><td>Every frame (render sprites to screen)</td></tr>
+<tr><td><code class="inline-code">destroy</code></td><td>State destruction (such as switching states)</td></tr>
+</tbody>
+</table>
+<h1><code class="inline-code">CancellableEvent</code></h1>
+<p>Majority of the callbacks, especially in <code class="inline-code">PlayState</code>, inherit the <code class="inline-code">CancellableEvent</code> class, which means that the specific callback may be <strong>cancelled</strong> if you wish to change what the callback usually does.</p>
+<p>For example, take the below callback that is called once the countdown is started.</p>
+<pre class="hljs"><code class="language-hx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">onStartCountdown</span>(<span class="hljs-params">event</span>) {
+
+}
+</code></pre>
+<p>If you wish to stop the countdown from starting, you call <code class="inline-code">event.cancel()</code>, like so:</p>
+<pre class="hljs"><code class="language-hx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">onStartCountdown</span>(<span class="hljs-params">event</span>) {
+    event.<span class="hljs-title function_">cancel</span>(); <span class="hljs-comment">// Stops the event from continuing.</span>
+}
+</code></pre>
+<p>If you have worked with PsychLua before, you might see this method familiar. That's because this is exactly the Codename equivalent of <code class="inline-code">Function_Stop</code>. Here's an equivalent of the above code in Lua:</p>
+<pre class="hljs"><code class="language-lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onStartCountdown</span><span class="hljs-params">()</span></span>
+    <span class="hljs-keyword">return</span> Function_Stop
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Next steps in learning the In-and-out's of HScript</p>
+<ul>
+<li><a href="./features">Features</a></li>
+<li><a href="./style">[PREV] Formatting, and Basic Syntax</a></li>
+<li><a href="./cancellables">Event Callbacks</a></li>
+<li><a href="./playstate">[NEXT] PlayState Interaction</a></li>
+<li><a href="./states">Custom States / SubStates</a></li>
+<li><a href="./events">Custom Events / Notetypes</a></li>
+<li><a href="./global">Global Script</a></li>
+<li><a href="./classes">Custom Classes</a></li>
+</ul>
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
+				<div class="written">Written by: clairedeluneee</div>
 				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
 
 				<div class="github-edit-button">
-					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/advanced/index.md">Edit this page on GitHub</a>
+					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/scripting/cancellables.md">Edit this page on GitHub</a>
 				</div>
 			</div>
 
 			<div class="giscus"></div>
 			<div class="giscus-frame"></div>
 
-			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/advanced/index" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/scripting/cancellables" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
 			</script>
 		</div>
 	</div>

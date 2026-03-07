@@ -89,6 +89,10 @@
   <priority>0.65</priority>
 </url>
 <url>
+  <loc>https://codename-engine.com/wiki/modding/scripting/cancellables</loc>
+  <priority>0.65</priority>
+</url>
+<url>
   <loc>https://codename-engine.com/wiki/modding/scripting/classes</loc>
   <priority>0.65</priority>
 </url>

@@ -1,26 +1,26 @@
 <!DOCTYPE html><html lang="en"><head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Scripting - Events - Codename Engine Wiki</title>
+	<title>Scripting - Custom Events and Notetypes - Codename Engine Wiki</title>
 	<link rel="stylesheet" href="/codename-website/style.css">
 	<link rel="stylesheet" href="/codename-website/style_v2.css">
 	<link rel="stylesheet" href="/codename-website/wiki.css">
 
-	<meta name="title" content="Scripting - Events - Codename Engine Wiki">
-	<meta name="description" content="Explains what Events are and why Codename Engine uses them to their fullest extent.">
-	<meta property="og:description" content="Explains what Events are and why Codename Engine uses them to their fullest extent.">
-	<meta property="twitter:description" content="Explains what Events are and why Codename Engine uses them to their fullest extent.">
+	<meta name="title" content="Scripting - Custom Events and Notetypes - Codename Engine Wiki">
+	<meta name="description" content="Explains how to create custom events and notetypes">
+	<meta property="og:description" content="Explains how to create custom events and notetypes">
+	<meta property="twitter:description" content="Explains how to create custom events and notetypes">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://codename-engine.com/">
-	<meta property="og:title" content="Scripting - Events - Codename Engine Wiki">
+	<meta property="og:title" content="Scripting - Custom Events and Notetypes - Codename Engine Wiki">
 	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://codename-engine.com/">
-	<meta property="twitter:title" content="Scripting - Events - Codename Engine Wiki">
+	<meta property="twitter:title" content="Scripting - Custom Events and Notetypes - Codename Engine Wiki">
 	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
 
 	<meta name="theme-color" content="#b265bd">
@@ -42,7 +42,7 @@
         <img src="/codename-website/img/logo-banner.png" alt="Codename Logo" class="desktop">
         <img src="/codename-website/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
     </a>
-    <h2 class="header-title">Scripting - Events</h2>
+    <h2 class="header-title">Scripting - Custom Events and Notetypes</h2>
     <div>
         <a href="/codename-website/api-docs/">API</a><a href="/codename-website/wiki/">Wiki</a><a href="/codename-website/tools/">Tools</a>
     </div>
@@ -69,37 +69,38 @@
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/" class="odd">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd">
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/config" class="even">Configuration</a></li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/libraries" class="odd">OpenFL's AssetLibrary</a></li>
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/" class="even">Scripting (Softcoding) - <span style="color: #d4b528;">(23% Complete)</span></a><ul class="sidebar-unordered-list even">
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #d4b528;">(20% Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(20% Complete)</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd pagination">
-</ul>
-</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/cancellables" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/global" class="even">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/classes" class="odd">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Custom Events / Notetypes - <span style="color: #d4b528;">(Semi-Complete)</span></a><ul class="sidebar-unordered-list even pagination">
 </ul>
 </li>
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/" class="even">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/chart" class="odd">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/character" class="even">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/stage" class="odd">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/alphabet" class="even">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/custom" class="odd">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/global" class="odd">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/classes" class="even">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 </ul>
 </li>
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/hxvlc" class="even">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/shaders" class="even">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/3d/" class="even">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/" class="odd">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/chart" class="even">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/character" class="odd">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/stage" class="even">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/alphabet" class="odd">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/custom" class="even">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/hxvlc" class="odd">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/" class="even">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/shaders" class="odd">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/ndll" class="even">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/3d/" class="odd">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/source/init" class="even">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/source/" class="even">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/source/init" class="odd">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 </ul>
 </li>
 
@@ -108,24 +109,126 @@
 		</div>
 
 		<div class="content">
-			<h1>TODO</h1>
-<p>Explain what <a href="../../../api-docs/funkin/backend/scripting/events/CancellableEvent">CancellableEvent</a> does, and how you use Events to alter how source code handles it's functionality.</p>
-<p>Also explain how you can use them for your applications!</p>
+			<p><em>This is about the creation of custom events and notetypes. For the event callbacks HScript calls in scripts, see <a href="./cancellables">Event Callbacks</a>.</em></p>
+
+# Creating Custom Events
+As is with anything else in this engine, custom events may be created to aid with various stuff that happens in songs. They also inherit `CancellableEvent`, which means they may be overriden like other events.
+<p>To create a custom event, place a <code class="inline-code">.json</code> and a <code class="inline-code">.hx</code> in <code class="inline-code">./data/events</code> in your mod folder. Ensure that the file names match.</p>
+<h2>The JSON</h2>
+<p>Your <code class="inline-code">.json</code> holds the all the parameters the event needs, and each parameter may be a different type and a default value. All parameters are listed in the code block below.</p>
+<pre class="hljs"><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"params"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Bool"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Bool"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"defaultValue"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Int"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Int(0, 99, 1)"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"defaultValue"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Float"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Float(0, 99, 1, 2)"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"defaultValue"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.00</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"String"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"String"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"defaultValue"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"nothing"</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"StrumLine"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"StrumLine"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"defaultValue"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ColorWheel"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ColorWheel"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"defaultValue"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#FFFFFF"</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"DropDown"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"DropDown('entry one', 'entry two')"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"defaultValue"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"entry one"</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>You may copy the above code block for your own JSON file.</p>
+<ul>
+<li><code class="inline-code">Bool</code> generates a checkbox that returns either true or false.</li>
+<li><code class="inline-code">Int(min, max, step)</code> returns an Int and has 3 parameters.
+<ul>
+<li><code class="inline-code">min</code> is how low the value can get.</li>
+<li><code class="inline-code">max</code> is how high the value can get.</li>
+<li><code class="inline-code">step</code> determines how much each step can get (for example, stepping by 10, 15, and so on).</li>
+</ul></li>
+<li><code class="inline-code">Float(min, max, step)</code> functions the same as <code class="inline-code">Int(min, max, step)</code>, except this uses Floats which allow for decimal input.</li>
+<li><code class="inline-code">String</code> returns a string.</li>
+<li><code class="inline-code">StrumLine</code> allows picking a specific strumline. This returns the index of where the picked strumline is located in the <code class="inline-code">strumLines</code> group, which is determined by how the chart's strumline is ordered.</li>
+<li><code class="inline-code">ColorWheel</code> generates a color wheel, and returns the color as an Int, following the <code class="inline-code">0xAARRGGBB</code> format.</li>
+<li><code class="inline-code">DropDown('entry1', 'entry2'...)</code> restricts the input to only the values put inside the parenthesis. Each value must be enclosed with a single quote <code class="inline-code">'</code> and must be separated by a comma <code class="inline-code">,</code>.</li>
+</ul>
+<p>In addition, a default value (<code class="inline-code">defaultValue</code>) may be set should the value for it is not set in the event. Think of it as a placeholder. If you leave it that way, it will use the placeholder. If a default value is not set, the parameter's value defaults to <code class="inline-code">null</code>, which is worth keeping in mind.</p>
+<h2>The Script</h2>
+<p>With the JSON set, you may start work on your script file. The script may use only the <code class="inline-code">onEvent</code> callback, but nobody's stopping you if you wish to add more functionality. Event scripts are only ran if the corresponding event is used in the editor, so keep that in mind.</p>
+<p>Below is a quick template you may use. The <code class="inline-code">"name"</code> is a placeholder, which means you need to replace it with the name of your event.</p>
+<pre class="hljs"><code class="language-hx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">onEvent</span>(<span class="hljs-params">e</span>) {
+    <span class="hljs-keyword">if</span> (e.<span class="hljs-property">event</span>.<span class="hljs-property">name</span> != <span class="hljs-string">"name"</span>) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">var</span> params = e.<span class="hljs-property">event</span>.<span class="hljs-property">params</span>;
+    <span class="hljs-comment">// code goes here</span>
+}
+</code></pre>
+<p>The early <code class="inline-code">return</code> is present as the callback is fired if <strong><em>any</em></strong> event is triggered. While it is true that one event may have one script only, you may also handle other events in this script.</p>
+<p>An important thing to note is that <code class="inline-code">e.event.params</code> returns an <strong>array</strong>, which means you will have to go back and forth between your script and your JSON, since the order of a parameter depends on where you put it in the JSON.</p>
+<h2>The Icon</h2>
+<p>Icons are not required, but it is suggested that you make one, especially if you intend to have others use your event, or if you're charting and have a lot of events. Icons should have a size of 16x16 pixels, and should be put in <code class="inline-code">./images/editors/charter/event-icons</code>. Make sure that the name for the icon matches the name of the event.</p>
+<h1>Creating Custom Notetypes</h1>
+<p>The creation of custom notetypes is similar to how custom events are made, minus the JSON. You will need two files for this, your script file (the <code class="inline-code">.hx</code>), and your note sprites (the <code class="inline-code">.xml</code> and <code class="inline-code">.png</code>).</p>
+<h2>The Script</h2>
+<p>Notetype scripts go to <code class="inline-code">./data/notes</code>.</p>
+<p>The minimal setup needed for notetype scripts looks like this:</p>
+<pre class="hljs"><code class="language-hx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">onPlayerHit</span>(<span class="hljs-params">event</span>) {
+    <span class="hljs-keyword">if</span> (event.<span class="hljs-property">noteType</span> != <span class="hljs-string">"name"</span>) <span class="hljs-keyword">return</span>;
+    <span class="hljs-comment">// code goes here</span>
+}
+</code></pre>
+<p>The early <code class="inline-code">return</code> is also present here, as <strong><em>any</em></strong> note getting hit will fire it, which also includes normal notes. Similar to event scripts, one notetype may only have one script, but this script can also be used to handle other notetypes, including normal ones if you wish.</p>
+<p>You may also set up behavior if a certain notetype is either hit by the opponent or either player or opponent, or if it was missed.</p>
+<pre class="hljs"><code class="language-hx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">onDadHit</span>(<span class="hljs-params">event</span>) {
+    <span class="hljs-keyword">if</span> (event.<span class="hljs-property">noteType</span> != <span class="hljs-string">"name"</span>) <span class="hljs-keyword">return</span>;
+    <span class="hljs-comment">// code for when the opponent hits the note goes here</span>
+}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onNoteHit</span>(<span class="hljs-params">event</span>) {
+    <span class="hljs-keyword">if</span> (event.<span class="hljs-property">noteType</span> != <span class="hljs-string">"name"</span>) <span class="hljs-keyword">return</span>;
+    <span class="hljs-comment">// code for when either player or opponent hits the note goes here</span>
+}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onNoteMiss</span>(<span class="hljs-params">event</span>) {
+    <span class="hljs-keyword">if</span> (event.<span class="hljs-property">noteType</span> != <span class="hljs-string">"name"</span>) <span class="hljs-keyword">return</span>;
+    <span class="hljs-comment">// code for when this note was missed goes here</span>
+}
+</code></pre>
+<h2>The Sprites</h2>
+<p>Note sprites go to <code class="inline-code">./images/game/notes</code>. If they are named after the notetype, the sprites for these are automatically replaced.</p>
 <p>Next steps in learning the In-and-out's of HScript</p>
 <ul>
 <li><a href="./features">Features</a></li>
-<li><a href="./style">[PREV] Formatting, and Basic Syntax</a></li>
-<li><a href="./events">Event Callbacks</a></li>
-<li><a href="./playstate">[NEXT] PlayState Interaction</a></li>
-<li><a href="./states">Custom States / SubStates</a></li>
-<li><a href="./global">Global Script</a></li>
+<li><a href="./style">Formatting, and Basic Syntax</a></li>
+<li><a href="./cancellables">Event Callbacks</a></li>
+<li><a href="./playstate">PlayState Interaction</a></li>
+<li><a href="./states">[PREV] Custom States / SubStates</a></li>
+<li><a href="./events">Custom Events / Notetypes</a></li>
+<li><a href="./global">[NEXT] Global Script</a></li>
 <li><a href="./classes">Custom Classes</a></li>
 </ul>
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
-				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+				<div class="written">Written by: clairedeluneee</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-03-03T02:45:00.298Z">2026-03-03</span></div>
 
 				<div class="github-edit-button">
 					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/scripting/events.md">Edit this page on GitHub</a>
