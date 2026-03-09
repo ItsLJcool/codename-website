@@ -7,9 +7,9 @@
 	<link rel="stylesheet" href="/codename-website/wiki.css">
 
 	<meta name="title" content="Advanced Topics - 3D with Away3D! - Codename Engine Wiki">
-	<meta name="description" content="Temporary Placeholder File">
-	<meta property="og:description" content="Temporary Placeholder File">
-	<meta property="twitter:description" content="Temporary Placeholder File">
+	<meta name="description" content="This page explains how to use 3D rendering in your mod!">
+	<meta property="og:description" content="This page explains how to use 3D rendering in your mod!">
+	<meta property="twitter:description" content="This page explains how to use 3D rendering in your mod!">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
@@ -109,12 +109,172 @@
 		</div>
 
 		<div class="content">
-			<h1>Temporary Placeholder File</h1>
+			<h1>TODO:</h1>
+<p>Add info about the 3D scene itself, like the camera
+Add more info about different kinds of materials and how lights work</p>
+<h1>3D rendering</h1>
+<p>In Codename Engine, there is Away3D integration with a few tools to make the process easier for you.</p>
+<p>If you want to read up on Away3D and how it works, I recommend looking at it's <a href="https://github.com/openfl/away3d">Github Repository</a> or looking at the <a href="http://away3d.com/documentation/">Documentation</a>.</p>
+<h2>Working with primitives</h2>
+<p>Primitives are built-in meshes that are simple in nature.<br>
+Examples of primitives are Cubes, Planes, or Spheres.</p>
+<p>Here's an example of adding a Cube Primitive to your scene.</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">import</span> flx3d.<span class="hljs-property">Flx3DView</span>;
+
+<span class="hljs-keyword">import</span> away3d.<span class="hljs-property">entities</span>.<span class="hljs-property">Mesh</span>;
+<span class="hljs-keyword">import</span> away3d.<span class="hljs-property">primitives</span>.<span class="hljs-property">CubeGeometry</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    cube = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Mesh</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">CubeGeometry</span>()); <span class="hljs-comment">// This is your Cube</span>
+
+    cube.<span class="hljs-title function_">scale</span>(<span class="hljs-number">2</span>); <span class="hljs-comment">// Make it double the size, just to see it better</span>
+
+    cube.<span class="hljs-property">rotationY</span> = <span class="hljs-number">23</span>; <span class="hljs-comment">// Add some rotation so you can see it's 3D</span>
+    cube.<span class="hljs-property">rotationX</span> = <span class="hljs-number">45</span>;
+
+    scene3D = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Flx3DView</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">width</span>, <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">height</span>); <span class="hljs-comment">// This is what's creating the 3D world</span>
+    scene3D.<span class="hljs-title function_">screenCenter</span>();
+    
+    scene3D.<span class="hljs-title function_">addChild</span>(cube); <span class="hljs-comment">// This adds the cube to the scene</span>
+
+    <span class="hljs-title function_">add</span>(scene3D); <span class="hljs-comment">// The 3D View works just like any other sprite so it will have to be added like one</span>
+}
+</code></pre>
+<p>If you wanna add a texture to this primitive, you'll need to create a <code class="inline-code">TextureMaterial</code>.
+Here's the same code as before, but we add a <code class="inline-code">TextureMaterial</code> to the cube.</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">import</span> flx3d.<span class="hljs-property">Flx3DView</span>;
+
+<span class="hljs-keyword">import</span> away3d.<span class="hljs-property">entities</span>.<span class="hljs-property">Mesh</span>;
+<span class="hljs-keyword">import</span> away3d.<span class="hljs-property">primitives</span>.<span class="hljs-property">CubeGeometry</span>;
+
+<span class="hljs-keyword">import</span> away3d.<span class="hljs-property">utils</span>.<span class="hljs-property">Cast</span>;
+<span class="hljs-keyword">import</span> away3d.<span class="hljs-property">materials</span>.<span class="hljs-property">TextureMaterial</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    cube = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Mesh</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">CubeGeometry</span>()); <span class="hljs-comment">// This is your Cube</span>
+
+    cube.<span class="hljs-property">material</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TextureMaterial</span>(
+        <span class="hljs-title class_">Cast</span>.<span class="hljs-title function_">bitmapTexture</span>(
+            <span class="hljs-title class_">Assets</span>.<span class="hljs-title function_">getBitmapData</span>(<span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">image</span>(<span class="hljs-string">"path/to/texture"</span>))
+        ), 
+        <span class="hljs-literal">true</span>, <span class="hljs-comment">// This is "smooth" or "antialiasing" for the texture, setting this to false will make it pixelated</span>
+        <span class="hljs-literal">false</span>, <span class="hljs-comment">// This is "repeat" and it's useful if you want your texture to tile over a large area, to make it tile, set it to true</span>
+        <span class="hljs-literal">true</span> <span class="hljs-comment">// This is "mipmap" which pretty much makes your texture become less detailed the further away it is</span>
+    );
+
+    cube.<span class="hljs-title function_">scale</span>(<span class="hljs-number">2</span>); <span class="hljs-comment">// Make it double the size, just to see it better</span>
+
+    cube.<span class="hljs-property">rotationY</span> = <span class="hljs-number">23</span>; <span class="hljs-comment">// Add some rotation so you can see it's 3D</span>
+    cube.<span class="hljs-property">rotationX</span> = <span class="hljs-number">45</span>;
+
+    scene3D = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Flx3DView</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">width</span>, <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">height</span>); <span class="hljs-comment">// This is what's creating the 3D world</span>
+    scene3D.<span class="hljs-title function_">screenCenter</span>();
+    
+    scene3D.<span class="hljs-title function_">addChild</span>(cube); <span class="hljs-comment">// This adds the cube to the scene</span>
+
+    <span class="hljs-title function_">add</span>(scene3D); <span class="hljs-comment">// The 3D View works just like any other sprite so it will have to be added like one</span>
+}
+</code></pre>
+<h2>Working with models</h2>
+<p>From now on, assume that <code class="inline-code">scene3D</code> is set up like this as I will not be writing out the entire script anymore.</p>
+<pre class="hljs"><code class="language-haxe">scene3D = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Flx3DView</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">width</span>, <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">height</span>);
+</code></pre>
+<p>Adding models is greatly simplified in Codename Engine compared to using Away3D normally.<br>
+To add a model simply do the following.</p>
+<pre class="hljs"><code class="language-haxe">scene3D.<span class="hljs-title function_">addModel</span>(
+    <span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">obj</span>(<span class="hljs-string">"path/to/model"</span>), <span class="hljs-comment">// This is where it grabs the model from, I will go into more detail about this below</span>
+
+    <span class="hljs-keyword">function</span> (<span class="hljs-params">model</span>) {
+        <span class="hljs-comment">// This runs for every single asset inside of your model, including mesh, potential animators, and whatever else you could have going on</span>
+
+        <span class="hljs-comment">// If you want to manipulate your model in any way, do it in here</span>
+    },
+
+    <span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">image</span>(<span class="hljs-string">"path/to/texture"</span>), <span class="hljs-comment">// This is the texture of your model</span>
+
+    <span class="hljs-literal">true</span> <span class="hljs-comment">// This is "smoothTexture" which determines if your texture will be filtered or if it should be pixelated</span>
+);
+</code></pre>
+<p>You can also set a variable to be your mesh this way.</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> coolModel;
+
+scene3D.<span class="hljs-title function_">addModel</span>(
+    <span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">obj</span>(<span class="hljs-string">"path/to/model"</span>),
+
+    <span class="hljs-keyword">function</span> (<span class="hljs-params">model</span>) {
+        <span class="hljs-comment">// This runs for every single asset inside of your model, including mesh, potential animators, and whatever else you could have going on</span>
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Std</span>.<span class="hljs-title function_">string</span>(model.<span class="hljs-property">asset</span>.<span class="hljs-property">assetType</span>) == <span class="hljs-string">'mesh'</span>) { <span class="hljs-comment">// This is needed to specify that we're specifically interacting with the Mesh of the object instead of interacting with any animations or skeletons on accident</span>
+            coolModel = model.<span class="hljs-property">asset</span>;
+        }
+    },
+
+    <span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">image</span>(<span class="hljs-string">"path/to/texture"</span>),
+
+    <span class="hljs-literal">true</span>
+);
+</code></pre>
+<p>In the examples above, I used <code class="inline-code">Paths.obj()</code> to grab the model, however, there are more model types that are supported, some of which have more features.</p>
+<p>The list of supported formats are these:</p>
+<ul>
+<li><code class="inline-code">obj</code></li>
+<li><code class="inline-code">dae</code></li>
+<li><code class="inline-code">md2</code></li>
+<li><code class="inline-code">md5</code></li>
+<li><code class="inline-code">awd</code></li>
+</ul>
+<p>The <code class="inline-code">AWD</code> format is specific to Away3D's Away Builder.
+Away Builder is a program designed to simplify a lot of complex work with importing models and animations into your project.
+However, since Away Builder is so old, it is now mainly depricated and doesn't really work with most modern software.
+Instead, you are often required to use the <code class="inline-code">md5mesh</code> and <code class="inline-code">md5anim</code> formats, which do not exist in most programs today.
+There are however workarounds, as older versions of Blender have <a href="https://github.com/KozGit/Blender-2.8-MD5-import-export-addon">addons</a> to let you export to these formats.</p>
+<p>I will not go through how to use Away Builder here as it is not specific to Codename Engine.</p>
+<p>The <code class="inline-code">AWD</code> format is useful as it allows you to package models, animations, and more into one asset which all get loaded together automatically.</p>
+<p><strong><em>TODO: Go into more detail about the pros and cons of each formats listed above</em></strong></p>
+<h2>Animating your models</h2>
+<p>To animate your models, I recommend using the <code class="inline-code">AWD</code> format alongside Away Builder since it simplifies the process of setting up the animators.</p>
+<p>However, some precautions about Away3D.
+It's animation is quite limited and doesn't allow for animations changing size or position, only rotation is available.</p>
+<p>Once you have your model and animations exported from Away Builder, you'll want to set it up something like this:</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> coolModel;
+
+<span class="hljs-keyword">var</span> coolAnimator;
+
+scene3D.<span class="hljs-title function_">addModel</span>(
+    <span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">obj</span>(<span class="hljs-string">"path/to/model"</span>),
+
+    <span class="hljs-keyword">function</span> (<span class="hljs-params">model</span>) {
+        <span class="hljs-comment">// This runs for every single asset inside of your model, including mesh, potential animators, and whatever else you could have going on</span>
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Std</span>.<span class="hljs-title function_">string</span>(model.<span class="hljs-property">asset</span>.<span class="hljs-property">assetType</span>) == <span class="hljs-string">'mesh'</span>) { <span class="hljs-comment">// This is so we only interact with the Mesh</span>
+            coolModel = model.<span class="hljs-property">asset</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Std</span>.<span class="hljs-title function_">string</span>(model.<span class="hljs-property">asset</span>.<span class="hljs-property">assetType</span>) == <span class="hljs-string">'animator'</span>) { <span class="hljs-comment">// To only interact with the Animator</span>
+            coolAnimator = model.<span class="hljs-property">asset</span>;
+
+            <span class="hljs-title function_">animatorLoaded</span>();
+            
+            <span class="hljs-comment">// FYI, you can play the animation directly in here if you want, I just keep them separate for demonstration purposes</span>
+            <span class="hljs-comment">// model.asset.play("animationName");</span>
+        }
+    },
+
+    <span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">image</span>(<span class="hljs-string">"path/to/texture"</span>),
+
+    <span class="hljs-literal">true</span>
+);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">animatorLoaded</span>(<span class="hljs-params"></span>) {
+    coolAnimator.<span class="hljs-title function_">play</span>(<span class="hljs-string">"animationName"</span>);
+}
+</code></pre>
+<p>Once you have your animator, you can simply call it's <code class="inline-code">play("animName")</code> function whenever you wanna play an animation.</p>
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
-				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+				<div class="written">Written by: OfficialCB</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-03-03T20:36:15.789Z">2026-03-03</span></div>
 
 				<div class="github-edit-button">
 					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/advanced/3d/index.md">Edit this page on GitHub</a>
