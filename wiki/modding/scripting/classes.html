@@ -77,7 +77,7 @@
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/events" class="even">Custom Events / Notetypes - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/global" class="odd">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
-<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Custom Classes - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even pagination">
+<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Custom Classes - <span style="color: #32e53a;">(Complete)</span></a><ul class="sidebar-unordered-list even pagination">
 </ul>
 </li>
 </ul>
@@ -109,18 +109,134 @@
 		</div>
 
 		<div class="content">
-			<h1>TODO:</h1>
-<p>Explain how you define custom classes, and detail the current limitations as follows:</p>
-<ul>
-<li>Cannot extend FlxState and use for actual States. (Including things that EXTEND FlxState)</li>
-<li>Static Variables are not exactly static.
-<ul>
-<li>They are only locally static. You can explain how to make a true static class with GlobalScript.</li>
-<li>UPDATE: This is being changed (fixed) as it was an issue.</li>
-</ul></li>
-<li>Extended classes must override a function if you also want to override that function.</li>
-</ul>
-<p>Also explain you can use the <code class="inline-code">source/</code> folder in your Library to add Custom Classes, and show how you can use <code class="inline-code">import</code> and <code class="inline-code">using</code>.</p>
+			<h1>HScript's Classes and it's quirks</h1>
+<p>HScript allows for Custom classes, and it is not a 1:1 copy-paste from how source classes works, there is some limitations but those issues are being worked on.</p>
+<p>You can define a Custom Class to import into any script by adding a file in <code class="inline-code">./source</code> in your Modpack called the Class name. You can add sub-folders for organization as well.</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-text">└─ 📂 My Mod/                                
+    └─ 📂 source/                              # Custom Classes go here.
+        ├─ 📄 MyCustomClass.hx                  # `import MyCustomClass;` in your code.
+        └─ 📂 extra/                           
+            └─ 📄 CoolClass.hx                   # `import extra.CoolClass;` in your code.
+</code></pre>
+<p>Here is an example of a Custom Class:</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyCustomClass</span> { 
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> <span class="hljs-attr">my_private</span>:<span class="hljs-title class_">Int</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">var</span> <span class="hljs-title function_">my_public</span>(get, never):<span class="hljs-title class_">Float</span>;
+    <span class="hljs-comment">// Getters / Setters can be public or private it doesn't matter, as both `private` and `public` variables are accessable anyways...</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">my_public</span>(<span class="hljs-params"></span>):<span class="hljs-title class_">Float</span> { <span class="hljs-keyword">return</span> <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">random</span>.<span class="hljs-title function_">float</span>(-<span class="hljs-number">10</span>, <span class="hljs-number">10</span>); }
+
+    <span class="hljs-keyword">var</span> <span class="hljs-attr">my_random_var</span>:<span class="hljs-title class_">Bool</span> = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> <span class="hljs-attr">my_static_var</span>:<span class="hljs-title class_">Dynamic</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params">arg1:Bool, arg2:<span class="hljs-built_in">String</span></span>) {
+        <span class="hljs-title function_">trace</span>(<span class="hljs-string">'you\'ve entered ${arg1} and "${arg2}"'</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunc</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-title function_">trace</span>(<span class="hljs-string">"Hey look! I've been called!"</span>);
+        my_static_var = <span class="hljs-string">"myFunc"</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">staticFunc</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-title function_">trace</span>(<span class="hljs-string">"Oh wow look im a static callback!"</span>);
+        my_static_var = <span class="hljs-string">"staticFunc"</span>;
+
+        <span class="hljs-comment">// trace(my_random_var); // Cannot access non-static instances inside a static function</span>
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">myPrivateFunc</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-title function_">trace</span>(<span class="hljs-string">"ooh you shouldn't call me directly!!"</span>);
+    }
+}
+</code></pre>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">/* This is a new script somewhere in your modpack */</span>
+
+<span class="hljs-comment">// you can import your class like so</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">MyCustomClass</span>;
+<span class="hljs-comment">// if it's in a sub-folder in `./source/` (i.e `./source/myTest/`), you'd do this: `import myTest.MyCustomClass;`</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">var</span> <span class="hljs-attr">test</span>:<span class="hljs-title class_">MyCustomClass</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyCustomClass</span>();
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">'script was created. Here is the test class: ${test}'</span>);
+}
+</code></pre>
+</div>
+<p>You can also import custom classes into custom classes, same import method.</p>
+<p>Now as of v1.0.1 and it's Experimentals, Static variables in Custom Classes are <em>not exactly static</em>, but are <u><i>locally static.</i></u><br>
+This means if you import it in 2 different scripts they can have different static values. This can be easily fixed with a simple workaround, if your using the <code class="inline-code">./source/</code> folder for your class initalization.</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">/* Custom Class Script in `./source/RealClassName.hx` */</span>
+<span class="hljs-comment">// You want the actual class to not be your real class name, as we will make a static variable with the class name you desire.</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">InternalClassName</span> {
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> <span class="hljs-attr">my_static_var</span>:<span class="hljs-title class_">String</span> = <span class="hljs-string">"Test"</span>;
+}
+
+<span class="hljs-comment">// This will contain the Class Type as a static variable.</span>
+<span class="hljs-comment">// Note: attempting to do `Std.isTypeOf(value, RealClassName);` or `value is RealClassName` when you want to cast it's class type I belive may not work??</span>
+<span class="hljs-comment">// This will be fixed or may have been fixed.</span>
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> <span class="hljs-title class_">RealClassName</span>:<span class="hljs-title class_">Class</span> = <span class="hljs-title class_">InternalClassName</span>;
+</code></pre>
+<h2>Extending Classes</h2>
+<p>You can also extend other classes, but there is a limit and some things to note.<br>
+Any class with <code class="inline-code">&lt;T&gt;</code> or Abstract class you cannot extend from. This is in the works to be fixed.</p>
+<p>You cannot extend <code class="inline-code">FlxState</code> / <code class="inline-code">FlxSubState</code> because they extend off of <code class="inline-code">FlxGroup</code> (which is <code class="inline-code">FlxTypedGroup&lt;T:FlxBasic&gt;</code>)
+There is no need to anyways since <a href="./states">Custom States</a> exists for you to use.</p>
+<p>And one final limitation, is that if the extending class <em><u>does not</u></em> override a function in it's class, you cannot override it yourself in the custom class.
+Here is an example:</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyCustomFunkinSprite</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">FunkinSprite</span> {
+
+    <span class="hljs-comment">// when extending a class, you are required to call `super()` for the `new` function.</span>
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-variable language_">super</span>();
+    }
+
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">checkRenderTexture</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-comment">// this will not execute when called internally as `FunkinSprite` does not override this class</span>
+        <span class="hljs-comment">// although it exists `FlxAnimate` (the base class `FunkinSprite` extends from) has this function, if it's not in the extending class itself, you cannot get the function.</span>
+    }
+}
+</code></pre>
+</div>
+<h2>The <code class="inline-code">using</code> keyword</h2>
+<p>In HScript you are allowed to use the <code class="inline-code">using</code> keyword, what this allows you to do is call functions on variables that class contains.<br>
+Basically in other words it calls the class your <code class="inline-code">using</code> with those variables and does whatever calculation it needs to.</p>
+<p>Here is an example:</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">// StringTools allows you to call `.toLowerCase()`, `.substr()`, etc. on String types.</span>
+<span class="hljs-comment">// You cannot do this by default you need to define the `using StringTools` before you can use them.</span>
+<span class="hljs-comment">// https://api.haxe.org/StringTools.html for the function calls</span>
+using <span class="hljs-title class_">StringTools</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">var</span> <span class="hljs-attr">test</span>:<span class="hljs-title class_">String</span> = <span class="hljs-string">"OH MY GOD IM LOWERCASE NOW!!"</span>;
+    <span class="hljs-title function_">trace</span>(test.<span class="hljs-title function_">toLowerCase</span>()); <span class="hljs-comment">// oh my god im lowercase now!!</span>
+}
+</code></pre>
+</div>
+<p>You can create your own <code class="inline-code">using</code> class, you are required to have them static if you want them to be used like <code class="inline-code">StringTools</code></p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TestUtil</span> {
+    <span class="hljs-comment">// These functions require minimum 1 parameter, and it will always be the variable being called (i.e `variable.addOne()`)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">addOne</span>(<span class="hljs-params">_var:<span class="hljs-built_in">Int</span></span>):<span class="hljs-title class_">Int</span> { <span class="hljs-keyword">return</span> _var+<span class="hljs-number">1</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">multiplyBy</span>(<span class="hljs-params">_var:<span class="hljs-built_in">Float</span>, value:<span class="hljs-built_in">Float</span></span>):<span class="hljs-title class_">Float</span> { <span class="hljs-keyword">return</span> _var*value; }
+}
+</code></pre>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">/* Another script in your modpack */</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">TestUtil</span>; <span class="hljs-comment">// limitation for now but you need to import it before you can `using` it.</span>
+using <span class="hljs-title class_">TestUtil</span>;
+
+<span class="hljs-keyword">var</span> <span class="hljs-attr">test</span>:<span class="hljs-title class_">Int</span> = <span class="hljs-number">10</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">trace</span>(test.<span class="hljs-title function_">addOne</span>());       <span class="hljs-comment">// 11</span>
+    <span class="hljs-title function_">trace</span>(test.<span class="hljs-title function_">multiplyBy</span>(<span class="hljs-number">2</span>));  <span class="hljs-comment">// 20</span>
+    <span class="hljs-title function_">trace</span>(<span class="hljs-number">10.</span><span class="hljs-title function_">addOne</span>()); <span class="hljs-comment">// does not work as of now, gives Null Obj Reference.</span>
+}
+</code></pre>
+</div>
 <p>Next steps in learning the In-and-out's of HScript</p>
 <ul>
 <li><a href="./features">Features</a></li>
