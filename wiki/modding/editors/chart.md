@@ -1,7 +1,7 @@
 ---
 author: Bitto1070
 desc: Explains all the details of how to create a new Chart / Song in Codename Engine
-lastUpdated: 2026-03-28T21:50:03.623Z
+lastUpdated: 2026-03-28T22:15:47.555Z
 title: Editors - Chart Editor
 ---
 
@@ -120,6 +120,7 @@ You can now start charting. The most important controls are:
 - `Z`and `X` decrease and increase the grid's snap, respectively. You can see and change the current snap on the top bar.
   - You can also disable snapping altogether with `Shift`.
 - You can select multiple notes by `Clicking and Dragging` like you would do files on your desktop. this allows you to **copy**, **cut**, and **move** multiple notes around.
+  - You can also copy notes by holding `Alt` and dragging your selection.
 
 Other controls can be found on the top bar's menus.
 
@@ -188,7 +189,7 @@ You can also add multiple events in one marker. Simply press the `+` again and a
 <h2 id="top-bar" sidebar="Top Bar - All Menus">Top Bar - All Menus</h2>
 
 At the top of the screen, there is a bar:
-<div style="display: flex;">
+<div style="display: flex; justify-content: center;">
 	<img src="../../images/editors/chart/topbar.png" alt="Top Bar">
 </div>
 Directly on it, there are multiple menus, which will be explained in their own sections. They are:
@@ -311,3 +312,45 @@ The base engine already comes with two common note types.
 
 - `Alt Anim Note` will play the characters sing animations with the suffix `-alt`, if they have any.
 - `No Anim Note` will not play the sing animation when pressed.
+
+<h2 id="edit-strumline" sidebar="Editing Strumlines">Editing Strumlines</h2>
+
+You can unlock the strumlines' positions by pressing the `Lock/Unlock` icon next to them.
+<div style="display: flex;">
+	<img src="../../images/editors/chart/unlockstrumlines.png" alt="The two note types that already come with the game">
+</div>
+
+You can then drag them to change their order.
+
+To edit a strumline, open the `Options` menu.
+<div style="display: flex;">
+	<img src="../../images/editors/chart/editstrumline.png" alt="The two note types that already come with the game">
+</div>
+
+- `Waveforms` lets you add a waveform to a strumline for easier charting (this includes the instrumental)
+- Hitsounds is the individual hitsound volume of this strumline. works like the volume bars in the `Song` menu of the top bar.
+- `Edit` opens the strumline editing menu.
+- `Delete` removes the strumline completely.
+
+Once you click `Edit`, this menu will appear:
+<div style="display: flex; justify-content: center;">
+	<img src="../../images/editors/chart/editstrumlinemenu.png" alt="The two note types that already come with the game">
+</div>
+
+On the left side is where each of the characters associated with this strumline are shown. You can delete, add, and change which characters make up a strumline.
+
+On the right side are the properties of the strumline, which are all previewable:
+- `Type` defines what the strumline will do.
+  - `OPPONENT` is a computer-controlled strumline which turns playable in opponent mode.
+  - `PLAYER` is a player-controlled strumline that becomes computer-controlled in opponent mode.
+  - `ADDITIONAL` is **always** computer-controlled.
+- `Stage Position` defines where the strumline's characters are placed. Can be `DAD`'s, `BOYFRIEND`'s or `GIRLFRIEND`'s positions.
+- `Scale` changes the size of the strums.
+- `Spacing` changes the space between each strum of the strumline.
+- `Hud Position` changes where the center of the strumline is placed.
+  - `X` is a percent. `0` is on the left of the screen and `1` on the right.
+  - `Y` is the pixel position of the strumline.
+- `Visible` defines whether the strumline shows on screen.
+- `Scroll Speed` is the strumline's individual scroll speed. It can only be changed if `Uses charts scroll speed?` is unchecked, otherwise the strumline will use the global scroll speed.
+- `Vocal Suffix` sets the vocal track assigned to the strumline. any song track that starts with `Voices-` will appear here.
+- `Key Count` defines how many strums make up the strumline.
