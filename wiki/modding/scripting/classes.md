@@ -26,7 +26,7 @@ class MyCustomClass {
 	private var my_private:Int = 0;
 	public var my_public(get, never):Float;
 	// Getters / Setters can be public or private it doesn't matter, as both `private` and `public` variables are accessable anyways...
-	private function my_public():Float { return FlxG.random.float(-10, 10); }
+	private function get_my_public():Float { return FlxG.random.float(-10, 10); }
 
 	var my_random_var:Bool = true;
 
