@@ -1,7 +1,7 @@
 [
     ["index", "Home"],
     ["differences", "Differences between other FNF engines"],
-    ["usage", "How does one use the engine?"],
+    ["usage", "How does one use the engine? <span style='color: #d4b528;'>(Needs Links)</span>"],
     ["faq", "<span style='color: #43a1aa;'>FAQ</span>"],
     ["troubleshooting", "Troubleshooting - <span style='color: #32e53a;'>(Updated)</span>"],
     ["modding/index", "Modding The Engine - <span style='color: #d4b528;'>(33% Complete)</span>", [

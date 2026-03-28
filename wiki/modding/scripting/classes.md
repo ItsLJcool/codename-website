@@ -1,7 +1,7 @@
 ---
 author: ItsLJcool
 desc: Explains how Custom Classes work
-lastUpdated: 2025-11-15T05:32:50.298Z
+lastUpdated: 2026-03-28T04:08:54.618Z
 title: Scripting - Custom Classes
 ---
 
