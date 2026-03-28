@@ -81,7 +81,7 @@ class InternalClassName {
 }
 
 // This will contain the Class Type as a static variable.
-// Note: attempting to do `Std.isTypeOf(value, RealClassName);` or `value is RealClassName` when you want to cast it's class type I belive may not work??
+// Note: attempting to do `Std.isOfType(value, RealClassName);` or `value is RealClassName` when you want to cast it's class type I belive may not work??
 // This will be fixed or may have been fixed.
 static var RealClassName:Class = InternalClassName;
 ```
@@ -154,7 +154,8 @@ var test:Int = 10;
 function new() {
 	trace(test.addOne()); 		// 11
 	trace(test.multiplyBy(2));	// 20
-	trace(10.addOne()); // does not work as of now, gives Null Obj Reference.
+	trace(10.addOne()); // this does not work because hscript expects you to put a number. Put parenthesis like below
+	trace((10).addOne()); // 11
 }
 ```
 </div>
