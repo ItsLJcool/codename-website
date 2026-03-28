@@ -3,4 +3,3 @@ node_modules/*
 .vscode/*
 IndexNow.json
 webserver.bat
-package-lock.json
