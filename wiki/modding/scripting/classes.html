@@ -174,7 +174,7 @@ This means if you import it in 2 different scripts they can have different stati
 }
 
 <span class="hljs-comment">// This will contain the Class Type as a static variable.</span>
-<span class="hljs-comment">// Note: attempting to do `Std.isTypeOf(value, RealClassName);` or `value is RealClassName` when you want to cast it's class type I belive may not work??</span>
+<span class="hljs-comment">// Note: attempting to do `Std.isOfType(value, RealClassName);` or `value is RealClassName` when you want to cast it's class type I belive may not work??</span>
 <span class="hljs-comment">// This will be fixed or may have been fixed.</span>
 <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> <span class="hljs-title class_">RealClassName</span>:<span class="hljs-title class_">Class</span> = <span class="hljs-title class_">InternalClassName</span>;
 </code></pre>
@@ -233,7 +233,8 @@ using <span class="hljs-title class_">TestUtil</span>;
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
     <span class="hljs-title function_">trace</span>(test.<span class="hljs-title function_">addOne</span>());       <span class="hljs-comment">// 11</span>
     <span class="hljs-title function_">trace</span>(test.<span class="hljs-title function_">multiplyBy</span>(<span class="hljs-number">2</span>));  <span class="hljs-comment">// 20</span>
-    <span class="hljs-title function_">trace</span>(<span class="hljs-number">10.</span><span class="hljs-title function_">addOne</span>()); <span class="hljs-comment">// does not work as of now, gives Null Obj Reference.</span>
+    <span class="hljs-title function_">trace</span>(<span class="hljs-number">10.</span><span class="hljs-title function_">addOne</span>()); <span class="hljs-comment">// this does not work because hscript expects you to put a number. Put parenthesis like below</span>
+    <span class="hljs-title function_">trace</span>((<span class="hljs-number">10</span>).<span class="hljs-title function_">addOne</span>()); <span class="hljs-comment">// 11</span>
 }
 </code></pre>
 </div>
