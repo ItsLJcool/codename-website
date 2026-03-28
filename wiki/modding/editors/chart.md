@@ -313,7 +313,8 @@ The base engine already comes with two common note types.
 - `Alt Anim Note` will play the characters sing animations with the suffix `-alt`, if they have any.
 - `No Anim Note` will not play the sing animation when pressed.
 
-<h2 id="edit-strumline" sidebar="Editing Strumlines">Editing Strumlines</h2>
+<h2 id="edit-strumline" sidebar="Adding/Editing Strumlines">Adding/Editing Strumlines</h2>
+
 
 You can unlock the strumlines' positions by pressing the `Lock/Unlock` icon next to them.
 <div style="display: flex;">
@@ -321,6 +322,13 @@ You can unlock the strumlines' positions by pressing the `Lock/Unlock` icon next
 </div>
 
 You can then drag them to change their order.
+
+You can also add new strumlines by pressing the `Create New` button.
+<div style="display: flex;">
+	<img src="../../images/editors/chart/addstrumline.png" alt="The two note types that already come with the game">
+</div>
+
+What each parameter does is explained later.
 
 To edit a strumline, open the `Options` menu.
 <div style="display: flex;">
@@ -332,10 +340,12 @@ To edit a strumline, open the `Options` menu.
 - `Edit` opens the strumline editing menu.
 - `Delete` removes the strumline completely.
 
-Once you click `Edit`, this menu will appear:
+Once you click `Create New` or `Edit`, a menu like this will appear:
 <div style="display: flex; justify-content: center;">
 	<img src="../../images/editors/chart/editstrumlinemenu.png" alt="The two note types that already come with the game">
 </div>
+
+(It'll say "Create New Strumline" if you're making a new strumline, otherwise it's the same)
 
 On the left side is where each of the characters associated with this strumline are shown. You can delete, add, and change which characters make up a strumline.
 
