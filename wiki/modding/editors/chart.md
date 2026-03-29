@@ -25,7 +25,7 @@ This is the main data of your song:
 - `Song Name` is the name of the generated folder, and what the song will be called internally for scripts.
 - `BPM` and `Time Signature` are self-explanatory.
 - `Inst Audio File` is where you put the Instrumental of your song.
-- `Vocal Audio File` is optional, and is where you place the `Voices.ogg` of your song, if you only have one audio file for it. Leave it empty if you're
+- `Vocal Audio File` is optional, and is where you place the `Voices.ogg` of your song, if you only have one audio file for it. Leave it empty if you're planning on using split vocals.
 
 If you're porting the song from a different engine, you may instead click the `Import from...` button. Otherwise, press `Next >`.
 <details>
