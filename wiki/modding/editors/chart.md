@@ -1,7 +1,7 @@
 ---
 author: Bitto1070
 desc: Explains all the details of how to create a new Chart / Song in Codename Engine
-lastUpdated: 2026-03-28T22:15:47.555Z
+lastUpdated: 2026-03-30T17:47:59.930Z
 title: Editors - Chart Editor
 ---
 
