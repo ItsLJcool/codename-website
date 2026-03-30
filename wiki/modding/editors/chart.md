@@ -91,7 +91,7 @@ It looks complicated, but for now you only need to worry about the top boxes:
 
 The `Strumlines` can be edited here, but it's easier to do it when already editing the chart. What each of the parameters do will be explained later.
 
-Once done, press `Save & Close`. The game will create your files and freeze, so close the game and reopen the chart editor to start editing.
+Once done, press `Save & Close`. The game will create your files.
 
 If you want, you may also add variants (ex. pico mixes) to songs. Select the `Add Variation` option:
 <div style="display: flex; justify-content: center;">
