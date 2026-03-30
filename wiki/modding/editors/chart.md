@@ -232,7 +232,9 @@ You can also export for the `FNF Legacy` and `Psych Engine` formats, to then imp
 	<img src="../../images/editors/chart/topbar/edit.png" alt="Top Bar - Edit">
 </div>
 
-Self-explanatory.
+Most options here are self-explanatory, as they work the exact same as they do on most software.
+
+However, `Delete Stacked Notes` is special: it checks the current selection (or chart, if nothing is selected) and removes any notes that overlap another (ex. two left notes placed at the same step).
 
 <h3>Chart</h3>
 
