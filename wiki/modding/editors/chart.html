@@ -81,7 +81,14 @@
 </ul>
 </li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/" class="odd">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
-<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Chart Editor - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even pagination">
+<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Chart Editor - <span style="color: #32e53a;">(Complete)</span></a><ul class="sidebar-unordered-list even pagination">
+<li><a href="#creating-the-song">Creating the song</a></li>
+<li><a href="#adding-diffs-and-variants">Adding difficulties and variations</a></li>
+<li><a href="#charting">Charting the song</a></li>
+<li><a href="#events">Adding Events</a></li>
+<li><a href="#top-bar">Top Bar - All Menus</a></li>
+<li><a href="#notetypes">Custom Note Types</a></li>
+<li><a href="#edit-strumline">Adding/Editing Strumlines</a></li>
 </ul>
 </li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/character" class="odd">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
@@ -109,13 +116,332 @@
 		</div>
 
 		<div class="content">
-			<h1>TODO</h1>
-<p>Explain how you interact, and use the Chart Editor in great detail.</p>
+			<h1>Creating Songs</h1>
+<p>In Codename Engine, there's two ways to add a song to your mod: directly adding the files, and using the editor.</p>
+<p>This tutorial will focus on the in-game way of adding songs to your mod.
+</p><h2 id="creating-the-song">Creating the song</h2><p></p>
+<p>When you first open the chart editor on a mod with no songs, you will see this:</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/start.png" alt="Initial screen of the chart editor">
+</div>
+<p>To create your own song, select <code class="inline-code">New Song</code> at the top of the list. Doing so will make a popup appear, prompting you to insert some info about your song.</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/makesong.png" alt="Song Info popup menu">
+</div>
+<p>This is the main data of your song:</p>
+<ul>
+<li><code class="inline-code">Song Name</code> is the name of the generated folder, and what the song will be called internally for scripts.</li>
+<li><code class="inline-code">BPM</code> and <code class="inline-code">Time Signature</code> are self-explanatory.</li>
+<li><code class="inline-code">Inst Audio File</code> is where you put the Instrumental of your song.</li>
+<li><code class="inline-code">Vocal Audio File</code> is optional, and is where you place the <code class="inline-code">Voices.ogg</code> of your song, if you only have one audio file for it. Leave it empty if you're planning on using split vocals.</li>
+</ul>
+<p>If you're porting the song from a different engine, you may instead click the <code class="inline-code">Import from...</code> button. Otherwise, press <code class="inline-code">Next &gt;</code>.
+</p><details>
+<summary>📥 Importing from other engines</summary><p></p>
+<p>Codename Engine supports importing charts from other engines, notably:</p>
+<ul>
+<li><code class="inline-code">Psych/Legacy FNF</code> - charts from engines that use the chart format from before the V-Slice update (Week 7 and prior).</li>
+<li><code class="inline-code">V-Slice</code> - JSON charts from the latest version of the base Friday Night Funkin' (Weekend 1 onwards).</li>
+<li><code class="inline-code">V-Slice Project (.fnfc)</code> - V-Slice "Friday Night Funkin'" project files.</li>
+</ul>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/importsource.png" alt="Import Source">
+</div>
+<p>Next, you have to import the audio files. This step can be skipped if you selected <code class="inline-code">V-Slice Project</code>.</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/importsounds.png" alt="Add Audios">
+</div>
+<p>Finally, you need to import the song's data.</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/importdata.png" alt="Add Data">
+</div>
+<ul>
+<li><code class="inline-code">Song File Name</code> - the same as the <code class="inline-code">Song Name</code> previously mentioned. Not needed when importing with <code class="inline-code">V-Slice Project</code>.</li>
+<li><code class="inline-code">Data/Chart File</code> - The actual chart file. Place the <code class="inline-code">.fnfc</code> file if it's a V-Slice Project, otherwise place the <code class="inline-code">.json</code>.</li>
+<li><code class="inline-code">Meta File</code> - The metadata of the song. Only needed when importing with <code class="inline-code">V-Slice</code>.
+</li></ul></details>
+
+<p><a name="metadata"></a>
+After inserting the song info, you move to the Menus Data menu, which is where you insert the song's metadata.</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/menudata.png" alt="Menus Data popup menu">
+</div>
+<ul>
+<li><code class="inline-code">Display Name</code> is what the song will show as in freeplay, story mode, and other menus.</li>
+<li><code class="inline-code">Icon</code> is the associated icon of the song for the chart editor.</li>
+<li><code class="inline-code">Modes Allowed</code> has two options:
+<ul>
+<li><code class="inline-code">Opponent Mode</code> Swaps computer controlled and player strum lines, making you play as the opponent.</li>
+<li><code class="inline-code">Co-op Mode</code> Makes opponents be controlled by the secondary controls.</li>
+</ul></li>
+<li><code class="inline-code">Difficulties</code> is the names of the difficulties the song will have. Each difficulty is separated with commas (ex. <code class="inline-code">easy,normal,hard</code>)</li>
+<li><code class="inline-code">Color</code> is the associated color of the song. The freeplay menu will fade to this when this song is selected.</li>
+</ul>
+<p>Once you're finished, click "Save &amp; Close" and the song will appear on the song list. Don't worry about getting it right on the first try, you can change all of these later.</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/songmade.png" alt="Initial screen of the chart editor, now with the added song">
+</div>
+<p>(Disclaimer: once you create a song, all the base game songs will be hidden, both from the chart editor as well as the freeplay menu. You can make them reappear by changing the <code class="inline-code">SONGS_LIST_MOD_MODE</code> flag from <code class="inline-code">override</code> to <code class="inline-code">append</code> or <code class="inline-code">prepend</code>.)</p>
+<p></p><h2 id="adding-diffs-and-variants">Adding difficulties and variations</h2><p></p>
+<p>Once you click your song, you'll need to add a difficulty to begin charting. Select the <code class="inline-code">New Difficulty</code> option to create a new difficulty. Once you do, this menu will appear:</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/newchart.png" alt="New Chart menu">
+</div>
+<p>It looks complicated, but for now you only need to worry about the top boxes:</p>
+<ul>
+<li><code class="inline-code">Difficulty Name</code> is what you will call your difficulty. We recommend you keep it all lowercase with no spaces.</li>
+<li><code class="inline-code">Stage</code> is the name of the stage your song will take place in.</li>
+<li><code class="inline-code">Scroll Speed</code> is how fast the notes will move towards their respective strum.</li>
+</ul>
+<p>The <code class="inline-code">Strumlines</code> can be edited here, but it's easier to do it when already editing the chart. What each of the parameters do will be explained later.</p>
+<p>Once done, press <code class="inline-code">Save &amp; Close</code>. The game will create your files.</p>
+<p>If you want, you may also add variants (ex. pico mixes) to songs. Select the <code class="inline-code">Add Variation</code> option:</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/addvariation.png" alt="New Variation menu">
+</div>
+<p>It's the exact same as the song creation process, but instead of <code class="inline-code">Song Name</code>, you write the <code class="inline-code">Song Variation</code> name.</p>
+<h1>The Charter</h1>
+<p>Once you select a difficulty, you will be sent to the charter.</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/charterinitial.png" alt="Chart Editor">
+</div>
+<p>Each character in the song is given a <code class="inline-code">strumline</code>. By default, you get one for the opponent (Dad), one for the player (Bf), and one additional strumline (Gf), which is hidden (as seen by the more transparent background). The opponent's strumline will also be highlighted. This indicates that they're currently focused by the camera.</p>
+<p></p><h1 id="charting">Charting the song</h1><p></p>
+<p>You can now start charting. The most important controls are:</p>
+<ul>
+<li><code class="inline-code">Space</code> plays/pauses your song.</li>
+<li><code class="inline-code">Left Click</code> on any empty spot to place a note.</li>
+<li><code class="inline-code">Right Click</code> to delete any note.</li>
+<li><code class="inline-code">Q</code> and <code class="inline-code">E</code> decrease and increase the sustain length of the last selected note by one grid's length.
+<ul>
+<li>You can also directly drag the sustain tail up and down, which allows you to move it by the grid snap's length.</li>
+</ul></li>
+<li><code class="inline-code">Z</code>and <code class="inline-code">X</code> decrease and increase the grid's snap, respectively. You can see and change the current snap on the top bar.
+<ul>
+<li>You can also disable snapping altogether with <code class="inline-code">Shift</code>.</li>
+</ul></li>
+<li>You can select multiple notes by <code class="inline-code">Clicking and Dragging</code> like you would do files on your desktop. this allows you to <strong>copy</strong>, <strong>cut</strong>, and <strong>move</strong> multiple notes around.
+<ul>
+<li>You can also copy notes by holding <code class="inline-code">Alt</code> and dragging your selection.</li>
+</ul></li>
+</ul>
+<p>Other controls can be found on the top bar's menus.</p>
+<p></p><h2 id="events">Adding Events</h2><p></p>
+<p>You may have noticed the two <code class="inline-code">Local Events (Only this Difficulty)</code> and <code class="inline-code">Global Events (All Difficulties)</code> texts to the left and right of the charter. This is because in Codename Engine you can have two types of events: <code class="inline-code">Local</code> and <code class="inline-code">Global</code> Events. Like it says in the two texts, the difference is that local events are saved with the chart and only run for the current difficulty, while global events are saved separately in <code class="inline-code">events.json</code> and show up for all difficulties of the current variation.</p>
+<p>To add an event, hover your mouse over whichever type's side you want your event to be.</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/events/local.png" alt="Add Local Event">
+</div>
+<p>Once <code class="inline-code">Add Event</code> shows up, click it to add an event marker at its position.</p>
+<p>Initially, this event marker will have no events.</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/events/noevent.png" alt="No Event">
+</div>
+<p>To add an event, click the <code class="inline-code">+</code>.</p>
+<p>Once you do, this menu will show up:</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/events/addevent.png" alt="No Event">
+</div>
+<p>These are all the default events of the engine. If you previously added any custom events (in <code class="inline-code">data/events/</code>), they will show up below these.</p>
+<p>If you're confused as to how to use any of these, they're all explained this section. You may skip this otherwise.</p>
+<p></p><details>
+<summary>📸 Default Codename Engine Events</summary><p></p>
+<table>
+<thead>
+<tr><th>Icon</th><th>Name</th><th>Function</th><th>Parameters</th></tr>
+</thead>
+<tbody>
+<tr><td><img src="../../images/editors/chart/eventicons/hscript.png"></td><td>Hscript Call</td><td>Calls a function from loaded scripts.</td><td><code class="inline-code">Function Name</code>: The name of the function.<br> <code class="inline-code">Function Parameters (String split with commas)</code>: The parameters of the called function.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/movement.png"></td><td>Camera Movement</td><td>Moves the camera to a specified character.</td><td><code class="inline-code">Camera Target</code>: Which character the camera should move to<br><code class="inline-code">Tween Movement?</code>: If unchecked, movement will be instant.<br><code class="inline-code">Tween Time (Steps, IF NOT CLASSIC)</code>: How long the movement should last.<br><code class="inline-code">Tween Ease (ex: circ, quad, cube)</code>: The movement's ease. If set to <code class="inline-code">CLASSIC</code>, the camera will instead "lerp" to the character (like most other engines), ignoring the time and tween type.<br><code class="inline-code">Tween Type (excluded if CLASSIC or linear, ex. InOut)</code>: The type of the selected ease. In speeds up at the start, Out slows down at the end, and InOut does both.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/position.png"></td><td>Camera Position</td><td>Moves the camera to a specified position.</td><td><code class="inline-code">X</code>: The X position on the stage.<br><code class="inline-code">Y</code>: The Y position on the stage.<br><code class="inline-code">Tween Movement?</code>: If unchecked, movement will be instant.<br><code class="inline-code">Tween Time (Steps, IF NOT CLASSIC)</code>: How long the movement should last.<br><code class="inline-code">Tween Ease (ex: circ, quad, cube)</code>: The movement's ease. If set to <code class="inline-code">CLASSIC</code>, the camera will instead "lerp" to the position, ignoring the time and tween type.<br><code class="inline-code">Tween Type (excluded if CLASSIC or linear, ex. InOut)</code>: The type of the selected ease. In speeds up at the start, Out slows down at the end, and InOut does both.<br><code class="inline-code">Is Offset?</code>: If checked, the <code class="inline-code">X</code> and <code class="inline-code">Y</code> parameters will instead be relative to the current position of the camera.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/addzoom.png"></td><td>Add Camera Zoom</td><td>Adds a set amount of "zoom" to a camera, but does not set the camera's zoom.</td><td><code class="inline-code">Amount</code>: How much zoom is added. <br><code class="inline-code">Camera</code>: Which camera is affected.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/addbop.png"></td><td>Camera Bop</td><td>causes a camera bop.</td><td><code class="inline-code">Amount</code>: How much the camera bops by.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/zoom.png"></td><td>Camera Zoom</td><td>Zooms the camera.</td><td><code class="inline-code">Tween Zoom?</code>: If unchecked, the zoom will be instant.<br><code class="inline-code">New Zoom</code>: The desired zoom.<br> <code class="inline-code">Camera</code>: Which camera gets zoomed.<br><code class="inline-code">Tween Time (Steps)</code>: How long the zoom should last.<br><code class="inline-code">Tween Ease (ex: circ, quad, cube)</code>: The zoom's ease.<br><code class="inline-code">Tween Type (excluded if linear, ex. InOut)</code>: The type of the selected ease. In speeds up at the start, Out slows down at the end, and InOut does both.<br><code class="inline-code">Mode</code>: <code class="inline-code">direct</code> uses a base zoom of 1 as the reference point. <code class="inline-code">stage</code> uses the stage's default zoom as the reference point instead.<br><code class="inline-code">Multiplicative?</code>: If checked, the new zoom is multiplied on top of the camera's current zoom rather than replacing it.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/modulo.png"></td><td>Camera Modulo Change</td><td>Changes the interval and strength of the camera bops.</td><td><code class="inline-code">Modulo Interval</code>: How frequently the camera will bop. Counts depending on <code class="inline-code">Every beat type</code>. For example, <code class="inline-code">2</code> with <code class="inline-code">BEAT</code> type will make it bop every 2 beats.<br><code class="inline-code">Bump Strength</code>: How strong these bops are.<br><code class="inline-code">Every Beat Type</code>: Defines what the interval will count between bops.<br><code class="inline-code">Beat Offset</code>: The offset at which these bops happen.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/flash.png"></td><td>Camera Flash</td><td>Flashes a camera.</td><td><code class="inline-code">Reversed?</code>: If checked, the flash will fade in instead of out<br><code class="inline-code">Color</code>: The flash's color.<br><code class="inline-code">Time (Steps)</code>: How long the flash lasts.<br><code class="inline-code">Camera</code>: Which camera the flash happens on.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/bpm.png"></td><td>BPM Change</td><td>Changes the Beats Per Second of the song.</td><td><code class="inline-code">Target BPM</code>: The desired BPM.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/bpmcontinuous.png"></td><td>Continuous BPM Change</td><td>Same as <code class="inline-code">BPM Change</code>, but over a set time.</td><td><code class="inline-code">Target BPM</code>: The desired BPM.<br><code class="inline-code">Time (steps)</code>: How long the BPM change will last.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/timesig.png"></td><td>Time Signature Change</td><td>Changes the time signature of the song.</td><td><code class="inline-code">Target Numerator</code>: How many beats are in a measure.<br><code class="inline-code">Target Denominator</code>: What note value (quarter note, eighth note, etc.) defines a "beat".<br><code class="inline-code">Denominator is Steps Per Beat</code>: If checked, the denominator is instead how many steps are in a beat.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/scroll.png"></td><td>Scroll Speed Change</td><td>Changes the scroll speed of the song.</td><td><code class="inline-code">Tween Speed?</code>: If unchecked, the change will be instant.<br><code class="inline-code">New Speed</code>: The desired scroll speed.<br><code class="inline-code">Tween Time (Steps)</code>: How long the change should last.<br><code class="inline-code">Tween Ease (ex: circ, quad, cube)</code>: The change's ease.<br><code class="inline-code">Tween Type (excluded if linear, ex. InOut)</code>: The type of the selected ease. In speeds up at the start, Out slows down at the end, and InOut does both.<br><code class="inline-code">Multiplicative?</code>: If checked, the new speed is multiplied on top of the current scroll speed rather than replacing it.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/alt.png"></td><td>Alt Animation Toggle</td><td>Changes the suffix of every character in a strumline's animations to <code class="inline-code">-alt</code>.</td><td><code class="inline-code">Enable On Sing Poses</code>: Adds the suffix to the characters' sing poses.<br><code class="inline-code">Enable On Idle</code>: Adds the suffix to the characters' Idle.<br><code class="inline-code">Strumline</code>: The target strumline.</td></tr>
+<tr><td><img src="../../images/editors/chart/eventicons/anim.png"></td><td>Play Animation</td><td>Plays a character's animation.</td><td><code class="inline-code">Character</code>: The target strumline. The animation will play for every character in the selected strumline.<br><code class="inline-code">Animation</code>: The animation you want the character(s) to play.<br><code class="inline-code">Is forced?</code> If unchecked, the animation will not play if the character is already playing it.<br><code class="inline-code">Animation Context</code>: Changes how the animation interacts with the character's idle. <code class="inline-code">NONE</code> will disable the idle until the animation is over, <code class="inline-code">SING</code> and <code class="inline-code">MISS</code> will disable it for as long as the character's sing animation length, <code class="inline-code">DANCE</code> won't disable it, and <code class="inline-code">LOCK</code> will disable it until another animation that allows idling is played.</td></tr>
+</tbody>
+</table>
+<p></p></details><p></p>
+<p>Once you've picked an event, it will show up where you placed it.</p>
+<p>For example: this is what the <code class="inline-code">Camera Movement</code> event will look like.</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/events/eventexample.png" alt="Top Bar">
+</div>
+<p>Change the properties to your liking, and click off the event to save those changes.</p>
+<p>In the case of some events, they will visually change to reflect what they will do once activated. These changes are explained in the <code class="inline-code">Default Codename Engine Events</code> section.</p>
+<p>You can also add multiple events in one marker. Simply press the <code class="inline-code">+</code> again and add another event. Note that events in the same marker run bottom to top, so if you encounter any issues, try to reorder the events by dragging them around.</p>
+<p></p><h2 id="top-bar">Top Bar - All Menus</h2><p></p>
+<p>At the top of the screen, there is a bar:</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/topbar.png" alt="Top Bar">
+</div>
+Directly on it, there are multiple menus, which will be explained in their own sections. They are:
+<ul>
+<li><code class="inline-code">File</code> - Saving and exporting.</li>
+<li><code class="inline-code">Edit</code> - Direct chart manipulation.</li>
+<li><code class="inline-code">Chart</code> - Playtesting and data editing.</li>
+<li><code class="inline-code">View</code> - Visual settings, like zooming and separators.</li>
+<li><code class="inline-code">Song</code>- Volume controls and other miscellaneous options.</li>
+<li><code class="inline-code">Note</code> - Note options.</li>
+<li>The Currently selected note type, and its associated keybind.</li>
+</ul>
+<p>On the right, it also has:</p>
+<ul>
+<li><code class="inline-code">Snap</code> - Lets you change the grid snap of notes, events, and dragged sustain tails.</li>
+<li>The current grid snap, and the two closest snap sizes.</li>
+<li><code class="inline-code">Playback</code> - Song speed and Metronome. Also lets you move in steps and measures.</li>
+<li>The current playback speed.</li>
+<li>Playback speed slider. Goes from 0.25x speed to 2x speed.</li>
+</ul>
+<p>For any of the options, you can also use them by hitting the keybinds written on the right in gray. If using a Mac, replace <code class="inline-code">Ctrl</code> with <code class="inline-code">Command</code>.</p>
+<p></p><h3>File</h3><p></p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/file.png" alt="Top Bar - File">
+</div>
+<p>(any <code class="inline-code">As...</code> option does the same as its normal counterpart, only letting you choose where it gets saved to)</p>
+<ul>
+<li><code class="inline-code">Save</code> - Save the current <code class="inline-code">[difficulty].json</code> file. If any global events are present, those will be saved separately in <code class="inline-code">events.json</code>. Also saves <code class="inline-code">meta.json</code>.</li>
+<li><code class="inline-code">Save Global Events</code> - Save ONLY the <code class="inline-code">events.json</code> file.</li>
+<li><code class="inline-code">Save Chart without Local Events</code> - save the difficulty file without any of the left side events.</li>
+<li><code class="inline-code">Save Meta</code> - Save only the <code class="inline-code">meta.json</code> file.</li>
+<li><code class="inline-code">Exit</code> - Closes the charter and sends you back to the previous menu. Gives a warning if the chart wasn't saved.</li>
+</ul>
+<p>You can also export for the <code class="inline-code">FNF Legacy</code> and <code class="inline-code">Psych Engine</code> formats, to then import to those engines (Legacy/V-slice and Psych Engine, respectively).</p>
+<p></p><h3>Edit</h3><p></p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/edit.png" alt="Top Bar - Edit">
+</div>
+<p>Most options here are self-explanatory, as they work the exact same as they do on most software.</p>
+<p>However, <code class="inline-code">Delete Stacked Notes</code> is special: it checks the current selection (or chart, if nothing is selected) and removes any notes that overlap another (ex. two left notes placed at the same step).</p>
+<p></p><h3>Chart</h3><p></p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/chart.png" alt="Top Bar - Chart">
+</div>
+<ul>
+<li><code class="inline-code">Playtest</code> plays the song from the start.</li>
+<li><code class="inline-code">Playtest here</code> plays the song from the current song position.</li>
+<li><code class="inline-code">Playtest as opponent</code> and <code class="inline-code">Playtest as opponent here</code> do the same, but in Opponent Mode.</li>
+<li><code class="inline-code">Enable scripts during playtesting</code> is self-explanatory. When unchecked, any scripts that would normally run during the song are disabled. Use this in case there are any problems when using <code class="inline-code">Playtest here</code>.</li>
+<li><code class="inline-code">Edit chart data</code> Lets you change the <strong>stage</strong> and <strong>scroll speed</strong> of the song.</li>
+<li><code class="inline-code">Edit metadata information</code> Lets you change the metadata of the song. Explained previously during the song creation process.</li>
+</ul>
+<p></p><h3>View</h3><p></p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/view.png" alt="Top Bar - View">
+</div>
+<ul>
+<li><code class="inline-code">Zoom in</code>, <code class="inline-code">Zoom out</code> and <code class="inline-code">Reset zoom</code> are self explanatory. You can also zoom in and out by holding ctrl/command and using the scroll wheel. The <code class="inline-code">[+]</code>, <code class="inline-code">[-]</code> and <code class="inline-code">[0]</code> are the <strong>Numpad</strong> versions of those keys.</li>
+<li><code class="inline-code">Show Sections Separator</code> toggles the thicker lines that appear between measures.</li>
+<li><code class="inline-code">Show Beats Separator</code> toggles the thinner lines that appear between beats.</li>
+<li><code class="inline-code">Show Camera Highlights</code> toggles the icon-colored background that appears for the character that is currently being focused by the camera. This highlight changes for every <code class="inline-code">Camera Movement</code> event.</li>
+<li><code class="inline-code">Rainbow Waveforms</code> makes the waveforms of the strumlines rainbow for .</li>
+<li><code class="inline-code">Low Detail Waveforms</code> makes the waveforms less detailed to increase performance.</li>
+<li><code class="inline-code">Scroll Left</code> and <code class="inline-code">Scroll Right</code> move the strumlines one grid to the left and right. <code class="inline-code">Reset Scroll</code> recenters them.
+<ul>
+<li>You can also hold shift and move the scroll wheel up and down to move left and right, respectively.</li>
+</ul></li>
+</ul>
+<p></p><h3>Song</h3><p></p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/song.png" alt="Top Bar - Song">
+</div>
+<ul>
+<li><code class="inline-code">Go back to the start</code> and <code class="inline-code">Go forward to the end</code> will move the song position to the beginning and end of the song, respectively.</li>
+<li><code class="inline-code">Add camera on Opponent</code> and <code class="inline-code">Add camera on Player</code> will add a global <code class="inline-code">Camera Movement</code> event to the chart at the current time.
+<ul>
+<li>While not written, you can hold <code class="inline-code">Alt</code> to make the event local, and <code class="inline-code">Shift</code> to disable the snapping like you can do with notes.</li>
+</ul></li>
+<li><code class="inline-code">Add Bookmark Here</code> Lets you add a bookmark (a sort of "shortcut" to different parts of the song). You can set the name and color of them.</li>
+<li><code class="inline-code">Edit Bookmark List</code> allows you to change the name of each bookmark, and their order in the Bookmark List.</li>
+<li><code class="inline-code">Bookmark List</code> only appears once you have at least one bookmark in your song. There, you can select your bookmarks to go to them.</li>
+<li><code class="inline-code">Instrumental</code>, <code class="inline-code">Voices</code> and <code class="inline-code">Hitsounds</code> let you control the volume of those sounds. You can either change them by dragging the bar, or mute/unmute them by clicking the <img src="../../images/editors/chart/topbar/speaker.png"> speaker icon.</li>
+</ul>
+<p></p><h3>Note</h3><p></p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/note.png" alt="Top Bar - Song">
+</div>
+<ul>
+<li><code class="inline-code">Add sustain length</code> and <code class="inline-code">Subtract sustain length</code> add and remove sustain length from the currently selected notes.</li>
+<li><code class="inline-code">Select all</code> and <code class="inline-code">Select measure</code> are self-explanatory.</li>
+<li><code class="inline-code">Note Types List</code> shows the note types that are part of the current difficulty. By default it only has the <code class="inline-code">Default Note</code>, which you can hotkey to with <code class="inline-code">0</code>.</li>
+</ul>
+<p>Finally, <code class="inline-code">Edit Note Types List</code> is where you add your custom note types. If your song doesn't need custom notes, you can skip the next section.</p>
+<p></p><h2 id="notetypes">Custom Note Types</h2><p></p>
+<p>(If you don't have a note type already in your mod's files, either get one from the Codename Engine Server's Scripts channel, or learn how to make one in the <a href="../scripting/events">Custom Notetypes page</a>.)</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/notetypes.png" alt="Notetypes submenu">
+</div>
+<p>Once you have your custom note type in <code class="inline-code">data/notes</code>, to use it in your song, add an index by pressing the <code class="inline-code">+</code> on the note types list. Once you do, a new note type with the name <code class="inline-code">Note Type X</code> will be created (<code class="inline-code">X</code> will be a different number depending on how many note types already exist in your song).</p>
+<p>To make it your note type, rename it to <strong>exactly</strong> your note type's name. <strong>This is almost always case-sensitive (<code class="inline-code">hurt note</code> is NOT the same as <code class="inline-code">Hurt Note</code> when scripting)</strong>.</p>
+<p>if your note has a custom note skin with that exact name (inside <code class="inline-code">images/game/notes</code>), it will show that skin here.</p>
+<p>You can delete change the order of the notes, but know that <strong>the charter will not automatically change every note to be the correct index</strong>. If you swap two notes in the list, those two notes will be swapped throughout the entire chart, so make sure you have the order you like before adding note types.</p>
+<p>The base engine already comes with two common note types.</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/topbar/default-notes.png" alt="The two note types that already come with the game">
+</div>
+<ul>
+<li><code class="inline-code">Alt Anim Note</code> will play the characters sing animations with the suffix <code class="inline-code">-alt</code>, if they have any.</li>
+<li><code class="inline-code">No Anim Note</code> will not play the sing animation when pressed.</li>
+</ul>
+<p></p><h2 id="edit-strumline">Adding/Editing Strumlines</h2><p></p>
+<p>You can unlock the strumlines' positions by pressing the <code class="inline-code">Lock/Unlock</code> icon next to them.</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/unlockstrumlines.png" alt="The two note types that already come with the game">
+</div>
+<p>You can then drag them to change their order.</p>
+<p>You can also add new strumlines by pressing the <code class="inline-code">Create New</code> button.</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/addstrumline.png" alt="The two note types that already come with the game">
+</div>
+<p>What each parameter does is explained later.</p>
+<p>To edit a strumline, open the <code class="inline-code">Options</code> menu.</p>
+<div style="display: flex;">
+    <img src="../../images/editors/chart/editstrumline.png" alt="The two note types that already come with the game">
+</div>
+<ul>
+<li><code class="inline-code">Waveforms</code> lets you add a waveform to a strumline for easier charting (this includes the instrumental)</li>
+<li>Hitsounds is the individual hitsound volume of this strumline. works like the volume bars in the <code class="inline-code">Song</code> menu of the top bar.</li>
+<li><code class="inline-code">Edit</code> opens the strumline editing menu.</li>
+<li><code class="inline-code">Delete</code> removes the strumline completely.</li>
+</ul>
+<p>Once you click <code class="inline-code">Create New</code> or <code class="inline-code">Edit</code>, a menu like this will appear:</p>
+<div style="display: flex; justify-content: center;">
+    <img src="../../images/editors/chart/editstrumlinemenu.png" alt="The two note types that already come with the game">
+</div>
+<p>(It'll say "Create New Strumline" if you're making a new strumline, otherwise it's the same)</p>
+<p>On the left side is where each of the characters associated with this strumline are shown. You can delete, add, and change which characters make up a strumline.</p>
+<p>On the right side are the properties of the strumline, which are all previewable:</p>
+<ul>
+<li><code class="inline-code">Type</code> defines what the strumline will do.
+<ul>
+<li><code class="inline-code">OPPONENT</code> is a computer-controlled strumline which turns playable in opponent mode.</li>
+<li><code class="inline-code">PLAYER</code> is a player-controlled strumline that becomes computer-controlled in opponent mode.</li>
+<li><code class="inline-code">ADDITIONAL</code> is <strong>always</strong> computer-controlled.</li>
+</ul></li>
+<li><code class="inline-code">Stage Position</code> defines where the strumline's characters are placed. Can be <code class="inline-code">DAD</code>'s, <code class="inline-code">BOYFRIEND</code>'s or <code class="inline-code">GIRLFRIEND</code>'s positions.</li>
+<li><code class="inline-code">Scale</code> changes the size of the strums.</li>
+<li><code class="inline-code">Spacing</code> changes the space between each strum of the strumline.</li>
+<li><code class="inline-code">Hud Position</code> changes where the center of the strumline is placed.
+<ul>
+<li><code class="inline-code">X</code> is a percent. <code class="inline-code">0</code> is on the left of the screen and <code class="inline-code">1</code> on the right.</li>
+<li><code class="inline-code">Y</code> is the pixel position of the strumline.</li>
+</ul></li>
+<li><code class="inline-code">Visible</code> defines whether the strumline shows on screen.</li>
+<li><code class="inline-code">Scroll Speed</code> is the strumline's individual scroll speed. It can only be changed if <code class="inline-code">Uses charts scroll speed?</code> is unchecked, otherwise the strumline will use the global scroll speed.</li>
+<li><code class="inline-code">Vocal Suffix</code> sets the vocal track assigned to the strumline. any song track that starts with <code class="inline-code">Voices-</code> will appear here.</li>
+<li><code class="inline-code">Key Count</code> defines how many strums make up the strumline.</li>
+</ul>
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
-				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+				<div class="written">Written by: Bitto1070</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-03-30T17:47:59.930Z">2026-03-30</span></div>
 
 				<div class="github-edit-button">
 					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/editors/chart.md">Edit this page on GitHub</a>
