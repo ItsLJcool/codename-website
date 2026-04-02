@@ -18,7 +18,7 @@
             ["classes", "Custom Classes - <span style='color: #32e53a;'>(Complete)</span>"]
         ]],
         ["editors/index", "Editors - UNFINISHED", [
-            ["chart", "Chart Editor - UNFINISHED"],
+            ["chart", "Chart Editor - <span style='color: #32e53a;'>(Complete)</span>"],
             ["character", "Character Editor - UNFINISHED"],
             ["stage", "Stage Editor - UNFINISHED"],
             ["alphabet", "Alphabet Editor - UNFINISHED"],
