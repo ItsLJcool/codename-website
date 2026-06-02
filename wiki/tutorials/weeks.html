@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Making Weeks - Codename Engine Wiki</title>
+	<link rel="stylesheet" href="/codename-website/style.css">
+	<link rel="stylesheet" href="/codename-website/style_v2.css">
+	<link rel="stylesheet" href="/codename-website/wiki.css">
+
+	<meta name="title" content="Making Weeks - Codename Engine Wiki">
+	<meta name="description" content="Complete guide to creating custom weeks for your Codename Engine mod">
+	<meta property="og:description" content="Complete guide to creating custom weeks for your Codename Engine mod">
+	<meta property="twitter:description" content="Complete guide to creating custom weeks for your Codename Engine mod">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codename-engine.com/">
+	<meta property="og:title" content="Making Weeks - Codename Engine Wiki">
+	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://codename-engine.com/">
+	<meta property="twitter:title" content="Making Weeks - Codename Engine Wiki">
+	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
+
+	<meta name="theme-color" content="#b265bd">
+
+	<link rel="shortcut icon" href="/codename-website/favicon.ico">
+	<link rel="icon" href="/codename-website/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="/codename-website/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/codename-website/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/codename-website/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/codename-website/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/codename-website/favicon-16x16.png">
+	<meta name="apple-mobile-web-app-title" content="Codename">
+	<link rel="manifest" href="/codename-website/site.webmanifest">
+</head>
+<body>
+	<div class="header" id="main">
+		<header>
+    <a href="/codename-website/">
+        <img src="/codename-website/img/logo-banner.png" alt="Codename Logo" class="desktop">
+        <img src="/codename-website/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
+    </a>
+    <h2 class="header-title">Making Weeks</h2>
+    <div>
+        <a href="/codename-website/api-docs/">API</a><a href="/codename-website/wiki/">Wiki</a><a href="/codename-website/tools/">Tools</a>
+    </div>
+</header>
+	</div>
+	<div class="container">
+		<div class="sidebar-wrapper">
+			<input type="checkbox" class="sidebar-button">
+			<span class="sidebar-button-front">
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="20" rx="10"></rect>
+					<rect y="30" width="100" height="20" rx="10"></rect>
+					<rect y="60" width="100" height="20" rx="10"></rect>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path stroke="#000" d="M195 195a64 64 0 0 1 91 0l226 227 226-227a64 64 0 0 1 91 91L602 512l227 226a64 64 0 0 1-91 91L512 602 286 829a64 64 0 0 1-91-91l227-226-227-226a64 64 0 0 1 0-91z"></path></svg>
+			</span>
+			<div class="sidebar">
+				<ul class="sidebar-unordered-list">
+					<li class="sidebar-list-item even"><a href="/codename-website/wiki/" class="even">Home</a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/differences" class="odd">Differences between other FNF engines</a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/usage" class="even">How does one use the engine? <span style="color: #d4b528;">(Needs Links)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/faq" class="odd"><span style="color: #43a1aa;">FAQ</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/troubleshooting" class="even">Troubleshooting - <span style="color: #32e53a;">(Updated)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/" class="odd">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/config" class="even">Configuration</a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/libraries" class="odd">OpenFL's AssetLibrary</a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(20% Complete)</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/cancellables" class="odd">Event Callbacks - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/events" class="even">Custom Events / Notetypes - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/global" class="odd">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/classes" class="even">Custom Classes - <span style="color: #32e53a;">(Complete)</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/" class="odd">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/chart" class="even">Chart Editor - <span style="color: #32e53a;">(Complete)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/character" class="odd">Character Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/stage" class="even">Stage Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/alphabet" class="odd">Alphabet Editor - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/custom" class="even">Custom Editors??? - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/hxvlc" class="odd">Using hxvlc for Videos - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/" class="even">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/shaders" class="odd">Shaders - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/ndll" class="even">NDLLS - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/3d/" class="odd">3D Rendering - <span style="color: #FF0000;">UNFINISHED</span> <span style="color: #489fb7;">(WIP)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/tutorials/" class="even">Useful Tutorials - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Making weeks - <span style="color: #32e53a;">(Complete)</span></a><ul class="sidebar-unordered-list odd pagination">
+<li><a href="#week-xml">Week.xml</a></li>
+<li><a href="#week-diff-node">Week Difficulties</a></li>
+<li><a href="#week-sorting">Organizing Weeks</a></li>
+<li><a href="#week-checklist">Checklist</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/source/" class="even">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/source/init" class="odd">Initalization - <span style="color: #FF0000;">UNFINISHED</span></a></li>
+</ul>
+</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<h1>Making Weeks</h1>
+<h2 id="week-xml">Creating the Week XML</h2>
+<p>Week XMLs go in <code class="inline-code">./data/weeks/weeks/</code> (yes, two "weeks" folders). Here's a complete example from Week 3:</p>
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">week</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"PICO"</span> <span class="hljs-attr">chars</span>=<span class="hljs-string">"pico,bf,gf"</span> <span class="hljs-attr">sprite</span>=<span class="hljs-string">"week3"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Pico<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Philly Nice<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Blammed<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">week</span>&gt;</span>
+</code></pre>
+<div style="display: flex; justify-content: center;">
+    <img src="../images/tutorials/weeks/example.png" alt="Name of the week in the up right corner">
+</div>
+<p>Let's break down what each part does:</p>
+<h3>The Week Tag</h3>
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">week</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"PICO"</span> <span class="hljs-attr">chars</span>=<span class="hljs-string">"pico,bf,gf"</span> <span class="hljs-attr">sprite</span>=<span class="hljs-string">"week3"</span>&gt;</span>
+</code></pre>
+<p>This is the main container for your week. Here's what each attribute does:</p>
+<p><strong><code class="inline-code">name</code></strong> - The title displayed in Story Mode (usually top-right corner)</p>
+<ul>
+<li>Example: <code class="inline-code">name="PICO"</code> shows "PICO" as the week title</li>
+<li>Can be anything you want: <code class="inline-code">name="MY COOL WEEK"</code></li>
+</ul>
+<div style="display: flex; justify-content: center;">
+    <img src="../images/tutorials/weeks/upname.png" alt="Name of the week in the up right corner">
+</div>
+<p><strong><code class="inline-code">chars</code></strong> - The characters shown when hovering over the week</p>
+<ul>
+<li>Format: <code class="inline-code">opponent,boyfriend,girlfriend</code> (no spaces!)</li>
+<li>Location: <code class="inline-code">./images/menus/storymenu/characters/</code></li>
+<li>Example: <code class="inline-code">chars="pico,bf,gf"</code></li>
+<li>These should match your character XML filenames</li>
+</ul>
+<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+    <img src="../images/tutorials/weeks/characters.png" alt="Characters of the week" style="max-width: 50%; height: auto;">
+    <img src="../images/tutorials/weeks/charfiles.png" alt="Character file location" style="max-width: 50%; height: auto;">
+</div>
+<p><strong><code class="inline-code">sprite</code></strong> (optional) - The week button image</p>
+<ul>
+<li>Location: <code class="inline-code">./images/menus/storymenu/weeks/</code></li>
+<li>Example: <code class="inline-code">sprite="week3"</code> looks for <code class="inline-code">week3.png</code> in that folder</li>
+<li>If not specified, it uses the XML filename</li>
+</ul>
+<div style="display: flex; justify-content: center;">
+    <img src="../images/tutorials/weeks/weekname.png" alt="Name of the week in the up right corner">
+</div>
+<h3>Adding Songs</h3>
+<p>Songs are added using <code class="inline-code">&lt;song&gt;</code> tags inside the week:</p>
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Pico<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Philly Nice<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Blammed<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+</code></pre>
+<div style="display: flex; justify-content: center;">
+    <img src="../images/tutorials/weeks/tracks.png" alt="Name of the week in the up right corner">
+</div>
+<p><strong>Important:</strong></p>
+<ul>
+<li>Song names should match your folder names in <code class="inline-code">./songs/</code></li>
+<li>Order matters! They'll play in the order you list them</li>
+<li>Song names are case-sensitive</li>
+</ul>
+<h3>Example: Complete Custom Week</h3>
+<p>Here's a full example for a custom week:</p>
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">week</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"MY WEEK"</span> <span class="hljs-attr">chars</span>=<span class="hljs-string">"my-opponent,bf,gf"</span> <span class="hljs-attr">sprite</span>=<span class="hljs-string">"myweek"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Song One<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Song Two<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">song</span>&gt;</span>Final Song<span class="hljs-tag">&lt;/<span class="hljs-name">song</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Easy"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Normal"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Hard"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">week</span>&gt;</span>
+</code></pre>
+<p>Save this as <code class="inline-code">./data/weeks/weeks/myweek.xml</code></p>
+<h2 id="week-diff-node">Setting Up Difficulties</h2>
+<p>By default, weeks use Easy/Normal/Hard. You can customize this with <code class="inline-code">&lt;difficulty&gt;</code> tags:</p>
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Easy"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Normal"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Hard"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Erect"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Nightmare"</span>/&gt;</span>
+</code></pre>
+<p>This gives your week 5 difficulty options instead of the default 3.</p>
+<h3>Custom Difficulties</h3>
+<p>You can create completely custom difficulties:</p>
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Baby"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Neo"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">difficulty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Flip"</span>/&gt;</span>
+</code></pre>
+<p>For custom difficulties, you need to add the difficulty icon:</p>
+<ul>
+<li>Location: <code class="inline-code">./images/menus/storymenu/difficulties/</code></li>
+<li>Name format: lowercase difficulty name</li>
+<li>Example: <code class="inline-code">chill.png</code>, <code class="inline-code">intense.png</code>, <code class="inline-code">impossible.png</code></li>
+</ul>
+<div style="display: flex; justify-content: center;">
+    <img src="../images/tutorials/weeks/difficulties.png" alt="Name of the week in the up right corner">
+</div>
+<h2 id="week-sorting">Organizing Week Order (weeks.txt)</h2>
+<p>By default, weeks appear in alphabetical order. To control the order, create a <code class="inline-code">weeks.txt</code> file in <code class="inline-code">./data/weeks/</code>:</p>
+<pre class="inline-code"><code class="inline-code">week1
+myweek
+week3
+tutorial
+</code></pre>
+<p>This makes weeks appear in that exact order in Story Mode.</p>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>One week filename per line</li>
+<li>Use <code class="inline-code">#</code> for comments: <code class="inline-code"># This is a comment</code></li>
+<li>Only include weeks you want to appear</li>
+<li>Order from top to bottom</li>
+</ul>
+<p>Example with comments:</p>
+<pre class="inline-code"><code class="inline-code"># Base game weeks
+week1
+week2
+
+# My custom weeks
+myweek
+another-week
+
+# Secret week (unlocked later)
+# secret-week
+</code></pre>
+<h2 id="week-checklist">Quick Checklist</h2>
+<p>Before your week works, make sure you have:</p>
+<ul>
+<li>[ ] Week XML created in <code class="inline-code">./data/weeks/weeks/yourweek.xml</code></li>
+<li>[ ] All songs exist in <code class="inline-code">./songs/</code> with their folders</li>
+<li>[ ] Week sprite exists at <code class="inline-code">./images/menus/storymenu/weeks/yourweek.png</code></li>
+<li>[ ] Character XMLs exist in <code class="inline-code">./data/characters/</code></li>
+<li>[ ] Character sprites exist in <code class="inline-code">./images/characters/</code></li>
+<li>[ ] Difficulty icons (if using custom difficulties)</li>
+<li>[ ] Added your week to <code class="inline-code">weeks.txt</code> (optional, for ordering)</li>
+</ul>
+<h2>Common Issues</h2>
+<p><strong>Week doesn't appear:</strong></p>
+<ul>
+<li>Check that the XML filename matches what's in <code class="inline-code">weeks.txt</code></li>
+<li>Make sure the XML is in <code class="inline-code">./data/weeks/weeks/</code> not just <code class="inline-code">./data/weeks/</code></li>
+</ul>
+<p><strong>Characters don't show:</strong></p>
+<ul>
+<li>Verify character names in <code class="inline-code">chars=""</code> match your character XML files</li>
+<li>Remember: no spaces in the <code class="inline-code">chars</code> list!</li>
+</ul>
+<p><strong>Songs don't load:</strong></p>
+<ul>
+<li>Song names must match folder names in <code class="inline-code">./songs/</code></li>
+<li>Check for typos and case sensitivity</li>
+</ul>
+<p><strong>Week sprite missing:</strong></p>
+<ul>
+<li>Default location is <code class="inline-code">./images/menus/storymenu/weeks/</code></li>
+<li>PNG format required</li>
+<li>If not specified in XML, it uses the XML filename</li>
+</ul>
+<hr>
+<p>That's it! You now know how to create custom weeks.</p>
+<p>Now, what if you want to make your own Custom Week State? Well you can always grab all the week data with the <a href="../../api-docs/funkin/menus/StoryWeeklist">StoryWeeklist</a> class!</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-comment">// import the Class from `funkin.menus.StoryMenuState.hx`</span>
+<span class="hljs-keyword">import</span> funkin.<span class="hljs-property">menus</span>.<span class="hljs-property">StoryWeeklist</span>;
+
+<span class="hljs-comment">// StoryWeeklist.get(orderByTxt:Bool, loadCharacterData:Bool);</span>
+<span class="hljs-comment">// So if it's (true, false), it will sort the week by the `weeks.txt`, and won't include character data.</span>
+<span class="hljs-keyword">var</span> <span class="hljs-attr">weekList</span>:<span class="hljs-title class_">StoryWeeklist</span> = <span class="hljs-title class_">StoryWeeklist</span>.<span class="hljs-title function_">get</span>(<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>);
+<span class="hljs-keyword">var</span> <span class="hljs-attr">weeks</span>:<span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">WeekData</span>&gt; = weekList.<span class="hljs-property">weeks</span>;
+
+<span class="hljs-comment">// you can optionally make it 1 variable by doing:</span>
+<span class="hljs-keyword">var</span> <span class="hljs-attr">weeks</span>:<span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">WeekData</span>&gt; = <span class="hljs-title class_">StoryWeeklist</span>.<span class="hljs-title function_">get</span>(<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>).<span class="hljs-property">weeks</span>; 
+<span class="hljs-comment">// since you don't need the actual class instance for anything besides getting the data 99.999% of the time.</span>
+</code></pre>
+<p>The <code class="inline-code">weeks</code> array contains all the Week XML data as a <a href="../../api-docs/funkin/backend/week/WeekData"><code class="inline-code">WeekData</code></a> typedef / structure.<br>
+You can then use this to get all the songs in the week, the name, id, difficulties, etc. This will allow you to make your own Custom Week State, and load into a Week through PlayState with the <a href="../../api-docs/funkin/game/PlayState#loadWeek"><code class="inline-code">loadWeek</code></a> function!</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-title class_">PlayState</span>.<span class="hljs-title function_">loadWeek</span>(weeks[<span class="hljs-number">0</span>]); <span class="hljs-comment">// loads the first week into PlayState</span>
+<span class="hljs-title class_">FlxG</span>.<span class="hljs-title function_">switchState</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PlayState</span>()); <span class="hljs-comment">// Then we load PlayState to start the week!</span>
+</code></pre>
+
+
+			<div class="info">
+				<div class="written">Written by: Edwin &amp; ItsLJcool</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-06-02T02:54:30.672Z">2026-06-02</span></div>
+
+				<div class="github-edit-button">
+					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/tutorials/weeks.md">Edit this page on GitHub</a>
+				</div>
+			</div>
+
+			<div class="giscus"></div>
+			<div class="giscus-frame"></div>
+
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/tutorials/weeks" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			</script>
+		</div>
+	</div>
+
+	<script src="/codename-website/wiki.js"></script>
+
+</body></html>
