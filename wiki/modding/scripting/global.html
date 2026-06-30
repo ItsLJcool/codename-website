@@ -1,12 +1,12 @@
 <!DOCTYPE html><html lang="en"><head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Scripting - GlobalScript - Codename Engine Wiki</title>
+	<title>Scripting - Global Script - Codename Engine Wiki</title>
 	<link rel="stylesheet" href="/codename-website/style.css">
 	<link rel="stylesheet" href="/codename-website/style_v2.css">
 	<link rel="stylesheet" href="/codename-website/wiki.css">
 
-	<meta name="title" content="Scripting - GlobalScript - Codename Engine Wiki">
+	<meta name="title" content="Scripting - Global Script - Codename Engine Wiki">
 	<meta name="description" content="Explains what a GlobalScript is, and how to effectivly use it.">
 	<meta property="og:description" content="Explains what a GlobalScript is, and how to effectivly use it.">
 	<meta property="twitter:description" content="Explains what a GlobalScript is, and how to effectivly use it.">
@@ -14,13 +14,13 @@
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://codename-engine.com/">
-	<meta property="og:title" content="Scripting - GlobalScript - Codename Engine Wiki">
+	<meta property="og:title" content="Scripting - Global Script - Codename Engine Wiki">
 	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://codename-engine.com/">
-	<meta property="twitter:title" content="Scripting - GlobalScript - Codename Engine Wiki">
+	<meta property="twitter:title" content="Scripting - Global Script - Codename Engine Wiki">
 	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
 
 	<meta name="theme-color" content="#b265bd">
@@ -42,7 +42,7 @@
         <img src="/codename-website/img/logo-banner.png" alt="Codename Logo" class="desktop">
         <img src="/codename-website/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
     </a>
-    <h2 class="header-title">Scripting - GlobalScript</h2>
+    <h2 class="header-title">Scripting - Global Script</h2>
     <div>
         <a href="/codename-website/api-docs/">API</a><a href="/codename-website/wiki/">Wiki</a><a href="/codename-website/tools/">Tools</a>
     </div>
@@ -76,7 +76,7 @@
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #FF0000;">UNFINISHED</span></a></li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/events" class="even">Custom Events / Notetypes - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
-<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Global Script - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd pagination">
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Global Script - <span style="color: #32e53a;">(Complete)</span></a><ul class="sidebar-unordered-list odd pagination">
 </ul>
 </li>
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/classes" class="even">Custom Classes - <span style="color: #32e53a;">(Complete)</span></a></li>
@@ -113,9 +113,73 @@
 		</div>
 
 		<div class="content">
-			<h1>TODO</h1>
-<p>Explain how <a href="../../../api-docs/funkin/backend/scripting/GlobalScript">GlobalScript</a> works, and the amazing features it has to offer.</p>
-<p>Also explain how you can hot-reload the Script, and how to support it yourself.</p>
+			<h1>What is a <code class="inline-code">GlobalScript</code>?</h1>
+<p><code class="inline-code">GlobalScript</code> is perhaps one of the more powerful script that can be loaded by a mod, and it's most commonly the first file generated in your mod. You can make a <code class="inline-code">GobalScript</code> by making a script file at <code class="inline-code">./data/global.hx</code>.</p>
+<p>When your mod loads up, GlobalScript is one of the very first scripts to be executed, this script will persist throughout the entire mod, and will never be destroyed or become inactive (unless you manually tell it to). Once your mod is no longer loaded, it will be removed alongside it.</p>
+<p>With this power, you can manage your entire Mod with this singular script, and is one of the many crucial components in building a sucessful backend structure for yourself, and as a utility.</p>
+<h1>Callbacks</h1>
+<p>There is only a few functions that <code class="inline-code">GlobalScript</code> manages itself, though you can call custom functions yourself from other scripts by doing <code class="inline-code">GlobalScript.call("functionName", [/* arguments */])</code>.<br>
+Although there really should be no reason to call functions directly to <code class="inline-code">GlobalScript</code>, it's there if you really need it.</p>
+
+<details>
+    <summary>Here is a list of callbacks GlobalScript manages</summary>
+<ul>
+<li><p><code class="inline-code">focusGained()</code></p></li>
+<li><p><code class="inline-code">focusLost()</code></p></li>
+<li><p><code class="inline-code">gameResized(w:Int, h:Int)</code></p></li>
+<li><p><code class="inline-code">preDraw()</code></p></li>
+<li><p><code class="inline-code">postDraw()</code></p></li>
+<li><p><code class="inline-code">preGameReset()</code></p></li>
+<li><p><code class="inline-code">postGameReset()</code></p></li>
+<li><p><code class="inline-code">preGameStart()</code></p></li>
+<li><p><code class="inline-code">postGameStart()</code></p></li>
+<li><p><code class="inline-code">preStateCreate(state:FlxState)</code></p></li>
+<li><p><code class="inline-code">preStateSwitch()</code></p></li>
+<li><p><code class="inline-code">postStateSwitch()</code></p></li>
+<li><p><code class="inline-code">preUpdate(elapsed:Float)</code></p></li>
+<li><p><code class="inline-code">update(elapsed:Float)</code></p></li>
+<li><p><code class="inline-code">postUpdate(elapsed:Float)</code></p></li>
+<li><p><code class="inline-code">beatHit(curBeat:Int)</code></p></li>
+<li><p><code class="inline-code">stepHit(curStep:Int)</code></p></li>
+<li><p><code class="inline-code">destroy()</code></p></li>
+</ul>
+<p></p></details><p></p>
+
+<h1>Hot Reloading</h1>
+<p>Codename can reload <code class="inline-code">GlobalScript</code>s by holding <code class="inline-code">Shift</code> and pressing the "Reload State" keybind. By default this is <code class="inline-code">Shift</code> + <code class="inline-code">F5</code>.<br>
+Doing this will destroy and re-initalize all <code class="inline-code">GlobalScript</code>s, so you need to ensure you properly <code class="inline-code">destroy</code> things or remove them once the script is no longer active.</p>
+<p>You should always do this in a <code class="inline-code">GlobalScript</code>, to ensure unloading your Mod never causes any issues with other mods / addons.</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">function</span> <span class="hljs-title function_">destroy</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"AAAAH IM BEING REMOVED!!!!"</span>);
+}
+</code></pre>
+</div>
+<h1>Cross-script Communication</h1>
+<p><code class="inline-code">GlobalScript</code> maintains it's own <code class="inline-code">ScriptPack</code> that is <b><em>freely accessible</em></b> as <code class="inline-code">GlobalScript.scripts</code> as a <code class="inline-code">static</code> variable.</p>
+<p>You can manage the whole <code class="inline-code">ScriptPack</code> anywhere in your mod, but for simplicity you should use <code class="inline-code">GlobalScripts.scripts</code> only if you need to access either a specific script inside, or internal variables. Using the <code class="inline-code">public</code> modifier in <code class="inline-code">GlobalScript</code> should never be used, as it only allows other <code class="inline-code">GlobalScripts</code> to access it, so it does nothing for your mod.</p>
+<p>You can either make <code class="inline-code">static</code> variables / functions inside your <code class="inline-code">GlobalScript</code> to call anywhere, or just normal functions you can then call with <code class="inline-code">GlobalScript.call</code>.
+It's common to think that you should shove everything that you want to use globally in a Global Script, but that is bad practice.</p>
+<p>You should only use <code class="inline-code">GlobalScript</code> for managing custom classes, or holding data globally. You don't need to manage anything here either!
+You can also use <code class="inline-code">GlobalScript</code> to execute code on Mod Launch.</p>
+<p>Here is a basic example on how you should use <code class="inline-code">GlobalScript</code> to it's fullest potential.</p>
+<div style="display: grid; justify-content: center;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">function</span> <span class="hljs-title function_">apiFunc</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">"API!"</span>);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">apiCalc</span>(<span class="hljs-params">number_1:<span class="hljs-built_in">Int</span>, number_2:<span class="hljs-built_in">Int</span></span>) {
+    <span class="hljs-title function_">trace</span>(<span class="hljs-string">'$number_1 + $number_2 = ${(number_1 + number_2)}!'</span>);
+}
+</code></pre>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">import</span> funkin.<span class="hljs-property">backend</span>.<span class="hljs-property">scripting</span>.<span class="hljs-property">GlobalScript</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title class_">GlobalScript</span>.<span class="hljs-property">scripts</span>.<span class="hljs-title function_">call</span>(<span class="hljs-string">"apiFunc"</span>, []); <span class="hljs-comment">// API!</span>
+    <span class="hljs-title class_">GlobalScript</span>.<span class="hljs-property">scripts</span>.<span class="hljs-title function_">call</span>(<span class="hljs-string">"apiCalc"</span>, [<span class="hljs-number">9</span>, <span class="hljs-number">10</span>]); <span class="hljs-comment">// 9 + 10 = 19!</span>
+}
+</code></pre>
+</div>
 <p>Next steps in learning the In-and-out's of HScript</p>
 <ul>
 <li><a href="./features">Features</a></li>
@@ -130,8 +194,8 @@
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
-				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+				<div class="written">Written by: rufius &amp; ItsLJcool</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-06-05T06:00:45.809Z">2026-06-05</span></div>
 
 				<div class="github-edit-button">
 					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/scripting/global.md">Edit this page on GitHub</a>
