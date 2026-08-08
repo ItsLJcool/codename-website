@@ -6,7 +6,7 @@ title: Scripting - Interacting with PlayState
 ---
 
 # TODO
-Explain how PlayState handles scripts, and how to interact with them yourself in the Library heiarchy.
+Объясните, как PlayState обрабатывает скрипты и как взаимодействовать с ними в иерархии библиотеки (Library).
 
 Explain as well that `PlayState Scripts` are a common phrase for identifying scripts running in the State itself.
 
