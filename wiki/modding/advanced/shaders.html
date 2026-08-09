@@ -7,9 +7,9 @@
 	<link rel="stylesheet" href="/codename-website/wiki.css">
 
 	<meta name="title" content="Advanced Topics - Shaders - Codename Engine Wiki">
-	<meta name="description" content="Temporary Placeholder File">
-	<meta property="og:description" content="Temporary Placeholder File">
-	<meta property="twitter:description" content="Temporary Placeholder File">
+	<meta name="description" content="Creating and Using Shaders">
+	<meta property="og:description" content="Creating and Using Shaders">
+	<meta property="twitter:description" content="Creating and Using Shaders">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
@@ -93,7 +93,13 @@
 </ul>
 </li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
-<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Shaders - <span style="color: #d4b528;">TODO</span></a><ul class="sidebar-unordered-list even pagination">
+<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Shaders - <span style="color: #32e53a;">(Updated)</span></a><ul class="sidebar-unordered-list even pagination">
+<li><a href="#what">What Are Shaders?</a></li>
+<li><a href="#cne-shaders">Implementing CNE Shaders</a></li>
+<li><a href="#custom-shaders">Custom Shaders</a></li>
+<li><a href="#create-shaders">Create Shaders/Shader Variables</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#further">Further Reading</a></li>
 </ul>
 </li>
 <li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #d4b528;">TODO</span></a></li>
@@ -116,12 +122,97 @@
 		</div>
 
 		<div class="content">
-			<h1>Temporary Placeholder File</h1>
+			<p></p><h1 id="what">What Are Shaders?</h1><p></p>
+<p>Shaders are scripts that modify how a graphic looks in-game. Think of shaders as post-processing effects in a video editor; while you're not modifying the file directly, you're changing how something looks in the project.</p>
+<p>Shaders in Flixel - and by extension, shaders in Codename - are written in the OpenGL GLSL language. There are two types of shaders you can implement - <code class="inline-code">.frag</code> and <code class="inline-code">.vert</code>. The major difference between them is that <code class="inline-code">.frag</code> shaders modify the sprite through bitmaps/pixels, and <code class="inline-code">.vert</code> modifies the image through vertices/mathematics.</p>
+<p><code class="inline-code">.frag</code>s are called <code class="inline-code">fragment</code> shaders, and <code class="inline-code">.vert</code>s are called <code class="inline-code">vertex</code> shaders, as this is what most people call them.</p>
+<p>This page will not cover all the details of <em>making</em> a shader, but you can find resources at the bottom of this page to do that. Instead, we'll talk about how to implement shaders into Codename, including importing shaders you find from places like <a href="https://www.shadertoy.com/">Shadertoy</a>, and we'll finish by making a basic shader while also talking about shader uniforms/variables.</p>
+<p></p><h2 id="cne-shaders">Implementing CNE Shaders</h2><p></p>
+<p>Codename Engine comes pre-packaged with some shaders out of the box. Let's talk about how to implement those first!</p>
+<p>For this example, we'll use <a href="https://github.com/CodenameCrew/CodenameEngine/blob/main/assets/shaders/coloredVignette.frag">coloredVignette.frag</a> and apply it to the background sprite (<code class="inline-code">bg</code>) in <a href="https://github.com/CodenameCrew/CodenameEngine/blob/main/source/funkin/menus/MainMenuState.hx">MainMenuState.hx</a>. The line to implement this shader is simply:</p>
+<div style="display: flex; justify-content: center;">
+<pre class="hljs"><code class="language-haxe">bg.<span class="hljs-property">shader</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">CustomShader</span>(<span class="hljs-string">'coloredVignette'</span>);
+</code></pre>
+</div>
+<p>It's really that simple to implement one of the custom Codename shaders. Note that you don't have to include the extension - Codename finds it for you. To see what other shaders are built into Codename, take a look at the <a href="https://github.com/CodenameCrew/CodenameEngine/tree/main/assets/shaders">shaders folder</a> in source assets.</p>
+<p></p><h2 id="custom-shaders">Implementing/Converting Custom Shaders</h2><p></p>
+<p>What about shaders outside of the source assets? For this example, we'll use this <a href="https://www.shadertoy.com/view/WsVSzV">Fast CRT Shader</a> from kbjwes77 on Shadertoy, and we're going to put it on our main camera using our global script (<code class="inline-code">./data/global.hx</code>).</p>
+<h2>⚠️ WARNING ⚠️</h2>
+<p>Always check to ensure that you have permission to use a shader before implementing it in your mod! Just because something is on Shadertoy doesn't inherently mean it's free to use!</p>
+<p>Create a new file in your <code class="inline-code">shaders</code> folder (<code class="inline-code">./data/shaders/crt.frag</code>). Paste the code from the shader into the file. Then, in <code class="inline-code">global.hx</code>, add the following code to the <code class="inline-code">onPostStateSwitch</code> function:</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">function</span> <span class="hljs-title function_">onPostStateSwitch</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">camera</span>.<span class="hljs-title function_">addShader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">CustomShader</span>(<span class="hljs-string">"crt"</span>));
+}
+</code></pre>
+</div>
+<p>Now when you run the mod... the game crashes. Why is that?</p>
+<p>Well, to make a shader work specifically in Flixel, there's a few modifications we need to do to the original code. They can be broken down to five simple changes:</p>
+<ol>
+<li>Add <code class="inline-code">#pragma header</code> to the top of the file.</li>
+<li>Change <code class="inline-code">void mainImage(out vec4 fragColor,in vec2 fragCoord)</code> to simply <code class="inline-code">void main()</code>.</li>
+<li>Change <code class="inline-code">vec2 uv = fragCoord/iResolution.xy;</code> to <code class="inline-code">vec2 uv = openfl_TextureCoordv</code>. In some cases however, you may have to do the following instead:</li>
+</ol>
+<pre class="hljs"><code class="language-glsl"><span class="hljs-type">vec2</span> fragCoord = openfl_TextureCoordv*openfl_TextureSize.xy;
+<span class="hljs-type">vec2</span> uv = fragCoord/openfl_TextureSize.xy;
+</code></pre>
+<ol start="4">
+<li>Change <code class="inline-code">texture(iChannel0,uv)</code> to <code class="inline-code">texture2D(bitmap, uv)</code> <em>(see appendix)</em></li>
+<li>Change <code class="inline-code">fragColor</code> to <code class="inline-code">gl_fragColor</code>.</li>
+</ol>
+<p>Now when you run the game, you should see the shader working and applied as intended!</p>
+<p>There is also a tool called <a href="https://theleername.github.io/ShadertoyToFlixel/">Shadertoy to Flixel</a> that can convert <em>most</em> Shadertoy shaders, not every shader is a 1:1 convert!
+Will save you some time though!</p>
+<p></p><h2 id="create-shaders">Creating Custom Shaders &amp; Shader Variables</h2><p></p>
+<p>For our final example, we're going to create a simple shader from scratch. Our goal is to turn Boyfriend blue - but we'll have a variable to determine how blue he is. That's our special shader!</p>
+<p>Create another file in <code class="inline-code">./data/shaders/</code>. Name it whatever you'd like, but use the <code class="inline-code">.frag</code> extension!</p>
+<p>If we follow our previous steps, our code should look like this:</p>
+<pre class="hljs"><code class="language-glsl"><span class="hljs-meta">#pragma header</span>
+<span class="hljs-comment">// Always include that at the top of your file!!</span>
+
+<span class="hljs-comment">// Float variable to determine intensity.</span>
+<span class="hljs-type">float</span> blue = <span class="hljs-number">0.5</span>;
+
+<span class="hljs-comment">// Main function.</span>
+<span class="hljs-type">void</span> main() {
+    <span class="hljs-comment">// Get color. Since we're modifying a sprite, not the entire game or a camera,</span>
+    <span class="hljs-comment">// we'll use flixel_texture2D instead of texture2D.</span>
+    <span class="hljs-type">vec4</span> col = flixel_texture2D(bitmap, openfl_TextureCoordv);
+
+    <span class="hljs-comment">// Outputting the color. Since we want blue, we'll multiply each color's RGBA value</span>
+    <span class="hljs-comment">// by 1 - blue, except for blue, which we'll multiply by blue directly.</span>
+    gl_fragColor = <span class="hljs-type">vec4</span>(col.r * (<span class="hljs-number">1</span> - blue), col.g * (<span class="hljs-number">1</span> - blue), col.b * blue, col.a * (<span class="hljs-number">1</span> - blue));
+}
+</code></pre>
+<p>But how do we change <code class="inline-code">blue</code>? Well, that's where <code class="inline-code">uniform</code> variables come in on GLSL shaders. Let's change <code class="inline-code">float blue = 0.5;</code> to <code class="inline-code">uniform float blue;</code>. (It's important not to set a default on uniforms.)</p>
+<div style="display: grid; justify-content: left;">
+<p>Then, in our hx file:</p>
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">var</span> shader = <span class="hljs-keyword">new</span> <span class="hljs-title class_">CustomShader</span>(<span class="hljs-string">"shader_name_here"</span>);
+shader.<span class="hljs-property">blue</span> = <span class="hljs-number">0.5</span>;
+boyfriend.<span class="hljs-property">shader</span> = shader;
+</code></pre>
+</div>
+<p>Now not only is Boyfriend blue, but we can control how blue he is in a regular HScript file!</p>
+<p></p><h1 id="appendix">Appendix</h1><p></p>
+<p>The following is some good information to know:</p>
+<ul>
+<li>When getting the texture of a sprite or singular object, use <code class="inline-code">flixel_texture2d</code> when getting the texture of a camera or <code class="inline-code">FlxGame</code>, use <code class="inline-code">texture2D</code>.</li>
+<li>Don't use <code class="inline-code">0.</code> or <code class="inline-code">.0</code> for floats, instead use <code class="inline-code">0.0</code> (append a trailing number).</li>
+<li>Avoid using switch cases - use if statements to ensure macOS compatibility.</li>
+<li>Use floats instead of integers when initiating vectors (ex. <code class="inline-code">vec2(1.0, 1.0)</code> instead of <code class="inline-code">vec2(1, 1)</code>).</li>
+<li>Avoid using or initializing variables that start with <code class="inline-code">gl_</code>, or that use the name <code class="inline-code">input</code> or <code class="inline-code">sample</code> - these can break shaders on some or all platforms.</li>
+<li>The <code class="inline-code">ivec</code> family (2/3/4), <code class="inline-code">bvec</code> family, <code class="inline-code">uvec</code> family, and <code class="inline-code">uint</code> are all unsupported on certain platforms, so avoid using them.</li>
+<li>Avoid using the modulo operator and instead use the mod function.</li>
+<li>Avoid using arrays as some platforms don't support them.</li>
+<li>Runtime-dependent variables, such as <code class="inline-code">openfl_TextureCoordv</code> and <code class="inline-code">openfl_TextureSize</code>, should be established <em>inside</em> your <code class="inline-code">void main()</code> function and not outside of it.</li>
+</ul>
+<p></p><h1 id="further">Further Reading</h1><p></p>
+<p>To learn more about constructing shaders, this page from <a href="https://learnopengl.com/getting-started/shaders">LearnOpenGL</a> is a good starting resource.</p>
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
-				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+				<div class="written">Written by: SplatterDash</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-08-07T16:39:14.193Z">2026-08-07</span></div>
 
 				<div class="github-edit-button">
 					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/advanced/shaders.md">Edit this page on GitHub</a>
