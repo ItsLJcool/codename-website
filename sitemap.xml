@@ -33,10 +33,6 @@
   <priority>0.65</priority>
 </url>
 <url>
-  <loc>https://codename-engine.com/wiki/modding/hxvlc</loc>
-  <priority>0.65</priority>
-</url>
-<url>
   <loc>https://codename-engine.com/wiki/modding/</loc>
   <priority>0.65</priority>
 </url>
@@ -130,6 +126,14 @@
 </url>
 <url>
   <loc>https://codename-engine.com/wiki/modding/scripting/style</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/videos/</loc>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://codename-engine.com/wiki/modding/videos/video_cutscene</loc>
   <priority>0.65</priority>
 </url>
 <url>

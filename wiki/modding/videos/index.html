@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Videos &amp; Cutscenes (HxVLC) - Codename Engine Wiki</title>
+	<link rel="stylesheet" href="/codename-website/style.css">
+	<link rel="stylesheet" href="/codename-website/style_v2.css">
+	<link rel="stylesheet" href="/codename-website/wiki.css">
+
+	<meta name="title" content="Videos &amp; Cutscenes (HxVLC) - Codename Engine Wiki">
+	<meta name="description" content="Starting place to learn how to use and understand HxVLC">
+	<meta property="og:description" content="Starting place to learn how to use and understand HxVLC">
+	<meta property="twitter:description" content="Starting place to learn how to use and understand HxVLC">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codename-engine.com/">
+	<meta property="og:title" content="Videos &amp; Cutscenes (HxVLC) - Codename Engine Wiki">
+	<meta property="og:image" content="https://codename-engine.com/img/banner.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://codename-engine.com/">
+	<meta property="twitter:title" content="Videos &amp; Cutscenes (HxVLC) - Codename Engine Wiki">
+	<meta property="twitter:image" content="https://codename-engine.com/img/banner.png">
+
+	<meta name="theme-color" content="#b265bd">
+
+	<link rel="shortcut icon" href="/codename-website/favicon.ico">
+	<link rel="icon" href="/codename-website/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="/codename-website/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/codename-website/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/codename-website/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/codename-website/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/codename-website/favicon-16x16.png">
+	<meta name="apple-mobile-web-app-title" content="Codename">
+	<link rel="manifest" href="/codename-website/site.webmanifest">
+</head>
+<body>
+	<div class="header" id="main">
+		<header>
+    <a href="/codename-website/">
+        <img src="/codename-website/img/logo-banner.png" alt="Codename Logo" class="desktop">
+        <img src="/codename-website/img/logo-banner-mini.png" alt="Codename Logo" class="mobile">
+    </a>
+    <h2 class="header-title">Videos &amp; Cutscenes (HxVLC)</h2>
+    <div>
+        <a href="/codename-website/api-docs/">API</a><a href="/codename-website/wiki/">Wiki</a><a href="/codename-website/tools/">Tools</a>
+    </div>
+</header>
+	</div>
+	<div class="container">
+		<div class="sidebar-wrapper">
+			<input type="checkbox" class="sidebar-button">
+			<span class="sidebar-button-front">
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect width="100" height="20" rx="10"></rect>
+					<rect y="30" width="100" height="20" rx="10"></rect>
+					<rect y="60" width="100" height="20" rx="10"></rect>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path stroke="#000" d="M195 195a64 64 0 0 1 91 0l226 227 226-227a64 64 0 0 1 91 91L602 512l227 226a64 64 0 0 1-91 91L512 602 286 829a64 64 0 0 1-91-91l227-226-227-226a64 64 0 0 1 0-91z"></path></svg>
+			</span>
+			<div class="sidebar">
+				<ul class="sidebar-unordered-list">
+					<li class="sidebar-list-item even"><a href="/codename-website/wiki/" class="even">Home</a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/differences" class="odd">Differences between other FNF engines</a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/usage" class="even">How does one use the engine? <span style="color: #d4b528;">(Needs Links)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/faq" class="odd"><span style="color: #43a1aa;">FAQ</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/troubleshooting" class="even">Troubleshooting - <span style="color: #32e53a;">(Updated)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/" class="odd">Modding The Engine - <span style="color: #d4b528;">(33% Complete)</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/config" class="even">Configuration - <span style="color: #32e53a;">(Complete)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/libraries" class="odd">OpenFL's AssetLibrary - <span style="color: #32e53a;">(Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/" class="even">Scriping (Softcoding) - <span style="color: #d4b528;">(20% Complete)</span></a><ul class="sidebar-unordered-list even">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/features" class="odd">Features / Examples - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/style" class="even">Formatting, and Basic Syntax - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/cancellables" class="odd">Event Callbacks - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/playstate" class="even">PlayState Interaction - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/states" class="odd">Custom States / SubStates - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/events" class="even">Custom Events / Notetypes - <span style="color: #d4b528;">(Semi-Complete)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/scripting/global" class="odd">Global Script - <span style="color: #32e53a;">(Complete)</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/scripting/classes" class="even">Custom Classes - <span style="color: #32e53a;">(Complete)</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/" class="odd">Editors - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/chart" class="even">Chart Editor - <span style="color: #32e53a;">(Complete)</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/character" class="odd">Character Editor - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/stage" class="even">Stage Editor - <span style="color: #e1491e;">Waiting on Stage-Rewrite!</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/editors/alphabet" class="odd">Alphabet Editor - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/editors/custom" class="even">Custom Editors??? - <span style="color: #d4b528;">TODO</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Videos &amp; Cutscenes using HxVLC - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd pagination">
+</ul>
+<ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/videos/video_cutscene" class="even">Video Cutscenes - <span style="color: #d4b528;">TODO</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/" class="odd">Advanced Topics - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/shaders" class="even">Shaders - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/modding/advanced/ndll" class="odd">NDLLS - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/modding/advanced/3d/" class="even">3D Rendering <span style="color: #489fb7;">(WIP)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/tutorials/" class="odd">Useful Tutorials - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/tutorials/weeks" class="even">Making weeks - <span style="color: #32e53a;">(Complete)</span></a></li>
+</ul>
+</li>
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/source/init" class="even">Initalization - <span style="color: #d4b528;">TODO</span></a></li>
+</ul>
+</li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<h1>What is HxVLC?</h1>
+<p>It's a Haxelib Library that adds support for loading videos into your Haxe project, basically all you need to know is; It renders videos!!!</p>
+<p>This section will showcase how to use HxVLC in your scripts to show, and play videos!</p>
+<h2>How to use it?</h2>
+<p>Well first to start off we need to initiate it.</p>
+<p>In your <code class="inline-code">global.hx</code> you should execute the <code class="inline-code">Handle</code> like so:</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">import</span> hxvlc.<span class="hljs-property">util</span>.<span class="hljs-property">Handle</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">new</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title class_">Handle</span>.<span class="hljs-title function_">init</span>();
+}
+</code></pre>
+</div>
+<h3>Why are we doing this?</h3>
+<p>This wakes up the VLC core engine ahead of time, so when you play a video (<code class="inline-code">FlxVideo</code> or <code class="inline-code">FlxVideoSprite</code>) the engine is already ready to go. Depending on your engine setup you may not strictly need it, some engines already init it for you, but calling it yourself makes sure its ready.</p>
+<h1>FlxVideo</h1>
+<p>This class is not directly tied to <code class="inline-code">FlxState</code>s, and it's not a normal Sprite, as it renders above the game entirely.
+You add it to the display list directly with <code class="inline-code">FlxG.game.addChild</code> <b>OR</b> <code class="inline-code">FlxG.addChildBelowMouse</code>.</p>
+<p>It's constructor parameters specify if it should be <code class="inline-code">smoothing</code> (antialiasing).
+The class instance has events such <code class="inline-code">onEndReached</code>, <code class="inline-code">onFormatSetup</code>, <code class="inline-code">onPlaying</code>, etc. as <code class="inline-code">FlxTypedSignal</code>s</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">import</span> hxvlc.<span class="hljs-property">flixel</span>.<span class="hljs-property">FlxVideo</span>;
+
+<span class="hljs-keyword">final</span> <span class="hljs-attr">video</span>:<span class="hljs-title class_">FlxVideo</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlxVideo</span>();
+video.<span class="hljs-property">onEndReached</span>.<span class="hljs-title function_">add</span>(() -&gt; {
+    video.<span class="hljs-title function_">dispose</span>();
+    <span class="hljs-title class_">FlxG</span>.<span class="hljs-title function_">removeChild</span>(video);
+});
+<span class="hljs-title class_">FlxG</span>.<span class="hljs-title function_">addChildBelowMouse</span>(video);
+
+<span class="hljs-comment">// You don't need to specify the extension, as you modify your VIDEO_EXT flag in `modpack.ini`</span>
+<span class="hljs-comment">// the `load` functions returns true if sucessfull.</span>
+<span class="hljs-keyword">if</span> (video.<span class="hljs-title function_">load</span>(<span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">video</span>(<span class="hljs-string">"myVideo"</span>))) video.<span class="hljs-title function_">play</span>();
+<span class="hljs-keyword">else</span> <span class="hljs-title function_">trace</span>(<span class="hljs-string">"Video failed to load!"</span>);
+</code></pre>
+</div>
+<h1>FlxVideoSprite</h1>
+<p>Extends <a href="https://api.haxeflixel.com/flixel/FlxSprite.html">FlxSprite</a>, so it behaves like any sprite; <code class="inline-code">add()</code> it to a state/group, position it, scale it, respects cameras. The actual video wrapper lives in the <code class="inline-code">bitmap</code> variable, so events and properties like volume go through <code class="inline-code">bitmap</code>, while <code class="inline-code">load</code>/<code class="inline-code">play</code>/<code class="inline-code">precache</code>/<code class="inline-code">pause</code>/<code class="inline-code">resume</code>/<code class="inline-code">stop</code> are proxied straight onto the sprite.</p>
+<p>NOTE: <code class="inline-code">bitmap</code> can be null, if the video doesn't load, so make sure to check if it's <code class="inline-code">null</code> before accessing it!</p>
+<div style="display: grid; justify-content: left;">
+<pre class="hljs"><code class="language-haxe"><span class="hljs-keyword">import</span> hxvlc.<span class="hljs-property">flixel</span>.<span class="hljs-property">FlxVideoSprite</span>;
+
+<span class="hljs-keyword">final</span> <span class="hljs-attr">video</span>:<span class="hljs-title class_">FlxVideoSprite</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FlxVideoSprite</span>();
+video.<span class="hljs-property">antialiasing</span> = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// scale to screen once vlc reports the real dimensions</span>
+video.<span class="hljs-property">bitmap</span>.<span class="hljs-property">onFormatSetup</span>.<span class="hljs-title function_">add</span>(() -&gt; {
+    <span class="hljs-comment">// Exit early if these don't exist.</span>
+    <span class="hljs-keyword">if</span> (video.<span class="hljs-property">bitmap</span> == <span class="hljs-literal">null</span> || video.<span class="hljs-property">bitmap</span>.<span class="hljs-property">bitmapData</span> == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
+    <span class="hljs-comment">/*
+        You dont know the real size until onFormatSetup fires, which is why sizing
+        lives inside that callback rather than right after load.
+    */</span>
+    <span class="hljs-keyword">final</span> <span class="hljs-attr">scale</span>:<span class="hljs-title class_">Float</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(<span class="hljs-title class_">FlxG</span>.<span class="hljs-property">width</span> / video.<span class="hljs-property">bitmap</span>.<span class="hljs-property">bitmapData</span>.<span class="hljs-property">width</span>, <span class="hljs-title class_">FlxG</span>.<span class="hljs-property">height</span> / video.<span class="hljs-property">bitmap</span>.<span class="hljs-property">bitmapData</span>.<span class="hljs-property">height</span>);
+    video.<span class="hljs-title function_">setGraphicSize</span>(video.<span class="hljs-property">bitmap</span>.<span class="hljs-property">bitmapData</span>.<span class="hljs-property">width</span> * scale, video.<span class="hljs-property">bitmap</span>.<span class="hljs-property">bitmapData</span>.<span class="hljs-property">height</span> * scale);
+    video.<span class="hljs-title function_">updateHitbox</span>();
+    video.<span class="hljs-title function_">screenCenter</span>();
+});
+video.<span class="hljs-property">bitmap</span>.<span class="hljs-property">onEndReached</span>.<span class="hljs-title function_">add</span>(video.<span class="hljs-property">destroy</span>);
+<span class="hljs-title function_">add</span>(video);
+
+<span class="hljs-keyword">if</span> (video.<span class="hljs-title function_">load</span>(<span class="hljs-title class_">Paths</span>.<span class="hljs-title function_">video</span>(<span class="hljs-string">"myVideo"</span>))) video.<span class="hljs-title function_">play</span>();
+<span class="hljs-keyword">else</span> <span class="hljs-title function_">trace</span>(<span class="hljs-string">"Video failed to load!"</span>);
+</code></pre>
+</div>
+<p>Next up, here is how you can interact and use <code class="inline-code">VideoCutscene</code> for songs that need an intro / ending cutscene as a Video!</p>
+<ul>
+<li><a href="./video_cutscene">How to use VideoCutscene</a></li>
+</ul>
+
+
+			<div class="info">
+				<div class="written">Written by: ItsLJcool &amp; HeroEyad</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-08-09T02:58:15.807Z">2026-08-09</span></div>
+
+				<div class="github-edit-button">
+					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/modding/videos/index.md">Edit this page on GitHub</a>
+				</div>
+			</div>
+
+			<div class="giscus"></div>
+			<div class="giscus-frame"></div>
+
+			<script src="https://giscus.app/client.js" data-repo="CodenameCrew/codename-website" data-repo-id="R_kgDOMm2E8w" data-category="Website" data-category-id="DIC_kwDOMm2E884Cio1F" data-mapping="specific" data-term="wiki/modding/videos/index" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="https://codename-engine.com/giscus-theme.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async="">
+			</script>
+		</div>
+	</div>
+
+	<script src="/codename-website/wiki.js"></script>
+
+</body></html>
