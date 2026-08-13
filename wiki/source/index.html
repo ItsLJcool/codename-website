@@ -7,9 +7,9 @@
 	<link rel="stylesheet" href="/codename-website/wiki.css">
 
 	<meta name="title" content="Modding The Engine - Source Modding - Codename Engine Wiki">
-	<meta name="description" content="Introduction to Source Modding. eww 😭">
-	<meta property="og:description" content="Introduction to Source Modding. eww 😭">
-	<meta property="twitter:description" content="Introduction to Source Modding. eww 😭">
+	<meta name="description" content="Introduction to Source Modding.">
+	<meta property="og:description" content="Introduction to Source Modding.">
+	<meta property="twitter:description" content="Introduction to Source Modding.">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
@@ -104,10 +104,10 @@
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/tutorials/weeks" class="even">Making weeks - <span style="color: #32e53a;">(Complete)</span></a></li>
 </ul>
 </li>
-<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd pagination">
+<li class="sidebar-list-item odd selected"><a href="#main" class="odd selected">Source Modding - <span style="color: #32e53a;">(Complete)</span></a><ul class="sidebar-unordered-list odd pagination">
 </ul>
 <ul class="sidebar-unordered-list odd">
-<li class="sidebar-list-item even"><a href="/codename-website/wiki/source/init" class="even">Initalization - <span style="color: #d4b528;">TODO</span></a></li>
+<li class="sidebar-list-item even"><a href="/codename-website/wiki/source/init" class="even">Initalization - <span style="color: #32e53a;">(Complete)</span></a></li>
 </ul>
 </li>
 
@@ -116,17 +116,70 @@
 		</div>
 
 		<div class="content">
-			<h1>TODO</h1>
-<p>Write a comprehensive introduction of what you will need to make a mod using Source.</p>
-<p>ALSO NOTE, PLEASE NOTE; that it is NOT recommended to make a mod directly in Source.<br>
-List the pros / cons, and warn the user that source modding should be used in-tangen with Softcoding.</p>
-<p>Also make a note for those who do publish their mod with source, they MUST open-source their code.</p>
-<p>Also also, note that they should consider adding features like they would as a Pull Request to the Main Repository, for simplicity and possible implementation of said features!</p>
+			<h1>An Introduction To Source Modding</h1>
+<h4>⚠️ WARNING ⚠️</h4>
+<p>Source modding is <em>NOT</em> the normal way to make a mod, and it's not what you should reach for first.</p>
+<p>Prioritize making a Modpack before interacting with source, as compiling CodenameEngine should be really one of these things:</p>
+<ul>
+<li>Making a Feature Request</li>
+<li>Fixing an Issue</li>
+<li>Embedding Assets</li>
+<li>Custom Source build for things Scripting can't currently achieve</li>
+</ul>
+<p>Even if you do go for Source modding, you should still prioritize making a Modpack for rapid development, and once you know it all works then you can compile it into Source.</p>
+<p>If your making stuff like Features, Bug Fixes, etc. Then don't worry about this.</p>
+<h2>Difference Between "Source" and "Softcoding"</h2>
+<p><strong>Softcoding</strong> means you write hscript (<code class="inline-code">.hx</code>) files inside your mod folder. The engine reads them while it's running. You save the file, you reload the state, and the change is there.</p>
+<p><strong>Source Modding</strong> means you <em>fork the engine itself</em>, edit the <code class="inline-code">./source/</code> folder, and compiling it to get an export of an Executable.</p>
+<h2>What this guide covers</h2>
+<p>This page is pretty much the overview. It goes over what source modding actually costs you, what you gain from it, and when it's even worth doing.</p>
+<p>If you've read all of it and still want to go ahead, <a href="./init">Initialization</a> covers getting Haxe, git, a compiler and the engine's libraries set up so you can actually build.</p>
+<h2>Now, why it isn't recommended?</h2>
+<ul>
+<li><p>Whatever version you forked the repo on, you keep forever. The engine updates won't be free any longer. Every new release is now a merge you do by hand and retest yourself.</p></li>
+<li><p>You also lose compatibility with other mods. Softcoded mods stack on top of each other. Two source mods can never be installed together. That's just how it is.</p></li>
+<li><p>A tweak that takes three seconds in HScript now costs you a rebuild. Over a whole project that adds up more than anything else on this list, and it makes your mod worse because experimenting stops being quick.</p></li>
+<li><p>Every bug becomes yours. Crash reports don't go to the engine devs anymore. They are yours to deal with on your fork, with your changes.</p></li>
+<li><p>There's no safety net. HScript errors get caught and shown to you. A null in compiled code just takes the game down, which is NOT what you want, and it makes life harder for anyone helping you.</p></li>
+</ul>
+<h2>Pro's of Source Modding</h2>
+<ul>
+<li><p>Full access. Literally.</p></li>
+<li><p>Compiled down to bytecode, means faster execution and multithreading is opened up. HScript's Interpreter is about 100x <b>SLOWER</b> than bytecode.</p></li>
+<li><p>You can think of it as a HaxeFlixel Template Project. You can change whatever to fit your needs.</p></li>
+</ul>
+<h2>Con's of Source Modding</h2>
+<ul>
+<li><p>Syncing your Fork with <code class="inline-code">main</code> usually causes conflicts, so you are most likely stuck on Release Versions or Experimental Commits.</p></li>
+<li><p>Your Modpack is <em>most likely</em> not compatable with Official Releases of CodenameEngine, you'd need to add extra code to ensure it doesn't explode on Main.</p>
+<ul>
+<li>You don't have to do this, since the point of you Source Modding would be only releasing the executable only.</li>
+</ul></li>
+<li><p>Slow iteration, (costs you more than you'd think)</p></li>
+<li><p>You own every crash, including ones in code you never touched, and it's harder to hand off. <em>Anyone</em> can pick up a softcoded mod. A fork needs someone willing to maintain a fork.</p></li>
+</ul>
+<h2>Use it alongside softcoding, not instead of it</h2>
+<p>When you make a change, try to implement things that will <em>clearly benefit you while softcoding</em>.
+But before anything, <em>check if what you're trying to do isn't already there</em>. Check the documentations. Trust me, there is loads of stuff you can't miss.</p>
+<h2>You must make your fork Public when releasing your mod!</h2>
+<p>This is a <em>rule</em> you have to keep up with.</p>
+<p>You need to keep <em>credits and attribution intact</em>, so <strong>don't strip the credits menu or the splash</strong>.</p>
+<p>People are running an unsigned exe you compiled. A public repo is the only thing separating that from downloading a random exe from a stranger. Source mods have been used to <em>ship malware</em> in this scene before, and a visible diff is the defence against that. Engine devs can't backport your fix if they can't see it. Public history proves you wrote what you wrote, and if you ever step away from the project, an open fork can be continued while a closed one just dies.</p>
+<p>Practically, keep the fork <em>public from day one</em>. Tag a release for every build you hand out so the exe goes to a real commit. Link the repo in your mod description, your README and your in game credits. Keep the upstream <code class="inline-code">LICENSE</code> and <code class="inline-code">NOTICE</code> files and add your own copyright line next to theirs rather than replacing them.</p>
+<h2>Treat everything like it's a pull request</h2>
+<p>This is the habit that makes the whole thing sustainable.</p>
+<p>One feature, any feature, with a name that says what it is. One thing per commit, with a message explaining what it does and why.</p>
+<p>Every change that gets merged upstream is one you delete from your fork and get for free forever. When something breaks you can bisect.</p>
+<p>Then, <em>actually send the PR</em>. Worst case it gets declined and you keep it in your fork, and best case <em>you stop maintaining it entirely</em>, and allow the devs to handle the rest.</p>
+<p>Bug fixes especially. If you found a bug in the engine, <em>that fix belongs upstream</em>. Not sending in a PR can cause other mods to hit the same issue too, which is not what the devs want, or what you want either.</p>
+<p><em>So, send in a PR.</em></p>
+<h3>TL;DR, don't source mod it at all unless you run into serious issues</h3>
+<p>Everything Codename Engine already offers for softcoding is <em>in your favor</em>. If you want to add fixes to the game that hasn't already been fixed or want to introduce your own ideas, <em>make a PR</em>. That's all.</p>
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
-				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+				<div class="written">Written by: ItsLJcool, Skylime_</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-08-10T13:49:12.473Z">2026-08-10</span></div>
 
 				<div class="github-edit-button">
 					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/source/index.md">Edit this page on GitHub</a>

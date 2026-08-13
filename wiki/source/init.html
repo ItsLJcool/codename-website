@@ -104,8 +104,8 @@
 <li class="sidebar-list-item even"><a href="/codename-website/wiki/tutorials/weeks" class="even">Making weeks - <span style="color: #32e53a;">(Complete)</span></a></li>
 </ul>
 </li>
-<li class="sidebar-list-item odd"><a href="/codename-website/wiki/source/" class="odd">Source Modding - <span style="color: #FF0000;">UNFINISHED</span></a><ul class="sidebar-unordered-list odd">
-<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Initalization - <span style="color: #d4b528;">TODO</span></a><ul class="sidebar-unordered-list even pagination">
+<li class="sidebar-list-item odd"><a href="/codename-website/wiki/source/" class="odd">Source Modding - <span style="color: #32e53a;">(Complete)</span></a><ul class="sidebar-unordered-list odd">
+<li class="sidebar-list-item even selected"><a href="#main" class="even selected">Initalization - <span style="color: #32e53a;">(Complete)</span></a><ul class="sidebar-unordered-list even pagination">
 </ul>
 </li>
 </ul>
@@ -116,13 +116,39 @@
 		</div>
 
 		<div class="content">
-			<h1>TODO</h1>
-<p>uh yeah im too lazy to write ts so anyone can do this I do not care for this part 😭😭🙏</p>
+			<h1>Initialization</h1>
+<p>Before you touch any of this, read <a href="./index">the introduction</a>. It explains why you probably shouldn't be here in the first place.</p>
+<p>If you're still going, then here's everything you need to get the engine compiling.</p>
+<h2>What you'll need</h2>
+<ul>
+<li><p><strong>Haxe</strong>, more specifically the <strong><em>exact version</em></strong> the engine asks for, which right now is <strong>4.3.7</strong>.
+<strong>DO NOT</strong> grab the latest version of Haxe just because it's newer.</p></li>
+<li><p><strong>Git.</strong> Get <code class="inline-code">git-scm</code> and leave the installer options at it's default.</p></li>
+<li><p><strong>A C++ compiler.</strong> <code class="inline-code">hxcpp</code> turns your Haxe into native code, and that needs a compiler.</p>
+<ul>
+<li>On Windows, that's Visual Studio Build Tools 2019 or newer, and in the Individual Components tab, you want the <strong><em>MSVC v143 C++ x64/x86 build tools</em></strong> plus the <strong><em>Windows SDK</em></strong>. It's roughly ~1GB to download and ~5.5GB installed. On Linux, you want <code class="inline-code">g++</code> and <code class="inline-code">gcc</code>, plus <code class="inline-code">libvlc</code> for video support. On MacOS, you want <code class="inline-code">Xcode</code>.</li>
+</ul></li>
+<li><p><strong>The engine's libraries.</strong> Run <code class="inline-code">setup-windows.bat</code> on Windows, or <code class="inline-code">setup-unix.sh</code> on Linux and MacOS. Both are in the <code class="inline-code">building/</code> folder. Let it finish <strong><em>completely</em></strong>. <strong>Important</strong>: <strong><em>don't run <code class="inline-code">haxelib upgrade</code> afterwards.</em></strong> The engine uses its own forks of Lime, OpenFL, Flixel and hscript, and upgrading swaps them for the normal versions. Things then break in ways that are <em>very</em> annoying to track down.</p></li>
+<li><p><strong>An editor.</strong> Of course, this is optional, but recommended. VS Code with the Haxe and Lime extensions is what most people use. Set up the hxcpp debugger <strong><em>early on</em></strong>.
+You also need to actually know some things. <strong>Haxe</strong> as a language, how <strong>HaxeFlixel</strong> works, states, cameras, sprites, signals. What <strong>OpenFL</strong> is doing underneath all that, ect.</p></li>
+</ul>
+<p>The first build is <strong>10 to 40 minutes</strong> depending on your specs. Rebuilds after that are anywhere from <strong>30 seconds to a few minutes</strong>. The whole setup will eat around <strong>10GB</strong> once the caches pile up, and <strong><em>every extra platform you support is another full build</em></strong> and another round of testing.</p>
+<h2>Getting set up</h2>
+<p>Fork the repo on GitHub, then clone your fork.</p>
+<p>Run the setup script for your platform and wait for the libraries to install.</p>
+<p>Now build the <strong><em>completely untouched</em></strong> engine:</p>
+<pre class="hljs"><code class="language-bash">haxelib run lime <span class="hljs-built_in">test</span> windows
+</code></pre>
+<p>Swap <code class="inline-code">windows</code> for <code class="inline-code">linux</code> or <code class="inline-code">mac</code> depending on what you're on. Running <code class="inline-code">haxelib run lime setup</code> once makes the <code class="inline-code">lime</code> command global, so from then on you can just type <code class="inline-code">lime test windows</code>.</p>
+<p>If it runs fine, you know your tools work. <strong><em>After that</em></strong>, make a branch and start editing.</p>
+<h2>Useful commands</h2>
+<p>The engine has helper scripts in <code class="inline-code">building/</code>. Run <code class="inline-code">./cne-windows.bat -help</code> or <code class="inline-code">./cne-unix.sh -help</code> to see what they can do.</p>
+<p><code class="inline-code">./cne-windows.bat test</code> builds the game using the source <code class="inline-code">assets/</code> folder instead of the exported one, which is a lot nicer while you're actually developing. <code class="inline-code">lime test</code> still works normally if you'd rather use that.</p>
 
 
 			<div class="info">
-				<div class="written">Written by: ItsLJcool</div>
-				<div class="last-updated">Last updated: <span id="last-updated" data-time="2025-11-15T05:32:50.298Z">2025-11-15</span></div>
+				<div class="written">Written by: ItsLJcool, Skylime_</div>
+				<div class="last-updated">Last updated: <span id="last-updated" data-time="2026-08-11T16:07:08.844Z">2026-08-11</span></div>
 
 				<div class="github-edit-button">
 					<a href="https://github.com/ItsLJcool/codename-website/tree/wiki-reformat/wiki/source/init.md">Edit this page on GitHub</a>
