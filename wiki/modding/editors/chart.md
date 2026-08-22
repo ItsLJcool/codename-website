@@ -287,7 +287,7 @@ However, `Delete Stacked Notes` is special: it checks the current selection (or 
 - `Add sustain length` and `Subtract sustain length` add and remove sustain length from the currently selected notes.
 - `Select all` selects every note in the chart.
 - `Select measure` selects all notes from the measure that the song position marker is currently on.
-- `Select Strumline` select all notes from the last clicked measure/strumline. As of now, it only works with its shortcut, as you need to hover over the strumline you want selected.
+- `Select Strumline` selects all notes from a strumline. As of now, it only works with its shortcut, as you need to hover over the strumline you want selected.
 - `Note Types List` shows the note types that are part of the current difficulty. By default it only has the `Default Note`, which you can hotkey to with `0`.
 
 Finally, `Edit Note Types List` is where you add your custom note types. If your song doesn't need custom notes, you can skip the next section.
