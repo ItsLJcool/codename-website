@@ -1,7 +1,7 @@
 ---
-author: ItsLJcool & HeroEyad
+author: ItsLJcool, HeroEyad and M.R.K
 desc: Starting place to learn how to use and understand HxVLC
-lastUpdated: 2026-08-09T02:58:15.807Z
+lastUpdated: 2026-09-09T15:00:00.000Z
 title: Videos & Cutscenes (HxVLC)
 ---
 
@@ -26,7 +26,7 @@ function new() {
 </div>
 
 ### Why are we doing this?
-This wakes up the VLC core engine ahead of time, so when you play a video (`FlxVideo` or `FlxVideoSprite`) the engine is already ready to go. Depending on your engine setup you may not strictly need it, some engines already init it for you, but calling it yourself makes sure its ready.
+This wakes up the VLC core engine ahead of time, so when you play a video (`FlxVideo` or `FlxVideoSprite`) the engine is already ready to go. Depending on your engine setup you may not strictly need it, some engines already init it for you, but calling it yourself makes sure it's ready.
 
 # FlxVideo
 This class is not directly tied to `FlxState`s, and it's not a normal Sprite, as it renders above the game entirely.
@@ -47,7 +47,7 @@ video.onEndReached.add(() -> {
 FlxG.addChildBelowMouse(video);
 
 // You don't need to specify the extension, as you modify your VIDEO_EXT flag in `modpack.ini`
-// the `load` functions returns true if sucessfull.
+// the `load` function returns true if successful.
 if (video.load(Paths.video("myVideo"))) video.play();
 else trace("Video failed to load!");
 ```
@@ -70,7 +70,7 @@ video.bitmap.onFormatSetup.add(() -> {
 	// Exit early if these don't exist.
 	if (video.bitmap == null || video.bitmap.bitmapData == null) return;
 	/*
-		You dont know the real size until onFormatSetup fires, which is why sizing
+		You don't know the real size until onFormatSetup fires, which is why sizing
 		lives inside that callback rather than right after load.
 	*/
 	final scale:Float = Math.min(FlxG.width / video.bitmap.bitmapData.width, FlxG.height / video.bitmap.bitmapData.height);
